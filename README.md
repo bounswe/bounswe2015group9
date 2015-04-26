@@ -1,16 +1,22 @@
+<style type="text/css">
+	div.asdf {
+		width:100%; 
+   		height:300px; 
+   		/*background:url(logo.png) center center no-repeat;*/
+   		background-color: #000;
+	}
+</style>
 <h1 align="center">UNIVERSAL ACCESS </h1>
-<img style="position: absolute;
+<div class="asdf">asd</div>
+
+<img  style="position: absolute;
    top: 50%;
    left: 50%;
    width: 500px;
    height: 500px;
    margin-top: -250px; /* Half the height */
    margin-left: -250px;" 
-   src='http://i.imgur.com/TwBD6JG.jpg' /><
-	
-
-<div style="background=url(http://imgur.com/TwBD6JG); width:100%; height:100%;"></div>
-
+   src='http://i.imgur.com/TwBD6JG.jpg' />
 
 
 <table>
