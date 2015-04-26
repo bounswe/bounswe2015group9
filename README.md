@@ -2,15 +2,10 @@
 
 
 <table>
-
-<tr align='middle'>
-<td width='800px'>
-
-<a href='http://imgur.com/TwBD6JG'><img src='http://i.imgur.com/TwBD6JG.jpg' /></a>
-</td>
-</tr>
+	<tr align='middle'><td width='800px'>
+		<a href='http://imgur.com/TwBD6JG'><img src='http://i.imgur.com/TwBD6JG.jpg' /></a>
+	</td></tr>
 </table>
-
 
 <p>An accessible environment is a shared responsibility. When violations are encountered they can easily be reported if there were an easy application.</p>
 
@@ -51,9 +46,9 @@ Here, you can do all these stuff with our project:<br>
 
 <h2>Research Topics</h2>
 <ul>
-	<li><a href='Research\ Topics/BuildingAndroidApplication.md'>Building Android Application</a></li>
-	<li><a href='Research\ Topics/semanticTagging.md'>Semantic Tagging</a></li>
-	<li><a href='Research\ Topics/crowdsourcing.md'>Crowd Sourcing</a></li>
+	<li><a href='Research%20Topics/BuildingAndroidApplication.md'>Building Android Application</a></li>
+	<li><a href='Research%20Topics/semanticTagging.md'>Semantic Tagging</a></li>
+	<li><a href='Research%20Topics/crowdsourcing.md'>Crowd Sourcing</a></li>
 </ul>
 
 <h2>Meetings</h2>
@@ -79,15 +74,15 @@ Here, you can do all these stuff with our project:<br>
 <h2>People</h2>
 <ul>
 	<li><a href='People/basriyilmazturk.md'>Basri Yilmazturk</a></li>
-	<li><a href='People/BuseBuz'>Buse Buz</a></li>
-	<li><a href='People/hatipkabak'>Hatip Kabak</a></li>
-	<li><a href='People/BurakCoskun'>Burak Coşkun</a></li>
-	<li><a href='People/UmutUz'>Umut Uz</a></li>
-	<li><a href='People/OmerMTemel'>Omer M Temel</a></li>
-	<li><a href='People/melce_husunbeyi'>Melce Husunbeyi</a></li>
-	<li><a href='People/osman_aka'>Osman Aka</a></li>
-	<li><a href='People/LeventBas'>Levent Bas</a></li>
-	<li><a href='People/atalay_yirik'>Atalay Yirik</a></li>
+	<li><a href='People/BuseBuz.md'>Buse Buz</a></li>
+	<li><a href='People/hatipkabak.md'>Hatip Kabak</a></li>
+	<li><a href='People/BurakCoskun.md'>Burak Coşkun</a></li>
+	<li><a href='People/UmutUz.md'>Umut Uz</a></li>
+	<li><a href='People/OmerMTemel.md'>Omer M Temel</a></li>
+	<li><a href='People/melce_husunbeyi.md'>Melce Husunbeyi</a></li>
+	<li><a href='People/osman_aka.md'>Osman Aka</a></li>
+	<li><a href='People/LeventBas.md'>Levent Bas</a></li>
+	<li><a href='People/atalay_yirik.md'>Atalay Yirik</a></li>
 	<li><a href='People/ugur_bor.md'>Ugur Bor</a></li>
-	<li><a href='People/emrah_kucuk'>Emrah Küçük</a>
+	<li><a href='People/emrah_kucuk.md'>Emrah Küçük</a>
 </ul>
