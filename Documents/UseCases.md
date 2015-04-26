@@ -61,10 +61,12 @@ If the username password combination doesn't match, the login fails.
 
 <b>Actors:</b> Registered Users, Moderators
 
+
 <b>Preconditions:</b>
 <ul>
   <li>Registered user should have been registered and logged in to the system.</li>
 </ul>
+
 
 <b>Steps:</b>
 <ul>
@@ -77,8 +79,9 @@ If the username password combination doesn't match, the login fails.
 <ul>
   <li>If change is valid, system will change the password.</li>
   <li>If change is not valid, system gives an error message.</li>
+  
 
-<h2>4-Change forgotten password <h2>
+<h2>4-Change forgotten password</h2>
 
 <b>Actors:</b> Registered Users, Moderators
 
