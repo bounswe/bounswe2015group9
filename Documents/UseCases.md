@@ -103,6 +103,29 @@ If the username password combination doesn't match, the login fails.
   <li>If change is valid, system will change the password.</li>
   <li>If change is not valid, system gives an error message.</li>
  </ul>
+ 
+ 
+<h2>45-Change forgotten password</h2>
+
+asd<b>Actorss:</b> Registered Users, Moderators
+asd
+<b>Preconditions:</b>
+<ul>
+  <li>User should have registered to system.</li>
+ </ul>
+
+<b>Steps:</b>
+<ul>
+  <li>An email will send to user after clicking forgot password button.</li>
+  <li>User writes old password once and new password twice.</li>
+  <li>System checks old and new passwords.</li>
+ </ul>
+
+<b>Postconditions</b>
+<ul>
+  <li>If change is valid, system will change the password.</li>
+  <li>If change is not valid, system gives an error message.</li>
+ </ul>
 
 <h2>5-Add new violation report</h2>
 
@@ -121,7 +144,6 @@ If the username password combination doesn't match, the login fails.
   <li>The user sends the report and waits for the moderator approval.</li>
   <li>The moderator approves the report if both its content and tags are appropriate and the video does not contain any malicious software.</li>
   <li>The moderator removes the video if the video contains inappropriate content or the tags are not relevant for the report. In the first case, the moderator deletes the report. In the latter case, the moderator edits the tags and approves the report.</li>
-  
  </ul>
 
 <b>Postconditions</b>
@@ -130,7 +152,9 @@ If the username password combination doesn't match, the login fails.
  </ul>
 
 <b>Exception Conditions</b>
-  If the size or the length of the files (video/photo/audio) added by the user exceeds the limits that are mentioned in the assumptions part, the system will give an error.
+<ul>
+  <li>If the size or the length of the files (video/photo/audio) added by the user exceeds the limits that are mentioned in the assumptions part, the system will give an error.</li>
+ </ul>55
 
 <b>Assumptions</b>
 <ul>
@@ -138,7 +162,6 @@ If the username password combination doesn't match, the login fails.
   <li>The audio length and size are at most 60 seconds and 5 MB, respectively.</li>
   <li>The photo size are at most 3 MB, respectively.</li>
  </ul>
-
 
 
 <h2>6-See Violation Report </h2>
