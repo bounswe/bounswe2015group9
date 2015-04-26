@@ -40,6 +40,7 @@ Here, you can do all these stuff with our project:<br>
 Our application also supports Android based mobile clients and our initial prototype is done for Rumeli Hisarustu and Bogazici University.<br>
 <br>
 <br>
+
 <h2>Documents</h2>
 <ul>
 	<li><a href='Documents/ClassDiagram.md'>Class Diagram</a></li>
@@ -54,17 +55,19 @@ Our application also supports Android based mobile clients and our initial proto
 	<li><a href='Documents/TestCases.md'>Test Cases</a></li>
 </ul>
 
-
 <h2>Research Topics</h2>
-<ol><li><a href='BuildingAndroidApplication.md'>Building Android Application</a>
-</li><li><a href='semanticTagging.md'>Semantic Tagging</a>
-</li><li><a href='crowdsourcing.md'>Crowd Sourcing</a></li></ol>
+<ul>
+	<li><a href='Research\ Topics/BuildingAndroidApplication.md'>Building Android Application</a></li>
+	<li><a href='Research\ Topics/semanticTagging.md'>Semantic Tagging</a></li>
+	<li><a href='Research\ Topics/crowdsourcing.md'>Crowd Sourcing</a></li>
+</ul>
 
 
 <h2>Meetings</h2>
 
-<ul><li><a href='https://code.google.com/p/bounswe2015group9/wiki/meetingNotes#Meeting_#1.1'>Meeting 1.1 - 20.02.2015</a>
-</li><li><a href='https://code.google.com/p/bounswe2015group9/wiki/meetingNotes#Meeting_#1.2'>Meeting 1.2 - 21.02.2015</a>
+<ul>
+	<li><a href='meetingNotes.md#Meeting_#1.1'>Meeting 1.1 - 20.02.2015</a></li>
+<li><a href='https://code.google.com/p/bounswe2015group9/wiki/meetingNotes#Meeting_#1.2'>Meeting 1.2 - 21.02.2015</a>
 </li><li><a href='https://code.google.com/p/bounswe2015group9/wiki/meetingNotes#Meeting_#2'>Meeting 2 - 04.03.2015</a>
 </li><li><a href='https://code.google.com/p/bounswe2015group9/wiki/meetingNotes#Meeting_#3'>Meeting 3 - 06.03.2015</a>
 </li><li><a href='https://code.google.com/p/bounswe2015group9/wiki/meetingNotes#Meeting_#4'>Meeting 4 - 11.03.2015</a>
