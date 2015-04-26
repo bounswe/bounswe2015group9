@@ -6,7 +6,7 @@
 
 # Use Cases #
 
-> ## 1- Register ##
+>  1- Register 
 
 Actors: Guest User
 
@@ -26,7 +26,8 @@ Postconditions:
   * System creates an account for the user.
   * User becomes a Registered user, can log in to the system.
 
-> ## 2- Login ##
+ > 2- Login 
+
 Actors: Registered Users, Moderators
 
 Purpose: Login to the system.
