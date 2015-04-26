@@ -1,6 +1,6 @@
 # Introduction #
 
-We are following [scenario#5](https://code.google.com/p/bounswe2015group9/wiki/scenarios#Scenario_#5) on this mockup example.
+We are following [scenario#5](https://github.com/basriyilmazturk/bounswe2015group9/blob/wiki/Documents/scenarios.md#scenario-5) on this mockup example.
 
 ## Step #1 - Login ##
 <img src='http://s16.postimg.org/jiw2hpt5x/login.png'>
