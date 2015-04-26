@@ -80,6 +80,7 @@ If the username password combination doesn't match, the login fails.
   <li>If change is valid, system will change the password.</li>
   <li>If change is not valid, system gives an error message.</li>
   
+</ul>
 
 <h2>4-Change forgotten password</h2>
 
@@ -120,6 +121,8 @@ If the username password combination doesn't match, the login fails.
   <li>The user sends the report and waits for the moderator approval.</li>
   <li>The moderator approves the report if both its content and tags are appropriate and the video does not contain any malicious software.</li>
   <li>The moderator removes the video if the video contains inappropriate content or the tags are not relevant for the report. In the first case, the moderator deletes the report. In the latter case, the moderator edits the tags and approves the report.</li>
+  
+ </ul>
 
 <b>Postconditions</b>
 <ul>
@@ -130,9 +133,11 @@ If the username password combination doesn't match, the login fails.
   If the size or the length of the files (video/photo/audio) added by the user exceeds the limits that are mentioned in the assumptions part, the system will give an error.
 
 <b>Assumptions</b>
+<ul>
   <li>The video length and size are at most 10 seconds and 10 MB, respectively.</li>
   <li>The audio length and size are at most 60 seconds and 5 MB, respectively.</li>
   <li>The photo size are at most 3 MB, respectively.</li>
+ </ul>
 
 
 
@@ -196,6 +201,7 @@ If the username password combination doesn't match, the login fails.
   <li>If there is an abusive behaviour, moderator deletes the violation report.</li>
   <li>If there is not any abusive behaviour, moderator sends a message to the reporter that the report is appropriate and no actions made.</li>
 </ul>
+
 <b>Postconditions</b>
 <ul>
   <li>System will provide information about what has been done about the report.</li>
@@ -236,6 +242,7 @@ If the username password combination doesn't match, the login fails.
 <ul>
   <li>Moderator finds the violation report inappropriate.</li>
   <li>Moderator removes report if content is inappropriate.</li>
+ </ul>
 
 <b>Postconditions</b>
 <ul>
@@ -287,6 +294,7 @@ If the username password combination doesn't match, the login fails.
   <li>The registered user writes his/her comment.</li>
   <li>The registered user posts the comment by using post button.</li>
 </ul>
+
 <b>Postconditions</b>
 <ul>
   <li>The comment will be placed on the comment section of the report.</li>
