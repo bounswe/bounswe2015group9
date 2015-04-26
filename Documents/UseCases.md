@@ -6,276 +6,360 @@
 
 <h1>Use Cases</h1>
 
-<h2>Register</h2>
+<h2>1-Register</h2>
 
-Actors: Guest User
+<b>Actors:</b> Guest User
 
-Purpose: Creating an account
+<b>Purpose:</b> Creating an account
 
-Preconditions:
-  * User must have an email address
+<b>Preconditions:</b>
+ <ul>
+  <li>User must have an email address</li>
+ </ul> 
 
-Steps:
-  * User enters the username, password, email information.
-  * User reads and accepts terms of service for the system.
-  * User requests to become a member.
-  * A mail for confirmation is sent to user's email address.
-  * User follows the confirmation link in the mail.
+<b>Steps:</b>
+<ul>
+  <li>User enters the username, password, email information.</li>
+  <li>User reads and accepts terms of service for the system.</li>
+  <li>User requests to become a member.</li>
+  <li>A mail for confirmation is sent to user's email address.</li>
+  <li>User follows the confirmation link in the mail.</li>
+</ul>
 
-Postconditions:
-  * System creates an account for the user.
-  * User becomes a Registered user, can log in to the system.
+<b>Postconditions:</b>
+ <ul>
+  <li>System creates an account for the user.</li>
+  <li>User becomes a Registered user, can log in to the system.</li>
+ </ul>
 
-> 2- Login 
+<h2>2-Login</h2> 
 
-Actors: Registered Users, Moderators
+<b>Actors:</b> Registered Users, Moderators
 
-Purpose: Login to the system.
+<b>Purpose:</b> Login to the system.
 
-Preconditions:
-  * Having an existing account.
+<b>Preconditions:</b>
+<ul>
+  <li>Having an existing account.</li>
+ </ul>
 
-Steps:
-  * User or moderator enters username and password information.
-  * User or moderator clicks the login button.
+<b>Steps:</b>
+<ul>
+  <li>User or moderator enters username and password information.</li>
+  <li>User or moderator clicks the login button.</li>
+ </ul>
 
-Postconditions:
-  * User or moderator is signed in.
+<b>Postconditions:</b>
+<ul>
+  <li>User or moderator is signed in.</li>
+</ul>
 
-Exception Conditions:
+<b>Exception Conditions:</b>
 If the username password combination doesn't match, the login fails.
 
-> 3- Change Password 
+<h2>3-Change Password</h2> 
 
-Actors: Registered Users, Moderators
+<b>Actors:</b> Registered Users, Moderators
 
-Preconditions:
-  * Registered user should have been registered and logged in to the system.
+<b>Preconditions:</b>
+<ul>
+  <li>Registered user should have been registered and logged in to the system.</li>
+</ul>
 
-Steps:
-  * Registered user clicks change password button from profile page.
-  * Registered user writes old password once and new password twice.
-  * System checks old and new passwords.
+<b>Steps:</b>
+<ul>
+  <li>Registered user clicks change password button from profile page.</li>
+  <li>Registered user writes old password once and new password twice.</li>
+  <li>System checks old and new passwords.</li>
+ </ul>
 
-Postconditions:
-  * If change is valid, system will change the password.
-  * If change is not valid, system gives an error message.
+<b>Postconditions:</b>
+<ul>
+  <li>If change is valid, system will change the password.</li>
+  <li>If change is not valid, system gives an error message.</li>
 
-> 4- Change forgotten password 
+<h2>4-Change forgotten password <h2>
 
-Actors: Registered Users, Moderators
+<b>Actors:</b> Registered Users, Moderators
 
-Preconditions:
-  * User should have registered to system.
+<b>Preconditions:</b>
+<ul>
+  <li>User should have registered to system.</li>
+ </ul>
 
-Steps:
-  * An email will send to user after clicking forgot password button.
-  * User writes old password once and new password twice.
-  * System checks old and new passwords.
+<b>Steps:</b>
+<ul>
+  <li>An email will send to user after clicking forgot password button.</li>
+  <li>User writes old password once and new password twice.</li>
+  <li>System checks old and new passwords.</li>
+ </ul>
 
-Postconditions
-  * If change is valid, system will change the password.
-  * If change is not valid, system gives an error message.
+<b>Postconditions</b>
+<ul>
+  <li>If change is valid, system will change the password.</li>
+  <li>If change is not valid, system gives an error message.</li>
+ </ul>
+
+<h2>5-Add new violation report</h2>
 
-> 5- Add new violation report
+<b>Actors:</b> Registered Users, Moderators
 
-Actors: Registered Users, Moderators
+<b>Preconditions:</b>
+<ul>
+  <li>Users should be logged into their account.</li>
+ </ul>
 
-Preconditions:
-  * Users should be logged into their account.
+<b>Steps:</b>
+<ul>
+  <li>The user adds information about the violation</li>
+  <li>The user adds the files (video/photo/audio) that he/she wants to add</li>
+  <li>The user adds related tag or tags to the report</li>
+  <li>The user sends the report and waits for the moderator approval.</li>
+  <li>The moderator approves the report if both its content and tags are appropriate and the video does not contain any malicious software.</li>
+  <li>The moderator removes the video if the video contains inappropriate content or the tags are not relevant for the report. In the first case, the moderator deletes the report. In the latter case, the moderator edits the tags and approves the report.</li>
+
+<b>Postconditions</b>
+<ul>
+  <li>Violation report will be added to the system with related tags.</li>
+ </ul>
+
+<b>Exception Conditions</b>
+  If the size or the length of the files (video/photo/audio) added by the user exceeds the limits that are mentioned in the assumptions part, the system will give an error.
 
-Steps:
-  * The user adds information about the violation
-  * The user adds the files (video/photo/audio) that he/she wants to add
-  * The user adds related tag or tags to the report
-  * The user sends the report and waits for the moderator approval.
-  * The moderator approves the report if both its content and tags are appropriate and the video does not contain any malicious software.
-  * The moderator removes the video if the video contains inappropriate content or the tags are not relevant for the report. In the first case, the moderator deletes the report. In the latter case, the moderator edits the tags and approves the report.
+<b>Assumptions</b>
+  <li>The video length and size are at most 10 seconds and 10 MB, respectively.</li>
+  <li>The audio length and size are at most 60 seconds and 5 MB, respectively.</li>
+  <li>The photo size are at most 3 MB, respectively.</li>
+
+
+
+<h2>6-See Violation Report </h2>
+
+<b>Actor:</b> Guests , Registered Users
+
+<b>Purpose:</b> Reading a Violation Report
+
+<b>Preconditions</b>
+<ul>
+  <li>At least one report should be presented in a category.</li>
+ </ul>
 
-Postconditions
-  * Violation report will be added to the system with related tags.
+<b>Steps</b>
+<ul>
+  <li>All categories of reports are shown to guests and users at the main page.</li>
+  <li>User or guest clicks a category and see reports on that category.</li>
+</ul>
 
-Exception Conditions
-  * If the size or the length of the files (video/photo/audio) added by the user exceeds the limits that are mentioned in the assumptions part, the system will give an error.
-
-Assumptions
-  * The video length and size are at most 10 seconds and 10 MB, respectively.
-  * The audio length and size are at most 60 seconds and 5 MB, respectively.
-  * The photo size are at most 3 MB, respectively.
-
-
-
-> 6-See Violation Report 
-
-Actor : Guests , Registered Users
-
-Purpose : Reading a Violation Report
-
-Preconditions
-  * At least one report should be presented in a category.
-
-Steps
-  * All categories of reports are shown to guests and users at the main page.
-  * User or guest clicks a category and see reports on that category.
-
-Postconditions
-  * User might remember the report and comment on it if he/she is a registered user.
-
-> 7- Rating a report
-
-Actors: Registered users
-
-Preconditions
-  * User should have read the report.
-
-Steps
-  * User rates the report from 1 to 10 efficiency.
-
-Postconditions
-  * System makes the required calculations to add this rate to the statistics.
-  * System can make an order biased on both rate statistics and other filters.
-
-
-> 8- Report abusive behaviour
-
-Actors: Registered users, Moderators
-
-Preconditions
-  * User should be logged in.
-
-Steps
-  * User adds information about abusive behaviour.
-  * User sends abusive behaviour report to the system.
-  * Moderator checks if the violation report is appropriate or not according to Terms of Use.
-  * If there is an abusive behaviour, moderator deletes the violation report.
-  * If there is not any abusive behaviour, moderator sends a message to the reporter that the report is appropriate and no actions made.
-
-Postconditions
-  * System will provide information about what has been done about the report.
-
-
-
-> 9- Editing a report 
-
-Actors: Registered Users
-
-Preconditions
-  * User should be logged in.
-  * User should have written a report before.
-
-Steps
-  * User opens his/her report page.
-  * User clicks edit button on the page.
-  * User makes changes and clicks save button.
-
-Postconditions
-  * System updates the report page.
-
-> 10- Moderator Removing a Report
-
-Actors: Moderator
-
-Preconditions:
-  * Moderator should have logged into the system.
-
-Steps
-  * Moderator finds the violation report inappropriate.
-  * Moderator removes report if content is inappropriate.
-
-Postconditions
-Deleted report isn't shown anymore to anyone.
-
-> 11-Moderator Banning User
-
-Actors: Moderator, Registered User
-
-Preconditions:
-  * One or more from the following:
-    * Reports that the user wrote are reported as abusive.
-    * User wrote inappropriate comments under other reports.
-    * User reported many violations report as abusive when there was nothing to report.
-
-Steps:
-  * One of the following:
-    * Moderator(already logged in to the website), checks if there is any abusive behaviour report for some comments. If there is an inappropriate comment under a violation report, moderator goes to his/her admin panel and bans the responsible user for the inappropriate comment.
-    * While moderator was checking the violation reports that are reported as abusive, if he/she doesn't find the report abusive, and he/she decides that the user who made the abusive report was only wasting moderator's time, the moderator goes to his/her admin panel to ban the responsible user for the unnecessary reporting.
-
-Postconditions
-  * The banned user cannot log in to his/her account.
-
-Exception Conditions
-  * If the user is already logged in, after getting banned, the system automatically logs him/her out.
-
-
-> 12- Comment on a report
-
-Actors: Registered users
-
-Preconditions:
-  * The registered user should be logged in.
-
-Steps
-  * The registered user writes his/her comment.
-  * The registered user posts the comment by using post button.
-Postconditions
-  * The comment will be placed on the comment section of the report.
-
-> 13- Search a violation
-
-Actors: Registered users, unregistered users
-
-Precondition: -
-
-Steps:
-  * User types words on the searchbar
-
-Postconditions:
-  * User finds results related to search
-
-> 14- Vocalize a report
-
-Actors: Registered users
-
-Preconditions:
-  * The registered user should be logged in.
-  * The registered user should be volunteer.
-
-Steps:
-  * User should choose a specific violation report.
-  * User should click on the vocalize button
-
-Postconditions:
-  * Blind users can reach the vocalized reports.
-
-> 15 Semantic Search
-
-Actors:
-  * guest
-  * registered user
+<b>Postconditions</b>
+<ul>
+  <li>User might remember the report and comment on it if he/she is a registered user.</li>
+ </ul>
+
+<h2>7-Rating a report</h2>
+
+<b>Actors:</b> Registered users
+
+<b>Preconditions</b>
+<ul>
+  <li>User should have read the report.</li>
+ </ul>
+
+<b>Steps</b>
+<ul>
+  <li>User rates the report from 1 to 10 efficiency.</li>
+ </ul>
+
+<b>Postconditions</b>
+<ul>
+  <li>System makes the required calculations to add this rate to the statistics.</li>
+  <li>System can make an order biased on both rate statistics and other filters.</li>
+</ul>
+
+
+<h2>8-Report abusive behaviour</h2>
+
+<b>Actors:</b> Registered users, Moderators
+
+<b>Preconditions</b>
+<ul>
+  <li>User should be logged in.</li>
+ </ul>
+
+<b>Steps</b>
+<ul>
+  <li>User adds information about abusive behaviour.</li>
+  <li>User sends abusive behaviour report to the system.</li>
+  <li>Moderator checks if the violation report is appropriate or not according to Terms of Use.</li>
+  <li>If there is an abusive behaviour, moderator deletes the violation report.</li>
+  <li>If there is not any abusive behaviour, moderator sends a message to the reporter that the report is appropriate and no actions made.</li>
+</ul>
+<b>Postconditions</b>
+<ul>
+  <li>System will provide information about what has been done about the report.</li>
+ </ul>
+
+<h2>9-Editing a report </h2>
+
+<b>Actors:</b> Registered Users
+
+<b>Preconditions</b>
+<ul>
+  <li>User should be logged in.</li>
+  <li>User should have written a report before.</li>
+</ul>
+
+<b>Steps</b>
+<ul>
+  <li>User opens his/her report page.</li>
+  <li>User clicks edit button on the page.</li>
+  <li>User makes changes and clicks save button.</li>
+</ul>
+
+<b>Postconditions</b>
+ <ul>
+  <li>System updates the report page.</li>
+ </ul>
+
+<h2>10-Moderator Removing a Report</h2>
+
+<b>Actors:</b> Moderator
+
+<b>Preconditions:</b>
+<ul>
+  <li>Moderator should have logged into the system.</li>
+ </ul>
+
+<b>Steps</b>
+<ul>
+  <li>Moderator finds the violation report inappropriate.</li>
+  <li>Moderator removes report if content is inappropriate.</li>
+
+<b>Postconditions</b>
+<ul>
+  <li>Deleted report isn't shown anymore to anyone.</li>
+ </ul>
+
+<h2>11-Moderator Banning User</h2>
+
+<b>Actors:</b> Moderator, Registered User
+
+<b>Preconditions:</b>
+
+ One or more from the following:
+ <ul>
+    <li>Reports that the user wrote are reported as abusive.</li>
+    <li>User wrote inappropriate comments under other reports.</li>
+    <li>User reported many violations report as abusive when there was nothing to report.</li>
+ </ul>
+
+<b>Steps:</b>
+  One of the following:
+  <ul>
+    <li>Moderator(already logged in to the website), checks if there is any abusive behaviour report for some comments. If there is an inappropriate comment under a violation report, moderator goes to his/her admin panel and bans the responsible user for the inappropriate comment.</li>
+    <li>While moderator was checking the violation reports that are reported as abusive, if he/she doesn't find the report abusive, and he/she decides that the user who made the abusive report was only wasting moderator's time, the moderator goes to his/her admin panel to ban the responsible user for the unnecessary reporting.</li>
+  </ul>
+
+<b>Postconditions</b>
+<ul>
+  <li>The banned user cannot log in to his/her account.</li>
+</ul>
+
+<b>Exception Conditions</b>
+<ul>
+  <li>If the user is already logged in, after getting banned, the system automatically logs him/her out.</li>
+ </ul>
+
+
+<h2>12-Comment on a report</h2>
+
+<b>Actors:</b> Registered users
+
+<b>Preconditions:</b>
+<ul>
+  <li>The registered user should be logged in.</li>
+ </ul>
+
+<b>Steps</b>
+<ul>
+  <li>The registered user writes his/her comment.</li>
+  <li>The registered user posts the comment by using post button.</li>
+</ul>
+<b>Postconditions</b>
+<ul>
+  <li>The comment will be placed on the comment section of the report.</li>
+ </ul>
+
+<h2>13-Search a violation</h2>
+
+<b>Actors:</b> Registered users, unregistered users
+
+<b>Precondition:</b> -
+
+<b>Steps:</b>
+<ul>
+  <li>User types words on the searchbar</li>
+ </ul>
+
+<b>Postconditions:</b>
+<ul>
+  <li>User finds results related to search</li>
+ </ul>
+
+<h2>14-Vocalize a report</h2>
+
+<b>Actors:</b> Registered users
+
+<b>Preconditions:</b>
+<ul>
+  <li>The registered user should be logged in.</li>
+  <li>The registered user should be volunteer.</li>
+ </ul>
+
+<b>Steps:</b>
+<ul>
+  <li>User should choose a specific violation report.</li>
+  <li>User should click on the vocalize button</li>
+ </ul>
+
+<b>Postconditions:</b>
+<ul>
+  <li>Blind users can reach the vocalized reports.</li>
+ </ul>
+
+<h2>15 Semantic Search</h2>
+
+<b>Actors:</b> Guests, Registered users
  
-Preconditions:
-  * no Precondition
+<b>Preconditions:</b> -
  
-Steps:
-  * user clicks semantic search radio button to switch from normal search
-  * User types tags separated with a whitespace
-Postconditions:
-  * System returns reports related to tag(s)
+<b>Steps:</b>
+<ul>
+  <li>User clicks semantic search radio button to switch from normal search</li>
+  <li>User types tags separated with a whitespace</li>
+ </ul>
+<b>Postconditions:</b>
+<ul>
+  <li>System returns reports related to tag(s)</li>
+ </ul>
 
-> 16 Semantic Tagging
+<h2>16 Semantic Tagging</h2>
 
-Actors:
-  * registered user
-  * moderator
+<b>Actors:</b> Registered users, Moderator
 
-Preconditions:
-  * Registered Users or moderators must be signed in before adding a tag
+<b>Preconditions:</b>
+<ul>
+  <li>Registered Users or moderators must be signed in before adding a tag</li>
+ </ul>
 
-Steps:
-  * user goes to violation report page
-  * user or moderator enters tags in the form to add tags.form is below the post
-  * user or moderator clicks add tags button to add tags
-  * if tags are entered by a user moderator approves or rejects the tags
+<b>Steps:</b>
+<ul>
+  <li>user goes to violation report page</li>
+  <li>user or moderator enters tags in the form to add tags.form is below the post</li>
+  <li>user or moderator clicks add tags button to add tags</li>
+  <li>if tags are entered by a user moderator approves or rejects the tags</li>
+ </ul>
 
-Postconditions:
-  * system links the tag to the report after moderator approval
+<b>Postconditions:</b>
+<ul>
+  <li>system links the tag to the report after moderator approval</li>
+ </ul>
