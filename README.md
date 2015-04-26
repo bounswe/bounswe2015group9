@@ -1,6 +1,5 @@
 <h1 align="center">UNIVERSAL ACCESS </h1>
-<img style="display: block; margin-left: auto; margin-right: auto;" 
-    src='http://i.imgur.com/TwBD6JG.jpg' />
+<img style="display:block; margin-left:auto; margin-right:auto;" src='http://i.imgur.com/TwBD6JG.jpg' />
 
 
 <table>
