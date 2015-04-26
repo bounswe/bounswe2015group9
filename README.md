@@ -4,15 +4,12 @@
 <table>
 
 <tr align='middle'>
-<td>
+<td width='800px'>
 
 <a href='http://imgur.com/TwBD6JG'><img src='http://i.imgur.com/TwBD6JG.jpg' /></a>
 </td>
 </tr>
-
-<tr>
-<td width='800px' valign='top'>
-	</table>
+</table>
 
 
 <p>An accessible environment is a shared responsibility. When violations are encountered they can easily be reported if there were an easy application.</p>
