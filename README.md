@@ -41,16 +41,18 @@ Our application also supports Android based mobile clients and our initial proto
 <br>
 <br>
 <h2>Documents</h2>
-<ul><li><a href='sequenceDiagram.md'>Sequence Diagrams</a>
-</li><li><a href='ClassDiagram.md'>Class Diagram</a>
-</li><li><a href='UserStories.md'>User Stories</a>
-</li><li><a href='DomainAnalysis.md'>Domain Analysis</a>
-</li><li><a href='RequirementAnalysis.md'>Requirement Analysis</a>
-</li><li><a href='scenarios.md'>Scenarios</a>
-</li><li><a href='UseCases.md'>Use Cases</a>
-</li><li><a href='web_mockups.md'>Web Mockups</a>
-</li><li><a href='android_mockup.md'>Android Mockup</a>
-</li><li><a href='TestCases.md'>Test Cases</a></li></ul>
+<ul>
+	<li><a href='Documents/ClassDiagram.md'>Class Diagram</a></li>
+	<li><a href='Documents/DomainAnalysis.md'>Domain Analysis</a></li>
+	<li><a href='Documents/sequenceDiagram.md'>Sequence Diagrams</a></li>
+	<li><a href='Documents/UserStories.md'>User Stories</a></li>
+	<li><a href='Documents/RequirementAnalysis.md'>Requirement Analysis</a></li>
+	<li><a href='Documents/scenarios.md'>Scenarios</a></li>
+	<li><a href='Documents/UseCases.md'>Use Cases</a></li>
+	<li><a href='Documents/web_mockups.md'>Web Mockups</a></li>
+	<li><a href='Documents/android_mockup.md'>Android Mockup</a></li>
+	<li><a href='Documents/TestCases.md'>Test Cases</a></li>
+</ul>
 
 
 <h2>Research Topics</h2>
