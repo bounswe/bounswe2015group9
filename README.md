@@ -1,31 +1,11 @@
 <h1 align="center">UNIVERSAL ACCESS </h1>
-<div style="width:100%; 
-   		height:300px; 
-   		background-color:#000;" >asd</div>
-
-<img  style="position: absolute;
-   top: 50%;
-   left: 50%;
-   width: 500px;
-   height: 500px;
-   margin-top: -250px; /* Half the height */
-   margin-left: -250px;" 
-   src='http://i.imgur.com/TwBD6JG.jpg' />
 
 
 <table>
-
-<tr align='middle'>
-<td>
-
-<h2>UNIVERSAL UNIVERSAL ACCESS</h2>
-
-<a href='http://imgur.com/TwBD6JG'><img src='http://i.imgur.com/TwBD6JG.jpg' /></a>
-</td>
-</tr>
-
-<tr>
-<td width='800px' valign='top'>
+	<tr align='middle'><td>
+		<a href='http://imgur.com/TwBD6JG'><img src='http://i.imgur.com/TwBD6JG.jpg' /></a>
+	</td></tr>
+</table>
 
 
 <p>An accessible environment is a shared responsibility. When violations are encountered they can easily be reported if there were an easy application.</p>
