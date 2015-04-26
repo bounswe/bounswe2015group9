@@ -26,7 +26,7 @@ Postconditions:
   * System creates an account for the user.
   * User becomes a Registered user, can log in to the system.
 
- > 2- Login 
+> 2- Login 
 
 Actors: Registered Users, Moderators
 
@@ -45,7 +45,8 @@ Postconditions:
 Exception Conditions:
 If the username password combination doesn't match, the login fails.
 
-> ## 3- Change Password ##
+> 3- Change Password 
+
 Actors: Registered Users, Moderators
 
 Preconditions:
@@ -60,7 +61,8 @@ Postconditions:
   * If change is valid, system will change the password.
   * If change is not valid, system gives an error message.
 
-> ## 4- Change forgotten password ##
+> 4- Change forgotten password 
+
 Actors: Registered Users, Moderators
 
 Preconditions:
@@ -75,7 +77,8 @@ Postconditions
   * If change is valid, system will change the password.
   * If change is not valid, system gives an error message.
 
-> ## 5- Add new violation report ##
+> 5- Add new violation report
+
 Actors: Registered Users, Moderators
 
 Preconditions:
@@ -102,7 +105,7 @@ Assumptions
 
 
 
-> ## 6-See Violation Report ##
+> 6-See Violation Report 
 
 Actor : Guests , Registered Users
 
@@ -118,7 +121,8 @@ Steps
 Postconditions
   * User might remember the report and comment on it if he/she is a registered user.
 
-> ## 7- Rating a report ##
+> 7- Rating a report
+
 Actors: Registered users
 
 Preconditions
@@ -132,7 +136,8 @@ Postconditions
   * System can make an order biased on both rate statistics and other filters.
 
 
-> ## 8- Report abusive behaviour ##
+> 8- Report abusive behaviour
+
 Actors: Registered users, Moderators
 
 Preconditions
@@ -150,7 +155,8 @@ Postconditions
 
 
 
-> ## 9- Editing a report ##
+> 9- Editing a report 
+
 Actors: Registered Users
 
 Preconditions
@@ -165,7 +171,8 @@ Steps
 Postconditions
   * System updates the report page.
 
-> ## 10- Moderator Removing a Report ##
+> 10- Moderator Removing a Report
+
 Actors: Moderator
 
 Preconditions:
@@ -178,7 +185,8 @@ Steps
 Postconditions
 Deleted report isn't shown anymore to anyone.
 
-> ## 11-Moderator Banning User ##
+> 11-Moderator Banning User
+
 Actors: Moderator, Registered User
 
 Preconditions:
@@ -199,7 +207,8 @@ Exception Conditions
   * If the user is already logged in, after getting banned, the system automatically logs him/her out.
 
 
-> ## 12- Comment on a report ##
+> 12- Comment on a report
+
 Actors: Registered users
 
 Preconditions:
@@ -211,7 +220,8 @@ Steps
 Postconditions
   * The comment will be placed on the comment section of the report.
 
-> ## 13- Search a violation ##
+> 13- Search a violation
+
 Actors: Registered users, unregistered users
 
 Precondition: -
@@ -222,7 +232,8 @@ Steps:
 Postconditions:
   * User finds results related to search
 
-> ## 14- Vocalize a report ##
+> 14- Vocalize a report
+
 Actors: Registered users
 
 Preconditions:
@@ -236,7 +247,7 @@ Steps:
 Postconditions:
   * Blind users can reach the vocalized reports.
 
-> ## 15 Semantic Search ##
+> 15 Semantic Search
 
 Actors:
   * guest
@@ -249,7 +260,7 @@ Steps:
 Postconditions:
   * System returns reports related to tag(s)
 
-> ## 16 Semantic Tagging ##
+> 16 Semantic Tagging
 
 Actors:
   * registered user
