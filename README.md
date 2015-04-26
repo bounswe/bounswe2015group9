@@ -67,21 +67,22 @@ Our application also supports Android based mobile clients and our initial proto
 
 <ul>
 	<li><a href='meetingNotes.md#meeting-11'>Meeting 1.1 - 20.02.2015</a></li>
-<li><a href='meetingNotes.md#meeting-12'>Meeting 1.2 - 21.02.2015</a></li>
-<li><a href='meetingNotes.md#meeting-2'>Meeting 2 - 04.03.2015</a></li>
-<li><a href='meetingNotes.md#meeting-3'>Meeting 3 - 06.03.2015</a></li>
-<li><a href='meetingNotes.md#meeting-4'>Meeting 4 - 11.03.2015</a></li>
-<li><a href='meetingNotes.md#meeting-5'>Meeting 5 - 15.03.2015</a></li>
-<li><a href='meetingNotes.md#meeting-6'>Meeting 6 - 16.03.2015</a></li>
-<li><a href='meetingNotes.md#meeting-7'>Meeting 7 - 17.03.2015</a></li>
-<li><a href='meetingNotes.md#meeting-8'>Meeting 8 - 17.03.2015</a></li>
-<li><a href='meetingNotes.md#meeting-9_(Customer_Meeting)'>Meeting 9 (Customer Meeting) - 18.03.2015</a></li>
-<li><a href='meetingNotes.md#meeting-10'>Meeting 10 - 23.03.2015</a></li>
-<li><a href='https://code.google.com/p/bounswe2015group9/wiki/meetingNotes#Meeting_#11_(Customer_Meeting)'>Meeting 11 (Customer Meeting) - 25.03.2015</a>
-</li><li><a href='meetingNotes.md#meeting-12'>Meeting 12 - 25.03.2015</a>
-</li><li><a href='meetingNotes.md#meeting-13'>Meeting 13 - 02.04.2015</a>
-</li><li><a href='meetingNotes.md#meeting-14'>Meeting 14 - 05.04.2015</a>
-</li><li><a href='meetingNotes.md#meeting-15'>Meeting 15 - 15.04.2015</a></li></ul>
+	<li><a href='meetingNotes.md#meeting-12'>Meeting 1.2 - 21.02.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-2'>Meeting 2 - 04.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-3'>Meeting 3 - 06.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-4'>Meeting 4 - 11.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-5'>Meeting 5 - 15.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-6'>Meeting 6 - 16.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-7'>Meeting 7 - 17.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-8'>Meeting 8 - 17.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-9-customer-meeting'>Meeting 9 (Customer Meeting) - 18.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-10'>Meeting 10 - 23.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-11-customer-meeting'>Meeting 11 (Customer Meeting) - 25.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-12-1'>Meeting 12 - 25.03.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-13'>Meeting 13 - 02.04.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-14'>Meeting 14 - 05.04.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-15'>Meeting 15 - 15.04.2015</a></li>
+</ul>
 
 
 
