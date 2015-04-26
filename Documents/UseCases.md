@@ -252,8 +252,10 @@ Postconditions:
 Actors:
   * guest
   * registered user
+ 
 Preconditions:
   * no Precondition
+ 
 Steps:
   * user clicks semantic search radio button to switch from normal search
   * User types tags separated with a whitespace
