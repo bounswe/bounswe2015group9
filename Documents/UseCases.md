@@ -103,33 +103,11 @@ If the username password combination doesn't match, the login fails.
   <li>If change is valid, system will change the password.</li>
   <li>If change is not valid, system gives an error message.</li>
  </ul>
- 
- 
-<h2>45-Change forgotten password</h2>
-
-asd<b>Actorss:</b> Registered Users, Moderators
-asd
-<b>Preconditions:</b>
-<ul>
-  <li>User should have registered to system.</li>
- </ul>
-
-<b>Steps:</b>
-<ul>
-  <li>An email will send to user after clicking forgot password button.</li>
-  <li>User writes old password once and new password twice.</li>
-  <li>System checks old and new passwords.</li>
- </ul>
-
-<b>Postconditions</b>
-<ul>
-  <li>If change is valid, system will change the password.</li>
-  <li>If change is not valid, system gives an error message.</li>
- </ul>
 
 <h2>5-Add new violation report</h2>
 
 <b>Actors:</b> Registered Users, Moderators
+<br>
 
 <b>Preconditions:</b>
 <ul>
@@ -167,9 +145,10 @@ asd
 <h2>6-See Violation Report </h2>
 
 <b>Actor:</b> Guests , Registered Users
+<br>
 
 <b>Purpose:</b> Reading a Violation Report
-
+<br>
 <b>Preconditions</b>
 <ul>
   <li>At least one report should be presented in a category.</li>
@@ -189,6 +168,7 @@ asd
 <h2>7-Rating a report</h2>
 
 <b>Actors:</b> Registered users
+<br>
 
 <b>Preconditions</b>
 <ul>
@@ -210,7 +190,7 @@ asd
 <h2>8-Report abusive behaviour</h2>
 
 <b>Actors:</b> Registered users, Moderators
-
+<br>
 <b>Preconditions</b>
 <ul>
   <li>User should be logged in.</li>
@@ -233,7 +213,7 @@ asd
 <h2>9-Editing a report </h2>
 
 <b>Actors:</b> Registered Users
-
+<br>
 <b>Preconditions</b>
 <ul>
   <li>User should be logged in.</li>
@@ -255,7 +235,7 @@ asd
 <h2>10-Moderator Removing a Report</h2>
 
 <b>Actors:</b> Moderator
-
+<br>
 <b>Preconditions:</b>
 <ul>
   <li>Moderator should have logged into the system.</li>
@@ -275,7 +255,7 @@ asd
 <h2>11-Moderator Banning User</h2>
 
 <b>Actors:</b> Moderator, Registered User
-
+<br>
 <b>Preconditions:</b>
 
  One or more from the following:
@@ -306,7 +286,7 @@ asd
 <h2>12-Comment on a report</h2>
 
 <b>Actors:</b> Registered users
-
+<br>
 <b>Preconditions:</b>
 <ul>
   <li>The registered user should be logged in.</li>
@@ -326,7 +306,7 @@ asd
 <h2>13-Search a violation</h2>
 
 <b>Actors:</b> Registered users, unregistered users
-
+<br>
 <b>Precondition:</b> -
 
 <b>Steps:</b>
@@ -342,7 +322,7 @@ asd
 <h2>14-Vocalize a report</h2>
 
 <b>Actors:</b> Registered users
-
+<br>
 <b>Preconditions:</b>
 <ul>
   <li>The registered user should be logged in.</li>
@@ -363,7 +343,7 @@ asd
 <h2>15 Semantic Search</h2>
 
 <b>Actors:</b> Guests, Registered users
- 
+ <br>
 <b>Preconditions:</b> -
  
 <b>Steps:</b>
@@ -379,7 +359,7 @@ asd
 <h2>16 Semantic Tagging</h2>
 
 <b>Actors:</b> Registered users, Moderator
-
+<br>
 <b>Preconditions:</b>
 <ul>
   <li>Registered Users or moderators must be signed in before adding a tag</li>
