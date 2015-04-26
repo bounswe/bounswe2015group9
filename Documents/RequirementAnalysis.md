@@ -11,7 +11,8 @@ A requirements analysis on the designated project topic.
 The main purpose of our project is to create a social awareness and networking environment that provides people reporting when violations are encountered and search, rate and comment on these violations. This application basically allows individuals to know what is going on about the violations that people encounter. Also our application is taking into consideration that not all the violations impact all disable people. Some violations affect those who can't walk, some affect those who can't see, or hear etc. All in all, an accessible environment is a shared responsibility, and this application is trying to help people about that.
 
 
-**1.**Functional Requirements*** .1. User Requirements**
+**1.**Functional Requirements**
+* .1. User Requirements**
     * 1.1.1 New users shall sign up by providing their username, e-mail address and password to the system.
     * 1.1.2 Users shall sign in to the system by entering his/her username/e-mail address and password.
     * 1.1.3 Users shall read and accept the terms of services otherwise system will not allow him/her to sign up.
