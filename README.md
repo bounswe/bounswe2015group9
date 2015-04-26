@@ -1,13 +1,7 @@
-<style type="text/css">
-	div.asdf {
-		width:100%; 
-   		height:300px; 
-   		/*background:url(logo.png) center center no-repeat;*/
-   		background-color: #000;
-	}
-</style>
 <h1 align="center">UNIVERSAL ACCESS </h1>
-<div class="asdf">asd</div>
+<div style="width:100%; 
+   		height:300px; 
+   		background-color:#000;" >asd</div>
 
 <img  style="position: absolute;
    top: 50%;
