@@ -2,11 +2,17 @@
 
 <h1>Personal Information</h1>
 
-<ul><li>I'm an undergraduate student at Computer Engineering, Bogazici University.<br>
-</li><li>Graduated from Istanbul Ataturk Science High School.<br>
-</li><li>I love gaming (2000+ hours on dota 2, 400+ on payday 2 as long as i can remember)</li></ul>
+<ul>
+	<li>I'm an undergraduate student at Computer Engineering, Bogazici University.</li>
+<li>Graduated from Istanbul Ataturk Science High School.</li>
+<li>I love gaming (2000+ hours on dota 2, 600+ on payday 2, Rank 4 on Hearthstone)</li>
+<li>Would love to play with anyone competitively as well as casual.</li>
+</ul>
 
 <h1>Contact</h1>
 
-<ul><li>basriyilmazturk@gmail.com<br>
-</li><li><a href='https://www.facebook.com/basriyilmazturk'>Facebook</a>
+<ul>
+	<li>basriyilmazturk@gmail.com</li>
+	<li><a href='https://www.facebook.com/basriyilmazturk'>Facebook</a></li>
+	<li><a href='http://steamcommunity.com/profiles/76561198065794578'>Steam</a> - Feel free to add:)</li> 
+</ul>
