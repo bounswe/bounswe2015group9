@@ -38,4 +38,15 @@ public class MathematicalOperations {
 	public int subtraction(int x, int y) {
 		return x - y;
 	}
+
+	/**
+	 * Multiply two numbers
+	 * @param x is the number1
+	 * @param y is the number2
+	 * @return X minus y
+	 */
+
+	public int multiplication(int x, int y) {
+		return x * y;
+	}	
 }

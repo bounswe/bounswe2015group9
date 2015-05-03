@@ -60,4 +60,20 @@ public class TestMathematicalOperations {
 		
 
 	}
+
+	@Test
+	public void testMultiply() {
+
+		MathematicalOperations test = new MathematicalOperations();
+		assertEquals("15 * 4  must be 60", 60, test.multiplication(15, 4));
+
+		MathematicalOperations test2 = new MathematicalOperations();
+		assertEquals("0 * 3 must be 0", 0, test2.multiplication(0, 3));
+		
+		MathematicalOperations test3 = new MathematicalOperations();
+		assertEquals("2 * (-8) must be minus 16", -16, test3.multiplication(2, -8));
+		
+		
+
+	}
 }
