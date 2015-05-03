@@ -72,8 +72,20 @@ public class TestMathematicalOperations {
 		
 		MathematicalOperations test3 = new MathematicalOperations();
 		assertEquals("2 * (-8) must be minus 16", -16, test3.multiplication(2, -8));
-		
-		
 
 	}
+	@Test
+	public void testRemainder(){
+
+		MathematicalOperations test = new MathematicalOperations();
+		assertEquals("7 % 9 must be 7", 7, test.remainder(7,9));
+
+		MathematicalOperations test = new MathematicalOperations();
+		assertEquals("-4 % 5 must be -4", -4, test.remainder(12,5));
+
+		MathematicalOperations test = new MathematicalOperations();
+		assertEquals("0 % 4 must be 0", 0, test.remainder(0,4));
+
+	}
+
 }
