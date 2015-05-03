@@ -49,4 +49,14 @@ public class MathematicalOperations {
 	public int multiplication(int x, int y) {
 		return x * y;
 	}	
+	/**
+	 * Remainder of two numbers
+	 * @param x is the divident
+	 * @param y is the divisor
+	 * @return X mod y
+	 */
+
+	public int remainder(int x, int y) {
+		return x % y;
+	}	
 }
