@@ -44,4 +44,20 @@ public class TestMathematicalOperations {
 		assertEquals("0 + 4 must be 4", 4, tester1.addition(0, 4));
 
 	}
+	
+	@Test
+	public void testSubtract() {
+
+		MathematicalOperations test = new MathematicalOperations();
+		assertEquals("15 - 4  must be 11", 11, test.subtraction(15, 4));
+
+		MathematicalOperations test2 = new MathematicalOperations();
+		assertEquals("0 - 3 must be -3", -3, test2.subtraction(0, 3));
+		
+		MathematicalOperations test3 = new MathematicalOperations();
+		assertEquals("2 - (-8) must be 10", 10, test3.subtraction(2, -8));
+		
+		
+
+	}
 }
