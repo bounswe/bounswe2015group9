@@ -51,7 +51,7 @@ public class MathematicalOperations {
 	}	
 	/**
 	 * Remainder of two numbers
-	 * @param x is the divident
+	 * @param x is the dividend
 	 * @param y is the divisor
 	 * @return X mod y
 	 */
