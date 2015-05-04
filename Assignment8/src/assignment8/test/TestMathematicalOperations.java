@@ -88,4 +88,20 @@ public class TestMathematicalOperations {
 
 	}
 
+	@Test
+	public void testPower(){
+
+		MathematicalOperations mockObject = new MathematicalOperations();
+		assertEquals("0 ^ 5 must be 0", 0, test.power(0,5));
+		
+		assertEquals("0 ^ 0 must be 1", 1, test.power(0,0));
+
+		assertEquals("9 ^ 0 must be 0", 1, test.power(9,0));
+
+		assertEquals("9 ^ 1 must be 9", 9, test.power(9,1));
+
+		assertEquals("2 ^ 2 must be 4", 4, test.power(2,2));
+
+	}
+
 }
