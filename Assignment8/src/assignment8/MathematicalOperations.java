@@ -5,6 +5,22 @@ package assignment8;
  */
 public class MathematicalOperations {
 
+	/**
+	 * takes yth power of x
+	 * @param x is the base
+	 * @param y is the power
+	 * @return X yth power of x
+	 */
+	public int power(int x, int y) {
+
+		int powx = 1;
+
+		for(int i = 1; i <= y; i++) {
+			powx *= x;
+		}
+
+		return powx;
+	}
 
 	/**
 	 * divide two numbers
