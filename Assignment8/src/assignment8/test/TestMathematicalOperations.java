@@ -102,6 +102,14 @@ public class TestMathematicalOperations {
 
 		assertEquals("2 ^ 2 must be 4", 4, test.power(2,2));
 
+	}	
+	@Test
+	public void testNegation(){
+
+		MathematicalOperations test = new MathematicalOperations();
+		assertEquals("negation of true must be false", false, test.negation(true));
+		assertEquals("negation of false must be true", true, test.negation(false));
+		
 	}
 
 }

@@ -75,4 +75,13 @@ public class MathematicalOperations {
 	public int remainder(int x, int y) {
 		return x % y;
 	}	
+	public bool negation(bool x) {
+		return !x;
+	}	
+	/**
+	 * Remainder of two numbers
+	 * @param x is to be negated
+	 * @return x' (x not)
+	 */
+
 }
