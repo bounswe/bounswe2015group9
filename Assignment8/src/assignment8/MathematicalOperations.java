@@ -1,7 +1,20 @@
 package assignment8;
 
 /**
- * provide several Mathematical Operations
+ *
+ * \author Atalay Furkan YIRIK
+ * \author Umut UZ
+ * \author Melce HUSUNBEYI
+ * \author Emrah KUCUK
+ * \author Buse BUZ
+ * \author Omer Mucahit TEMEL
+ * \author Basri YILMAZTURK
+ *
+ */
+
+/**
+ * \details Provides several Mathematical Operations in order to make an efficient test
+ * \version 1.0
  */
 public class MathematicalOperations {
 
@@ -15,7 +28,7 @@ public class MathematicalOperations {
 
 		int powx = 1;
 
-		for(int i = 1; i <= y; i++) {
+		for(int i = 0; i < y; i++) {
 			powx *= x;
 		}
 
@@ -75,13 +88,13 @@ public class MathematicalOperations {
 	public int remainder(int x, int y) {
 		return x % y;
 	}	
-	public bool negation(bool x) {
+	/**
+	 * Inverse of the parameter's boolean value
+	 * @param x is to be negated
+	 */
+	public boolean negation(boolean x) {
 		return !x;
 	}	
-	/**
-	 * Remainder of two numbers
-	 * @param x is to be negated
-	 * @return x' (x not)
-	 */
+	
 
 }
