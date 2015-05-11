@@ -340,3 +340,24 @@
   * migration project space to github: basri, buse, atalay, emrah, uğur
   * preparing project plan: melce, osman, hatip, burak, umut
   * deadline= april 27, 9.00 am
+ 
+## Meeting #16 ##
+
+**Date** 11.05.2015
+
+**Location** ETA Roof
+
+**Attandence**
+
+  * Atalay Yirik
+  * Buse Buz
+  * Umut Uz
+  * Melce Husunbeyi
+  * Emrah Kucuk
+
+**Details**
+
+  * HW#9 parts are distributed.
+  * First look at Activity Diagram
+  * HW#8 is completed.
+ 
