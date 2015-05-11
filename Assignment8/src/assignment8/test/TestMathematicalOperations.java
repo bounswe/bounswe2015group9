@@ -8,10 +8,19 @@ import assignment8.MathematicalOperations;
 
 /**
  * 
+ * \author Atalay Furkan YIRIK
+ * \author Umut UZ
+ * \author Melce HUSUNBEYI
+ * \author Emrah KUCUK
+ * \author Buse BUZ
+ * \author Omer Mucahit TEMEL
+ * \author Basri YILMAZTURK
+ * 
  */
 
 /**
- *Test for MathematicalOperations Class
+ *\details Test Functions for MathematicalOperations Class
+ *\version 1.0
  */
 public class TestMathematicalOperations {
 
@@ -29,9 +38,13 @@ public class TestMathematicalOperations {
 	 */
 	@Test
 	public void testDivide() {
-		MathematicalOperations tester = new MathematicalOperations();
-		assertEquals("10 / 5 must be 2", 2, tester.division(10, 5));
+		MathematicalOperations tester1 = new MathematicalOperations();
+		assertEquals("10 / 5 must be 2", 2, tester1.division(10, 5));
 	}
+
+	/**
+	 * to test general attitude of addition
+	 */
 
 	@Test
 
@@ -44,6 +57,10 @@ public class TestMathematicalOperations {
 		assertEquals("0 + 4 must be 4", 4, tester1.addition(0, 4));
 
 	}
+
+	/**
+	 * to test general attitude of subtraction
+	 */
 	
 	@Test
 	public void testSubtract() {
@@ -61,6 +78,10 @@ public class TestMathematicalOperations {
 
 	}
 
+	/**
+	 * to test general attitude of multiplication
+	 */
+
 	@Test
 	public void testMultiply() {
 
@@ -74,6 +95,10 @@ public class TestMathematicalOperations {
 		assertEquals("2 * (-8) must be minus 16", -16, test3.multiplication(2, -8));
 
 	}
+	/**
+	 * to test general attitude of remainder function
+	 */
+
 	@Test
 	public void testRemainder(){
 
@@ -87,6 +112,10 @@ public class TestMathematicalOperations {
 		assertEquals("0 % 4 must be 0", 0, test3.remainder(0,4));
 
 	}
+
+	/**
+	 * to test general attitude of power function
+	 */
 
 	@Test
 	public void testPower(){
@@ -103,6 +132,11 @@ public class TestMathematicalOperations {
 		assertEquals("2 ^ 2 must be 4", 4, test.power(2,2));
 
 	}	
+
+	/**
+	 * to test general attitude of negation function
+	 */
+
 	@Test
 	public void testNegation(){
 
