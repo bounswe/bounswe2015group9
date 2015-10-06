@@ -365,3 +365,20 @@
   * First look at Activity Diagram
   * HW#8 is completed.
  
+## Meeting #17 ##
+
+**Date** 06.10.2015
+
+**Location** ETA Roof
+
+**Attandence**
+
+  * Atalay Yirik
+  * Umut Uz
+  * Melce Husunbeyi
+
+
+**Details**
+
+  * We talked about what we did last semester.
+  * We prepared presentation about details of our system. 
