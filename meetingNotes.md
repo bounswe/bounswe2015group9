@@ -381,4 +381,4 @@
 **Details**
 
   * We talked about what we did last semester.
-  * We prepared presentation about details of our system. 
+  * We prepared presentation about details of our system to present in class
