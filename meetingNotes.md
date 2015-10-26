@@ -383,3 +383,27 @@
 
   * We talked about what we did last semester.
   * We prepared presentation about details of our system to present in class
+  
+## Meeting #18 ##
+
+**Date** 13.10.2015
+
+**Location** ETA Roof
+
+**Attandence**
+
+  * Atalay Yirik
+  * Umut Uz
+  * Melce Husunbeyi
+  * Buse Buz
+  * Gufte Seren Surmeli
+  * Basri Yilmazturk
+  * Emrah Kucuk
+  * Omer Temel
+  * Burak Coskun
+
+**Details**
+
+  * Customer meeting has been done.
+  * After meeting we have distributed responsibilities. 
+  * Requirements have been eliminated.
