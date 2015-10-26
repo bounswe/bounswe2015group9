@@ -407,3 +407,43 @@
   * Customer meeting has been done.
   * After meeting we have distributed responsibilities. 
   * Requirements have been eliminated.
+
+## Meeting #19 ##
+
+**Date** 15.10.2015
+
+**Location** Skype
+
+**Attandence**
+
+  * Atalay Yirik
+  * Buse Buz
+  * Melce Husunbeyi
+  * Umut Uz
+  * Gufte Seren Surmeli
+
+**Details**
+
+  * We have worked on running and setting amazon instances.
+  * We have worked on installing and connecting tomcat servers to the instance.
+
+## Meeting #20 ##
+
+**Date** 20.10.2015
+
+**Location** ETA A4
+
+**Attandence**
+
+  * Atalay Yirik
+  * Burak Coskun
+  * Melce Husunbeyi
+  * Buse Buz
+  * Gufte Seren Surmeli
+  * Emrah Kucuk
+
+**Details**
+
+  * Customer meeting with Alp Kindiroglu has been done.
+  * We have talked about the new revisions of requirements, scenarios, and mockup samples.
+  * After meeting, we decided who is going to which part of the weekly work.
