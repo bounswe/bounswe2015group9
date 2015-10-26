@@ -8,7 +8,7 @@ A requirements analysis on the designated project topic.
 
 ## Abstract ##
 
-The main purpose of our project is to create a social awareness and networking environment that provides people reporting when violations are encountered and search, rate and comment on these violations. This application basically allows individuals to know what is going on about the violations that people encounter. Also our application is taking into consideration that not all the violations impact all disable people. Some violations affect those who can't walk, some affect those who can't see, or hear etc. All in all, an accessible environment is a shared responsibility, and this application is trying to help people about that.
+The main purpose of our project is to create a social awareness and networking environment that provides people reporting when environmental violations, which are making difficulties in disabled people's lives such as wrong car parking on the walking way for visually impaired people, are encountered and search, rate and comment on these violations. This application basically allows individuals to know what is going on about the violations that people encounter. Also our application is taking into consideration that not all the violations impact all disable people. Some violations affect those who can't walk, some affect those who can't see, or hear etc. All in all, an accessible environment is a shared responsibility, and this application is trying to help people about that.
 
 
 1 -Functional Requirements
@@ -17,32 +17,34 @@ The main purpose of our project is to create a social awareness and networking e
     * 1.1.2 Users shall sign in to the system by entering his/her username/e-mail address and password.
     * 1.1.3 Users shall read and accept the terms of services otherwise system will not allow him/her to sign up.
     * 1.1.4 User shall be able to change his/her profile information -except username- whenever he/she wants.
-    * 1.1.5 Registered users shall be able to report a violation.
+    * 1.1.5 Registered users shall be able to generate a violation report.
     * 1.1.6 Unregistered users shall be able to search the type of violation.
-    * 1.1.7 Semantic tagging shall be used.
+    * 1.1.7 Semantic tagging shall be used for user to find better search results.
     * 1.1.8 Unregistered users shall be able to rate the violations.
-    * 1.1.9 Unregistered/Registered users shall be able to see the top rated violations.
-    * 1.1.10 User should be able to add report on disabled friendly location.
-    * 1.1.11 User should be able to edit a violation.
-    * 1.1.12 User should be able to comment on a violation.
-    * 1.1.13 User should be able to vocalize a violation.
+    * 1.1.9 Unregistered/Registered users shall be able to see all violations.
+    * 1.1.10 User should be able to edit a violation.
+    * 1.1.11 User should be able to comment on a violation.
+    * 1.1.12 User should be able to vocalize a violation.
+    * 1.1.13 User should be able to rate a report if they like/dislike.
 
 
 * 1.2 System Requirements
     * 1.2.1 The system shall send confirmation e-mail after completing registration.
-    * 1.2.2 The system shall provide share options via other social networks like Twitter.
+    * 1.2.2 The system shall provide share options via other social networks such as Twitter or Facebook.
     * 1.2.3 The system should provide help to users who forgot their passwords by sending them a unique recovery link.
     * 1.2.4 The system shall provide users the options to deactivate and activate their accounts.
-    * 1.2.5 The system shall provide description and media (video,audio,images) for violations.
+    * 1.2.5 The system shall provide description and media files (video,audio,images) for violations.
     * 1.2.6 The system shall provide a status(fixed, in progress, still same, ...) for violation.
     * 1.2.7 The system shall provide a statistical summary report on violations displayed on a map.
     * 1.2.8 The system shall provide a resource area for tips, hints, people and organizations related to the system.
     * 1.2.9 The system should provide initial prototype for Rumeli Hisarustu and Bogazici University.
+    * 1.2.10 The system shall keep the rating values for reports.
+    * 1.2.11 The system shall provide asistance for visually impaired people with the vocalized reports.
 
 * 1.3 Search Requirements
     * 1.3.1 System shall use user names, location, time, status or type of violation as search criterias.
-    * 1.3.2 Semantic tagging shall used for search options.
-    * 1.3.3 System shall provide semantic search.
+    * 1.3.2 System shall use semantic tagging for search options.
+    * 1.3.3 System shall provide semantic search for users to find better search results.
 
 * 1.4 Gamification Requirements
     * 1.4.1 Shared posts and their user shall gain/lose points with respect to rating system.
