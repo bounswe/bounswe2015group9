@@ -427,7 +427,7 @@
   * We have worked on running and setting amazon instances.
   * We have worked on installing and connecting tomcat servers to the instance.
 
-## Meeting #20 ##
+## Meeting #20 (Customer Meeting) ##
 
 **Date** 20.10.2015
 
