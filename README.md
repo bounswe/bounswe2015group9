@@ -71,6 +71,7 @@ Here, you can do all these stuff with our project:<br>
 	<li><a href='meetingNotes.md#meeting-15'>Meeting 15 - 15.04.2015</a></li>
 	<li><a href='meetingNotes.md#meeting-16'>Meeting 16 - 11.05.2015</a></li>
 	<li><a href='meetingNotes.md#meeting-17'>Meeting 17 - 06.10.2015</a></li>
+	<li><a href='meetingNotes.md#meeting-18'>Meeting 18 - 13.10.2015</a></li>
 </ul>
 
 <h2>People</h2>
