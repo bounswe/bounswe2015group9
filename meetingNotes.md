@@ -447,3 +447,25 @@
   * Customer meeting with Alp Kindiroglu has been done.
   * We have talked about the new revisions of requirements, scenarios, and mockup samples.
   * After meeting, we decided who is going to which part of the weekly work.
+
+## Meeting #21 ##
+
+**Date** 13.11.2015
+
+**Location** ETA Roof
+
+**Attandence**
+
+  * Atalay Yirik
+  * Omer Mucahit Temel 
+  * Melce Husunbeyi
+  * Buse Buz
+  * Gufte Seren Surmeli
+  * Umut Uz
+
+**Details**
+
+  * We decided what we will use as development environment, technologies and tools.  
+  * Frontend will be developed using AngularJs and Html.
+  * Backend will be developed using Java.
+  * We also planned creating Restful API to ease development and simplify client adoption.
