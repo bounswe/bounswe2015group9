@@ -469,3 +469,25 @@
   * Frontend will be developed using AngularJs and Html.
   * Backend will be developed using Java.
   * We also planned creating Restful API to ease development and simplify client adoption.
+  
+## Meeting #22 ##
+
+**Date** 17.11.2015
+
+**Location** ETA A-2
+
+**Attandence**
+
+  * Atalay Yirik
+  * Emrah Kucuk
+  * Melce Husunbeyi
+  * Burak Coskun
+  * Gufte Seren Surmeli
+  * Umut Uz
+
+**Details**
+
+  * We assigned tasks;
+  ** frontend part= Home page(for registered and noregistered users), Profile page, Violation report page, Advanced Search page (Buse, Melce, Gufte, Atalay)
+  ** backend part= User Class, Violation Class, Advanced Search Class (Umut, Omer, Basri)
+  ** android part= Login activity, Signup Activiy, User Activiy, Violation activity, Advanced search activity (Burak, Emrah)
