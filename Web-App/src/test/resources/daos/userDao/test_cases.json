@@ -1,0 +1,14 @@
+{
+  "getByEmail": {
+    "inputs": null,
+    "outputs": [
+      {
+        "id": 1,
+        "email": "testuser@test.com",
+        "password": "testpass",
+        "firstName": "test",
+        "lastName": "user"
+      }
+    ]
+  }
+}
