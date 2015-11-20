@@ -5,7 +5,7 @@ import org.bounswe2015.group9.universal_access.entities.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDao extends BaseDao<User, Long> implements IUserDao{
+public class UserDaoImpl extends BaseDaoImpl<User, Long> implements IUserDao{
     @Override
     public User getUserByEmail(String email) {
         return super.readByProperty("email", email);
