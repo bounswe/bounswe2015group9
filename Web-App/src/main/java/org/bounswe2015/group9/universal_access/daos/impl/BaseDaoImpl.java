@@ -17,9 +17,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
-public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
+public class BaseDaoImpl<T, PK extends Serializable> implements IBaseDao<T, PK> {
 
-    Logger logger = LoggerFactory.getLogger(BaseDao.class);
+    Logger logger = LoggerFactory.getLogger(BaseDaoImpl.class);
 
     protected Class<T> entityClass;
 
@@ -27,7 +27,7 @@ public class BaseDao<T, PK extends Serializable> implements IBaseDao<T, PK> {
     @Qualifier("sessionFactory")
     private SessionFactory sessionFactory;
 
-    public BaseDao() {
+    public BaseDaoImpl() {
         ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
         this.entityClass = (Class<T>) genericSuperclass.getActualTypeArguments()[0];
     }
