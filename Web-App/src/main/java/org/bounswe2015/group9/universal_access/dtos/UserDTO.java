@@ -9,7 +9,7 @@ import org.bounswe2015.group9.universal_access.utils.JsonDTOFilter;
 import java.beans.Transient;
 import java.io.Serializable;
 
-@JsonFilter(JsonDTOFilter.USERDTOFILTER)
+//@JsonFilter(JsonDTOFilter.USERDTOFILTER)
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
 public class UserDTO {
     private Long id;

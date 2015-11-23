@@ -10,4 +10,8 @@ public class UserDaoImpl extends BaseDaoImpl<User, Long> implements IUserDao{
     public User getUserByEmail(String email) {
         return super.readByProperty("email", email);
     }
+    @Override
+    public User getUserById(String id) {
+        return super.readByProperty("id", id);
+    }
 }
