@@ -145,7 +145,7 @@
         <access-denied-handler ref="oauthAccessDeniedHandler" />
     </http>
 
-    <http pattern="/user/**" security="none"
+    <http pattern="/users/**" security="none"
           xmlns="http://www.springframework.org/schema/security" />
 
     <http pattern="/rest/**" authentication-manager-ref="clientAuthenticationManager"
