@@ -21,22 +21,28 @@ public class UserNonSecureController {
     @Autowired
     private IUserService userService;
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/createUser", method = RequestMethod.POST)
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO user) {
         User createdUser = userService.createUser(user);
         UserDTO createdUserDTO = new UserDTO(createdUser);
         return new ResponseEntity<UserDTO>(createdUserDTO, HttpStatus.CREATED);
     }
-    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-    public ResponseEntity<UserDTO> getUser(long id) {
-        User gotUser = userService.getUser(id);
+    @RequestMapping(value = "/getUser", method = RequestMethod.POST)
+    public ResponseEntity<UserDTO> getUser(@RequestBody UserDTO user) {
+        User gotUser = userService.getUser(user.getId());
         UserDTO gotUserDTO = new UserDTO(gotUser);
         return new ResponseEntity<UserDTO>(gotUserDTO, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
-    public ResponseEntity<UserDTO> updateUser(long id, @RequestBody UserDTO user) {
+    @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO user) {
         userService.updateUser(user);
         return new ResponseEntity<UserDTO>(user, HttpStatus.ACCEPTED);
     }
+    @RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
+    public ResponseEntity<UserDTO> deleteUser(@RequestBody UserDTO user) {
+        userService.deleteUser(user.getId());
+        return new ResponseEntity<UserDTO>(HttpStatus.ACCEPTED);
+    }
+
 }
