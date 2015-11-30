@@ -23,7 +23,7 @@ import java.util.List;
  * Created by umut on 25.11.2015.
  */
 @RestController
-@RequestMapping("/rest/eidentity")
+@RequestMapping("/users")
 public class ViolationController {
     @Autowired
     private IViolationService violationService;
