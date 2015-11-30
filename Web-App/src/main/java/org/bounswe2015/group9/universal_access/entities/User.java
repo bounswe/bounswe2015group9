@@ -37,6 +37,9 @@ public class User implements Serializable, UserDetails {
     @Column(name = "last_name", length = 255, nullable = false)
     private String lastName;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = false)
+    private List<Violation> violations;
+
     public User() {
     }
 
@@ -82,6 +85,14 @@ public class User implements Serializable, UserDetails {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<Violation> getViolations() {
+        return violations;
+    }
+
+    public void setViolations(List<Violation> violations) {
+        this.violations = violations;
     }
 
     @Transient

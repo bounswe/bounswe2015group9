@@ -7,6 +7,7 @@ import java.util.List;
 public interface IUserDao extends IBaseDao<User, Long>{
     User getUserByEmail(String email);
     User getUserById(String id);
+    User getUserWithViolations(Long id, Boolean active);
 //    List<User> getAllUsers();
 
 }

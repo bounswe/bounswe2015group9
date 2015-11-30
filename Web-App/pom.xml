@@ -82,7 +82,11 @@
             <version>2.6.2</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time-hibernate</artifactId>
+            <version>1.4</version>
+        </dependency>
         <!-- Spring AOP dependency -->
         <dependency>
             <groupId>cglib</groupId>
