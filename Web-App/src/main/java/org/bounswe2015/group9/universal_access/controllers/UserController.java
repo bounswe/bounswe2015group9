@@ -28,19 +28,28 @@ public class UserController {
 		UserDTO createdUserDTO = new UserDTO(createdUser);
 		return new ResponseEntity<UserDTO>(createdUserDTO, HttpStatus.CREATED);
 	}
-	@RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-	public ResponseEntity<UserDTO> getUser(OAuth2Authentication auth, long id) {
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<UserDTO> getUser(OAuth2Authentication auth, @PathVariable("id") Long id) {
+		System.out.println(id);
 		User gotUser = userService.getUser(id);
 		UserDTO gotUserDTO = new UserDTO(gotUser);
 		return new ResponseEntity<UserDTO>(gotUserDTO, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/{userId}", method = RequestMethod.PUT)
-	public ResponseEntity<UserDTO> updateUser(OAuth2Authentication auth, long id, @RequestBody UserDTO user) {
+	@RequestMapping(value = "/me", method = RequestMethod.GET)
+	public ResponseEntity<UserDTO> getUser(OAuth2Authentication auth) {
+		UserDTO gotUserDTO = new UserDTO((User) auth.getUserAuthentication().getPrincipal());
+		return new ResponseEntity<UserDTO>(gotUserDTO, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<UserDTO> updateUser(OAuth2Authentication auth, @PathVariable("id") Long id, @RequestBody UserDTO user) {
 		User authenticatedUser = (User) auth.getUserAuthentication().getPrincipal();
 		if (authenticatedUser.getId() != id) {
 			return new ResponseEntity<UserDTO>(HttpStatus.FORBIDDEN);
 		}
+		user.setId(id);
 		userService.updateUser(user);
 		return new ResponseEntity<UserDTO>(user, HttpStatus.ACCEPTED);
 	}

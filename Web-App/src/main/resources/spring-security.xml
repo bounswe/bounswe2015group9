@@ -38,8 +38,8 @@
                       authorities="ROLE_CLIENT"
                       scope="dedeler"/>
 
-        <oauth:client client-id="web_liferay"
-                      authorized-grant-types="password,refresh_token,implicit,client_credentials" secret="custom_liferay"
+        <oauth:client client-id="client"
+                      authorized-grant-types="password,refresh_token,implicit,client_credentials" secret="secret"
                       authorities="ROLE_CLIENT"
                       scope="dedeler"/>
     </oauth:client-details-service>
