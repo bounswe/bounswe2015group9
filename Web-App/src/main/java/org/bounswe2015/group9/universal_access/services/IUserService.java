@@ -11,6 +11,8 @@ public interface IUserService {
 
     List<User> getAllUsers();
 
+    List<UserDTO> getAllUserDTOs();
+
     User createUser(User user);
 
     User createUser(UserDTO user);
