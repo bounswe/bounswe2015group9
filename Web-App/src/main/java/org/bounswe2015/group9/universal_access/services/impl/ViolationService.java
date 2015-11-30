@@ -1,30 +1,34 @@
 package org.bounswe2015.group9.universal_access.services.impl;
 
+/**
+ * Created by burakcoskun on 11/30/15.
+ */
 import org.bounswe2015.group9.universal_access.daos.IUserDao;
+import org.bounswe2015.group9.universal_access.daos.IViolationDao;
 import org.bounswe2015.group9.universal_access.dtos.UserDTO;
+import org.bounswe2015.group9.universal_access.dtos.ViolationDTO;
 import org.bounswe2015.group9.universal_access.entities.User;
+import org.bounswe2015.group9.universal_access.entities.Violation;
 import org.bounswe2015.group9.universal_access.exceptions.RecordNotFoundException;
 import org.bounswe2015.group9.universal_access.services.IUserService;
-import org.springframework.beans.factory.ListableBeanFactory;
+import org.bounswe2015.group9.universal_access.services.IViolationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Service("userService")
-public class UserService implements IUserService, UserDetailsService {
+@Service("violationService")
+public class ViolationService implements IViolationService {
     @Autowired
-    IUserDao udao;
-
+    IViolationDao vdao;
+/*
     @Override
     public User getUser(Long id) {
         return udao.read(id);
     }
-
-    @Override
-    public List<User> getAllUsers(){return udao.getAll();}
 
     @Override
     public User createUser(User user) {
@@ -86,5 +90,44 @@ public class UserService implements IUserService, UserDetailsService {
         }
 
         return user;
+    }
+*/
+    @Override
+    public Violation getViolation(Long id) {
+        return vdao.read(id);
+    }
+
+    @Override
+    public List<Violation> getAllViolations() {
+        return vdao.getAll();
+    }
+
+    @Override
+    public Violation createViolation(Violation violation) {
+        vdao.create(violation);
+        return  violation;
+    }
+
+    @Override
+    public Violation createViolation(ViolationDTO violation) {
+        Violation mViolation = new Violation(violation);
+        vdao.create(mViolation);
+        return vdao.read(mViolation.getId());
+    }
+
+    @Override
+    public void updateViolation(Violation violation) {
+        vdao.update(violation);
+    }
+
+    @Override
+    public void updateViolation(ViolationDTO violation) {
+        Violation mViolation = new Violation(violation);
+        vdao.update(mViolation);
+    }
+
+    @Override
+    public void deleteViolation(Long id) {
+        vdao.deleteById(id);
     }
 }

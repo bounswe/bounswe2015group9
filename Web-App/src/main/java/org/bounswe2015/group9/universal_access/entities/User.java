@@ -1,5 +1,6 @@
 package org.bounswe2015.group9.universal_access.entities;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import org.bounswe2015.group9.universal_access.dtos.UserDTO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
 public class User implements Serializable, UserDetails {
 
     private static final long serialVersionUID = 1L;
@@ -118,5 +120,21 @@ public class User implements Serializable, UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+
+        User user = (User) o;
+
+        if (!getId().equals(user.getId())) return false;
+        if (!getEmail().equals(user.getEmail())) return false;
+        if (!getPassword().equals(user.getPassword())) return false;
+        if (getFirstName() != null ? !getFirstName().equals(user.getFirstName()) : user.getFirstName() != null)
+            return false;
+        return !(getLastName() != null ? !getLastName().equals(user.getLastName()) : user.getLastName() != null);
+
     }
 }

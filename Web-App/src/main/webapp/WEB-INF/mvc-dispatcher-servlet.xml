@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
     <mvc:resources mapping="/static/**" location="/static/"></mvc:resources>
     <mvc:annotation-driven />
-    <context:component-scan base-package="org.bounswe2015">
+    <context:component-scan base-package="org.bounswe2015.group9.universal_access.controllers">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 </beans>
