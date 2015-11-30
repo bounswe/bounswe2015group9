@@ -1,15 +1,33 @@
 package com.sweng.universalaccess;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Bind(R.id.input_username)
+    AppCompatEditText userName;
+
+    @Bind(R.id.input_password)
+    AppCompatEditText passwword;
+
+    @Bind(R.id.btn_login)
+    AppCompatButton loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +36,36 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        
+        ButterKnife.bind(this);
+
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JsonObject object = new JsonObject();
+
+                String unamepass = "&username="+userName.getText().toString()+"&password="+passwword.getText().toString();
+
+                Ion
+                        .with(MainActivity.this)
+                        .load(getString(R.string.getUserTokenUrl)+unamepass)
+                        .addHeader("Authorization", getString(R.string.appToken))
+                        .setJsonObjectBody(new JsonObject())
+                        .asJsonObject()
+                        .setCallback(new FutureCallback<JsonObject>() {
+                            @Override
+                            public void onCompleted(Exception e, JsonObject result) {
+                                if (e == null) {
+                                    Log.d("FirstResult", result.toString());
+                                }
+                                else
+                                    Log.d("FirstError", e.toString());
+                            }
+                        });
+            }
+        });
+
+
     }
 
     @Override
