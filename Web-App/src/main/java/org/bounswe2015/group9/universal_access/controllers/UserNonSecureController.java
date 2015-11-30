@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.jws.soap.SOAPBinding;
+import java.util.List;
+
 /**
  * Created by umut on 25.11.2015.
  */
@@ -33,7 +36,12 @@ public class UserNonSecureController {
         UserDTO gotUserDTO = new UserDTO(gotUser);
         return new ResponseEntity<UserDTO>(gotUserDTO, HttpStatus.OK);
     }
-
+    @RequestMapping(value = "/getAllUsers", method = RequestMethod.POST)
+    public ResponseEntity<List<User>> getAllUsers() {
+        List<User> gotUsers = userService.getAllUsers();
+//        UserDTO gotUserDTO = new UserDTO(gotUser);
+        return new ResponseEntity<List<User>>(gotUsers, HttpStatus.OK);
+    }
     @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
     public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO user) {
         userService.updateUser(user);
@@ -44,5 +52,6 @@ public class UserNonSecureController {
         userService.deleteUser(user.getId());
         return new ResponseEntity<UserDTO>(HttpStatus.ACCEPTED);
     }
+
 
 }
