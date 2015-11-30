@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
@@ -56,16 +57,40 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onCompleted(Exception e, JsonObject result) {
                                 if (e == null) {
-                                    Log.d("FirstResult", result.toString());
+                                    getUser(result.get("access_token").getAsString());
+//                                    Log.d("FirstResult", result.toString());
                                 }
-                                else
+                                else {
+                                    Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+
                                     Log.d("FirstError", e.toString());
+                                }
                             }
                         });
             }
         });
 
 
+    }
+
+    public void getUser(String access_token){
+        Ion
+                .with(this)
+                .load(getString(R.string.getUserURL))
+                .addHeader("Authorization","Bearer "+access_token)
+                .asJsonObject()
+                .setCallback(new FutureCallback<JsonObject>() {
+                    @Override
+                    public void onCompleted(Exception e, JsonObject result) {
+                        if(e == null){
+
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                        Log.d("MyUser",result.toString());
+                    }
+                });
     }
 
     @Override
