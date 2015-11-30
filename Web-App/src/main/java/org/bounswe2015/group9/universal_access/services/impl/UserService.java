@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("userService")
@@ -25,6 +26,19 @@ public class UserService implements IUserService, UserDetailsService {
 
     @Override
     public List<User> getAllUsers(){return udao.getAll();}
+
+    @Override
+    public List<UserDTO> getAllUserDTOs(){
+        List<User> users = udao.getAll();
+        List<UserDTO> userDTOs= new ArrayList<>();
+        for (User user:users) {
+            UserDTO userDTO = new UserDTO(user);
+            userDTO.setPassword(null);
+            userDTOs.add(userDTO);
+        }
+        return userDTOs;
+    }
+
 
     @Override
     public User createUser(User user) {

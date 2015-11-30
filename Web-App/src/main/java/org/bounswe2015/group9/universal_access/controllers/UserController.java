@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/rest/users")
@@ -33,6 +35,7 @@ public class UserController {
 	public ResponseEntity<UserDTO> getUser(OAuth2Authentication auth, @PathVariable("id") Long id) {
 		System.out.println(id);
 		User gotUser = userService.getUser(id);
+		gotUser.setPassword(null);
 		UserDTO gotUserDTO = new UserDTO(gotUser);
 		return new ResponseEntity<UserDTO>(gotUserDTO, HttpStatus.OK);
 	}
@@ -40,7 +43,13 @@ public class UserController {
 	@RequestMapping(value = "/me", method = RequestMethod.GET)
 	public ResponseEntity<UserDTO> getUser(OAuth2Authentication auth) {
 		UserDTO gotUserDTO = new UserDTO((User) auth.getUserAuthentication().getPrincipal());
+		gotUserDTO.setPassword(null);
 		return new ResponseEntity<UserDTO>(gotUserDTO, HttpStatus.OK);
+	}
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ResponseEntity<List<UserDTO>> getAllUsers(){
+		List<UserDTO> gotUsers = userService.getAllUserDTOs();
+		return new ResponseEntity<List<UserDTO>>(gotUsers,HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
@@ -52,6 +61,16 @@ public class UserController {
 		user.setId(id);
 		userService.updateUser(user);
 		return new ResponseEntity<UserDTO>(user, HttpStatus.ACCEPTED);
+	}
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public  ResponseEntity<UserDTO> deleteUser(OAuth2Authentication auth, @PathVariable("id") Long id){
+		User authenticatedUser = (User) auth.getUserAuthentication().getPrincipal();
+		if (authenticatedUser.getId() != id) {
+			return new ResponseEntity<UserDTO>(HttpStatus.FORBIDDEN);
+		}
+		userService.deleteUser(id);
+		return new ResponseEntity<UserDTO>(HttpStatus.ACCEPTED);
 	}
 
 }
