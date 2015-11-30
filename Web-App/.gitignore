@@ -1,12 +1,9 @@
 target/*
-<<<<<<< HEAD
 UniversalAccess.iml
 .idea/*
 /target/
-=======
 2015group9webApi.iml
 .DS_Store
 .idea/*
 .project
 *.iml
->>>>>>> 3e71334091301b454887ab3a73b7c45dc778f3ed
