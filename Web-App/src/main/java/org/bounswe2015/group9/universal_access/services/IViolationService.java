@@ -14,6 +14,7 @@ public interface IViolationService {
     List<ViolationDTO> getViolations(Boolean closed);
     List<ViolationDTO> getViolations();
     ViolationDTO createViolation(User user, ViolationDTO violationDTO);
-    void updateViolation(User user, ViolationDTO violationDTO);
+    void updatePatchViolation(User user, ViolationDTO violationDTO);
     void deleteViolation(User user, ViolationDTO violationDTO);
+    void updatePutViolation(User user, ViolationDTO violationDTO);
 }

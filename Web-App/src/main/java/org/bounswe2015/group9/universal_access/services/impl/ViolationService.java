@@ -4,6 +4,7 @@ import org.bounswe2015.group9.universal_access.daos.IViolationDao;
 import org.bounswe2015.group9.universal_access.dtos.ViolationDTO;
 import org.bounswe2015.group9.universal_access.entities.User;
 import org.bounswe2015.group9.universal_access.entities.Violation;
+import org.bounswe2015.group9.universal_access.exceptions.ForbiddenProccessException;
 import org.bounswe2015.group9.universal_access.exceptions.RecordNotFoundException;
 import org.bounswe2015.group9.universal_access.services.IViolationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,13 +63,57 @@ public class ViolationService implements IViolationService {
         return new ViolationDTO(violation);
     }
 
-    @Override
-    public void updateViolation(User user, ViolationDTO violationDTO) {
+    private Object selector(Object first, Object second, boolean put) {
+        return put ? first : first == null ? second : first;
+    }
 
+    private void updateViolation(Violation v, ViolationDTO vD, boolean put) {
+       v.setClosed((Boolean) selector(vD.getClosed(), v.getClosed(), put));
+       v.setDescription((String) selector(vD.getDescription(), v.getDescription(), put));
+       v.setTitle((String) selector(vD.getTitle(), v.getTitle(), put));
+       v.setImageUrl((String) selector(vD.getImageUrl(), v.getImageUrl(), put));
+       v.setLocation((String) selector(vD.getLocation(), v.getLocation(), put));
+       v.setSeverityRate((Integer) selector(vD.getSeverityRate(), v.getSeverityRate(), put));
+    }
+
+    private Violation checkForUpdate(User user, ViolationDTO violationDTO) {
+        if(violationDTO.getId() == null) {
+            throw new IllegalArgumentException("id field not exists");
+        }
+
+        Violation violation = vdao.read(violationDTO.getId());
+
+        if (violation == null) {
+            throw new RecordNotFoundException("violation not found");
+        }
+
+        if(violation.getUser().getId() != user.getId()) {
+            throw new ForbiddenProccessException("can not update or delete another user violation.");
+        }
+
+        return violation;
+    }
+
+    @Override
+    public void updatePutViolation(User user, ViolationDTO violationDTO) {
+        Violation violation = checkForUpdate(user, violationDTO);
+
+        updateViolation(violation, violationDTO, true);
+        vdao.update(violation);
+    }
+
+    @Override
+    public void updatePatchViolation(User user, ViolationDTO violationDTO) {
+        Violation violation = checkForUpdate(user, violationDTO);
+
+        updateViolation(violation, violationDTO, false);
+        vdao.update(violation);
     }
 
     @Override
     public void deleteViolation(User user, ViolationDTO violationDTO) {
+        Violation violation = checkForUpdate(user, violationDTO);
 
+        vdao.delete(violation);
     }
 }
