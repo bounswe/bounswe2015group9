@@ -5,10 +5,14 @@ import org.bounswe2015.group9.universal_access.dtos.UserDTO;
 import org.bounswe2015.group9.universal_access.entities.User;
 import org.bounswe2015.group9.universal_access.exceptions.RecordNotFoundException;
 import org.bounswe2015.group9.universal_access.services.IUserService;
+import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("userService")
 public class UserService implements IUserService, UserDetailsService {
@@ -19,6 +23,22 @@ public class UserService implements IUserService, UserDetailsService {
     public User getUser(Long id) {
         return udao.read(id);
     }
+
+    @Override
+    public List<User> getAllUsers(){return udao.getAll();}
+
+    @Override
+    public List<UserDTO> getAllUserDTOs(){
+        List<User> users = udao.getAll();
+        List<UserDTO> userDTOs= new ArrayList<>();
+        for (User user:users) {
+            UserDTO userDTO = new UserDTO(user);
+            userDTO.setPassword(null);
+            userDTOs.add(userDTO);
+        }
+        return userDTOs;
+    }
+
 
     @Override
     public User createUser(User user) {

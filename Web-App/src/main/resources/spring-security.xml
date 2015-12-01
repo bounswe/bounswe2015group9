@@ -38,8 +38,8 @@
                       authorities="ROLE_CLIENT"
                       scope="dedeler"/>
 
-        <oauth:client client-id="web_liferay"
-                      authorized-grant-types="password,refresh_token,implicit,client_credentials" secret="custom_liferay"
+        <oauth:client client-id="client"
+                      authorized-grant-types="password,refresh_token,implicit,client_credentials" secret="secret"
                       authorities="ROLE_CLIENT"
                       scope="dedeler"/>
     </oauth:client-details-service>
@@ -145,7 +145,7 @@
         <access-denied-handler ref="oauthAccessDeniedHandler" />
     </http>
 
-    <http pattern="/rest/eidentity/**" security="none"
+    <http pattern="/users/**" security="none"
           xmlns="http://www.springframework.org/schema/security" />
 
     <http pattern="/rest/**" authentication-manager-ref="clientAuthenticationManager"
@@ -156,7 +156,8 @@
         <anonymous enabled="false" />
         <csrf disabled="true"/>
         <intercept-url pattern="/rest/register" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-        <intercept-url pattern="/rest/**" access="ROLE_USER" />
+        <intercept-url pattern="/rest/users" method="POST" access="hasRole('ROLE_CLIENT')"/>
+        <intercept-url pattern="/rest/**" access="hasRole('ROLE_USER')" />
         <custom-filter ref="resourceServerFilter" before="PRE_AUTH_FILTER" />
         <access-denied-handler ref="oauthAccessDeniedHandler" />
     </http>
