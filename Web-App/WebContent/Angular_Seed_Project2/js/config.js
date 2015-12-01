@@ -20,13 +20,32 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
  
             url: "/home1",
             templateUrl: "views/home1.html",
-        })
-
-        
+        })  
 
         .state('register', {
+            url: "/register",
+            templateUrl: "views/register.html"
+        })
+
+        .state('login', {
+            url: "/login",
+            templateUrl: "views/login.html"
+        })
+
+        .state('home2', {
             url: "/home2",
             templateUrl: "views/home2.html"
+        })
+
+
+        .state('profile', {
+            url: "/profile",
+            templateUrl: "views/profile.html"
+        })
+
+        .state('notify', {
+            url: "/home2",
+            templateUrl: "views/notify.html"
         })
 
 

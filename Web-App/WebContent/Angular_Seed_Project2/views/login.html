@@ -1,6 +1,9 @@
+<div ng-include='"views/common/content.html"'></div>
+
 <div class="wrapper wrapper-content animated fadeInRight close-canvas-menu">
+<div class="container">
 <div class="row">
-        <div class="col-lg-6">
+        <div class="col-md-6 col-md-offset-3">
             <div class="text-center m-t-lg">
                     <div class="ibox-content">
                         <form name="form" class="form-horizontal" ng-submit="login()">
@@ -9,19 +12,19 @@
                                 <label class="col-lg-2 control-label">Email</label>
                                 <div class="col-lg-10">
                                     <input type="email" name="usermail" placeholder="Email" ng-model="usermail" class="form-control" >
-                                    <span class="help-block m-b-none">Please write a valid email address.</span>
+                 
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">Password</label>
                                 <div class="col-lg-10">
                                     <input type="password" placeholder="Password" name="password" ng-model="password" class="form-control">
-                                    <span class="help-block m-b-none">Please write a password.</span>
+      
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
-                                   <button ui-sref="index.main" class="btn btn-sm btn-white" type="submit">Sign in</button>
+                                   <button type="submit" ui-sref="home2" class="btn btn-primary">Login</button>
                                 </div>
                             </div>
                         </form>
@@ -32,3 +35,5 @@
         </div>
     </div>
 </div>
+</div>
+
