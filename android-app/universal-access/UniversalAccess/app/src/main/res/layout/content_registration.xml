@@ -10,7 +10,7 @@
     tools:showIn="@layout/activity_registration"
     tools:context="com.sweng.universalaccess.RegistrationActivity"
     android:orientation="vertical">
-    <EditText
+    <android.support.v7.widget.AppCompatEditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,28 +18,29 @@
         android:inputType="textEmailAddress"
         android:hint="Email" />
 
-    <EditText
+    <android.support.v7.widget.AppCompatEditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:hint="Password"
         android:inputType="textPassword" />
-    <EditText
+    <android.support.v7.widget.AppCompatEditText
         android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:hint="Name" />
 
-    <EditText
+    <android.support.v7.widget.AppCompatEditText
         android:id="@+id/surnameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:hint="Surname"
         android:inputType="textPassword" />
-    <Button
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/createButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"

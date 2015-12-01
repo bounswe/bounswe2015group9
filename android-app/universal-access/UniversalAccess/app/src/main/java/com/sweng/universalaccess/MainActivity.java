@@ -1,5 +1,6 @@
 package com.sweng.universalaccess;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.btn_login)
     AppCompatButton loginButton;
 
+    @Bind(R.id.btn_signup)
+    AppCompatButton signupButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 JsonObject object = new JsonObject();
 
-                String unamepass = "&username="+userName.getText().toString()+"&password="+passwword.getText().toString();
+                String unamepass = "&username=" + userName.getText().toString() + "&password=" + passwword.getText().toString();
 
                 Ion
                         .with(MainActivity.this)
-                        .load(getString(R.string.getUserTokenUrl)+unamepass)
+                        .load(getString(R.string.getUserTokenUrl) + unamepass)
                         .addHeader("Authorization", getString(R.string.appToken))
                         .setJsonObjectBody(new JsonObject())
                         .asJsonObject()
@@ -59,14 +63,21 @@ public class MainActivity extends AppCompatActivity {
                                 if (e == null) {
                                     getUser(result.get("access_token").getAsString());
 //                                    Log.d("FirstResult", result.toString());
-                                }
-                                else {
+                                } else {
                                     Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
 
                                     Log.d("FirstError", e.toString());
                                 }
                             }
                         });
+            }
+        });
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,RegistrationActivity.class);
+                startActivity(intent);
             }
         });
 
