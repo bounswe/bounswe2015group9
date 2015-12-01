@@ -5,4 +5,5 @@
     <string name="appToken">Basic Y2xpZW50OnNlY3JldA==</string>>
     <string name="getUserTokenUrl">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/oauth/token?grant_type=password</string>
     <string name="getUserURL">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/rest/users/me</string>
+    <string name="title_activity_registration">Registration</string>
 </resources>
