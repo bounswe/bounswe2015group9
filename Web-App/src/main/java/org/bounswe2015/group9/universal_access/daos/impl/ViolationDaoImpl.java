@@ -25,8 +25,12 @@ public class ViolationDaoImpl extends BaseDaoImpl<Violation, Long> implements IV
 
     @Override
     public List<Violation> getViolations(Boolean closed) {
+
         Criteria criteria = getCurrentSession().createCriteria(Violation.class, "violation");
-        criteria.add(Restrictions.eq("closed", closed));
+        if(closed != null) {
+            criteria.add(Restrictions.eq("closed", closed));
+        }
+
 
         return criteria.list();
     }

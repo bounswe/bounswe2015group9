@@ -59,7 +59,7 @@ public class ViolationController {
     @RequestMapping(value = "",method = RequestMethod.GET)
     public ResponseEntity getViolations(OAuth2Authentication auth, @RequestParam Boolean closed) {
         try {
-            List<ViolationDTO> violationDTOList = violationService.getViolations();
+            List<ViolationDTO> violationDTOList = violationService.getViolations(closed);
             return new ResponseEntity<>(violationDTOList, HttpStatus.OK);
         } catch (RuntimeException e) {
             e.printStackTrace();
