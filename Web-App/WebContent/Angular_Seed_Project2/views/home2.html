@@ -1,61 +1,39 @@
-<div ng-include='"views/common/content2.html"'> </div>
-<div ui-view>
-<div class="wrapper wrapper-content animated fade-in-right">
+<div id="wrapper">
 
-    <div class="row">
-        <div class="col-lg-10 col-lg-offset-1">
-            <div class="ibox">
-                <h4 class="text-center m">
-                    Basic example of slick carousel
-                </h4>
-                <slick dots="true">
+    <!-- Navigation -->
+    <div ng-include="'views/common/navigation.html'"></div>
 
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Slide 1</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Slide 2</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Slide 3</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
-                        </div>
-                    </div>
-                </slick>
-            </div>
-        </div>
-    </div>
-</div>
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
 
-</div>
+        <!-- Page wrapper -->
+        <div ng-include="'views/common/topnavbar.html'"></div>
 
-<!-- Additional style only for demo purpose -->
-<style>
-    .slick_demo_2 .ibox-content {
-        margin: 0 10px;
-    }
+  
+
+<div class="wrapper wrapper-content animated fadeInRight">
+      <div class="col-md-4">
+        <h1><p style="font-size:60px">UNIVERSAL ACCESS</h1>
+        <style>
+        h2 {
+    color:#BAF8CB;
+    font-family:verdana;
+    font-size:30px;
+}
 </style>
+        <h2><b><em>Road To Raising Awareness</em></b></h2>
+        <p>Buraya sitenin amacina dair bir aciklama yapsak guzel olur gibim</p>
+        <a class="btn btn-danger btn-lg" href="#">Notify Violation!</a>
+    </div>
+    <!-- /.col-md-4 -->
 
+</div>
+
+
+</div>
+<div class="footer">
+    <div>
+        <strong>Copyright</strong> Universal Access &copy; 2015
+    </div>
 </div>
