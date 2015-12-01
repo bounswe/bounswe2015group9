@@ -1,4 +1,16 @@
-<div class="middle-box text-center loginscreen   animated fadeInDown">
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <div ng-include="'views/common/navigation.html'"></div>
+
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
+
+        <!-- Page wrapper -->
+        <div ng-include="'views/common/topnavbar.html'"></div>
+
+        <div class="middle-box text-center loginscreen   animated fadeInDown">
     <div>
         
 
@@ -45,4 +57,16 @@
         </form>
         <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
     </div>
+</div>
+
+<div class="footer">
+    <div>
+        <strong>Copyright</strong> Universal Access &copy; 2015
+    </div>
+</div>
+
+
+    </div>
+
+
 </div>
