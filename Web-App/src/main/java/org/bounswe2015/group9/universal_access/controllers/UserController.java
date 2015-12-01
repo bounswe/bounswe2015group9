@@ -33,7 +33,6 @@ public class UserController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<UserDTO> getUser(OAuth2Authentication auth, @PathVariable("id") Long id) {
-		System.out.println(id);
 		User gotUser = userService.getUser(id);
 		gotUser.setPassword(null);
 		UserDTO gotUserDTO = new UserDTO(gotUser);
