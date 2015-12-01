@@ -30,17 +30,17 @@ public class Violation implements Serializable {
     @Type(type = "text")
     private String description;
 
-    @Column(name = "date")
+    @Column(name = "date", nullable = true)
     @Type(type = "org.joda.time.contrib.hibernate.PersistentDateTime")
     private DateTime date;
 
     @Column(name = "severity_rate", nullable = false)
     private Integer severityRate;
 
-    @Column(name = "image_url")
+    @Column(name = "image_url", nullable = true)
     private String imageUrl;
 
-    @Column(name = "location", nullable = false)
+    @Column(name = "location", nullable = true)
     private String location;
 
     @Column(name = "closed", nullable = false)

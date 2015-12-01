@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/rest/users")
 public class UserController {
