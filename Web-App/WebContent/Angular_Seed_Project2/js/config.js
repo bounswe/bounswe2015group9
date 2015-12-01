@@ -7,7 +7,7 @@
  *
  */
 function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
-    $urlRouterProvider.otherwise("/index/main");
+    $urlRouterProvider.otherwise("/home1");
 
     $ocLazyLoadProvider.config({
         // Set to true if you want to see what and when is dynamically loaded
@@ -15,22 +15,23 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
     });
 
     $stateProvider
+       
+       .state('home1', {
+ 
+            url: "/home1",
+            templateUrl: "views/home1.html",
+        })
 
-        .state('index', {
-            abstract: true,
-            url: "/index",
-            templateUrl: "views/common/content.html",
+        
+
+        .state('register', {
+            url: "/home2",
+            templateUrl: "views/home2.html"
         })
-        .state('index.main', {
-            url: "/main",
-            templateUrl: "views/main.html",
-            data: { pageTitle: 'Example view' }
-        })
-        .state('index.login', {
-            url: "/login",
-            templateUrl: "views/login.html",
-            data: { pageTitle: 'login' }
-        })
+
+
+        
+   
 }
 angular
     .module('inspinia')
