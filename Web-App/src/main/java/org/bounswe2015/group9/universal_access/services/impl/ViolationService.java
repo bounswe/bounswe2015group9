@@ -7,6 +7,7 @@ import org.bounswe2015.group9.universal_access.entities.Violation;
 import org.bounswe2015.group9.universal_access.exceptions.ForbiddenProccessException;
 import org.bounswe2015.group9.universal_access.exceptions.RecordNotFoundException;
 import org.bounswe2015.group9.universal_access.services.IViolationService;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,7 +58,9 @@ public class ViolationService implements IViolationService {
 
     @Override
     public ViolationDTO createViolation(User user, ViolationDTO violationDTO) {
+        violationDTO.setDate(DateTime.now());
         Violation violation = new Violation(violationDTO,user);
+        System.out.println(violation.getUser().getId());
         vdao.create(violation);
 
         return new ViolationDTO(violation);
@@ -87,7 +90,9 @@ public class ViolationService implements IViolationService {
             throw new RecordNotFoundException("violation not found");
         }
 
-        if(violation.getUser().getId() != user.getId()) {
+        if(!violation.getUser().getId().equals(user.getId())) {
+            System.out.println(violation.getUser().getId());
+            System.out.println(user.getId());
             throw new ForbiddenProccessException("can not update or delete another user violation.");
         }
 

@@ -31,7 +31,7 @@ public class Violation implements Serializable {
     private String description;
 
     @Column(name = "date", nullable = true)
-    @Type(type = "org.joda.time.contrib.hibernate.PersistentDateTime")
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime date;
 
     @Column(name = "severity_rate", nullable = false)
@@ -55,7 +55,7 @@ public class Violation implements Serializable {
         imageUrl = violationDTO.getImageUrl();
         location = violationDTO.getLocation();
         closed = violationDTO.getClosed();
-        user = user;
+        this.user = user;
     }
 
     public Violation() {

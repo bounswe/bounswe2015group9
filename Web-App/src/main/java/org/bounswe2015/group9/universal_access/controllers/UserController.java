@@ -1,8 +1,11 @@
 package org.bounswe2015.group9.universal_access.controllers;
 
+import org.bounswe2015.group9.universal_access.dtos.ErrorDTO;
+import org.bounswe2015.group9.universal_access.dtos.ViolationDTO;
 import org.bounswe2015.group9.universal_access.entities.User;
 import org.bounswe2015.group9.universal_access.dtos.UserDTO;
 import org.bounswe2015.group9.universal_access.services.IUserService;
+import org.bounswe2015.group9.universal_access.services.IViolationService;
 import org.bounswe2015.group9.universal_access.services.impl.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,6 +26,9 @@ public class UserController {
 
 	@Autowired
 	private IUserService userService;
+
+	@Autowired
+	private IViolationService violationService;
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO user) {
@@ -72,5 +78,28 @@ public class UserController {
 		return new ResponseEntity<UserDTO>(HttpStatus.ACCEPTED);
 	}
 
+	@RequestMapping(value = "/me/violations",method = RequestMethod.GET)
+	public  ResponseEntity getMyViolations(OAuth2Authentication auth, @RequestParam(name = "closed", required = false) Boolean closed){
+		User user = (User) auth.getUserAuthentication().getPrincipal();
+		try {
+			List<ViolationDTO> violationDTOList = violationService.getViolationsByOwner(user.getId(), closed); //This boolean value must be set as RequestParam
+			return new ResponseEntity<>(violationDTOList, HttpStatus.OK);
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@RequestMapping(value = "/{id}/violations",method = RequestMethod.GET)
+	public  ResponseEntity getUserViolations(OAuth2Authentication auth, @PathVariable("id") Long id, @RequestParam(name = "closed", required = false) Boolean closed){
+		User user = (User) auth.getUserAuthentication().getPrincipal();
+		try {
+			List<ViolationDTO> violationDTOList = violationService.getViolationsByOwner(id, closed); //This boolean value must be set as RequestParam
+			return new ResponseEntity<>(violationDTOList, HttpStatus.OK);
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }
 
