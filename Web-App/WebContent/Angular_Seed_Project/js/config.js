@@ -58,6 +58,11 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             templateUrl: "views/techInfo.html"
         })
 
+        .state('advancedsearch', {
+            url: "/advancedsearch.html",
+            templateUrl: "views/advancedsearch.html"
+        })
+
 
         
    
