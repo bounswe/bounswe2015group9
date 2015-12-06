@@ -44,13 +44,18 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         })
 
         .state('notify', {
-            url: "/home2",
-            templateUrl: "views/notify.html"
+            url: "/notify",
+            templateUrl: "views/create-violation.html"
         })
 
         .state('viewVio', {
             url: "/viewVio",
             templateUrl: "views/viewViolation.html"
+        })
+
+        .state('info', {
+            url: "/viewVio/techInfo",
+            templateUrl: "views/techInfo.html"
         })
 
 
