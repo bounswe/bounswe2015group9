@@ -76,7 +76,8 @@ public class ViolationService implements IViolationService {
        v.setTitle((String) selector(vD.getTitle(), v.getTitle(), put));
        v.setImageUrl((String) selector(vD.getImageUrl(), v.getImageUrl(), put));
        v.setLocation((String) selector(vD.getLocation(), v.getLocation(), put));
-       v.setSeverityRate((Integer) selector(vD.getSeverityRate(), v.getSeverityRate(), put));
+        vD.setModificationDate(DateTime.now());
+       v.setModificationDate((DateTime) selector(vD.getModificationDate(), v.getModificationDate(), put)); //UPDATE HERE TO AUTOMATICALLY SET DATE
     }
 
     private Violation checkForUpdate(User user, ViolationDTO violationDTO) {

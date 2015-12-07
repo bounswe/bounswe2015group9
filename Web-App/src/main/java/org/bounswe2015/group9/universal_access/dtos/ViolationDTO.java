@@ -4,13 +4,15 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import org.bounswe2015.group9.universal_access.entities.Violation;
 import org.joda.time.DateTime;
 
+import java.util.Date;
+
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
 public class ViolationDTO {
     private Long id;
     private String title;
     private String description;
     private DateTime date;
-    private Integer severityRate;
+    private DateTime modificationDate;
     private String imageUrl;
     private String location;
     private Boolean closed;
@@ -21,7 +23,7 @@ public class ViolationDTO {
         title = violation.getTitle();
         description = violation.getDescription();
         date = violation.getDate();
-        severityRate = violation.getSeverityRate();
+        modificationDate = violation.getModificationDate();
         imageUrl = violation.getImageUrl();
         location = violation.getLocation();
         closed = violation.getClosed();
@@ -32,12 +34,12 @@ public class ViolationDTO {
     public ViolationDTO() {
     }
 
-    public ViolationDTO(Long id, String title, String description, DateTime date, Integer severityRate, String imageUrl, String location, Boolean active, Boolean closed) {
+    public ViolationDTO(Long id, String title, String description, DateTime date, DateTime modificationDate, String imageUrl, String location, Boolean active, Boolean closed) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.date = date;
-        this.severityRate = severityRate;
+        this.modificationDate = modificationDate;
         this.imageUrl = imageUrl;
         this.location = location;
         this.closed = closed;
@@ -75,12 +77,12 @@ public class ViolationDTO {
         this.date = date;
     }
 
-    public Integer getSeverityRate() {
-        return severityRate;
+    public DateTime getModificationDate() {
+        return modificationDate;
     }
 
-    public void setSeverityRate(Integer severityRate) {
-        this.severityRate = severityRate;
+    public void setModificationDate(DateTime modificationDate) {
+        this.modificationDate = modificationDate;
     }
 
     public String getImageUrl() {

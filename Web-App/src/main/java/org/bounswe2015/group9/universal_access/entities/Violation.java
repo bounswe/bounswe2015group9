@@ -34,8 +34,9 @@ public class Violation implements Serializable {
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime date;
 
-    @Column(name = "severity_rate", nullable = false)
-    private Integer severityRate;
+    @Column(name = "modification_date", nullable = true)
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    private DateTime modificationDate;
 
     @Column(name = "image_url", nullable = true)
     private String imageUrl;
@@ -51,7 +52,7 @@ public class Violation implements Serializable {
         title = violationDTO.getTitle();
         description = violationDTO.getDescription();
         date = violationDTO.getDate();
-        severityRate = violationDTO.getSeverityRate();
+        modificationDate = violationDTO.getModificationDate();
         imageUrl = violationDTO.getImageUrl();
         location = violationDTO.getLocation();
         closed = violationDTO.getClosed();
@@ -61,12 +62,12 @@ public class Violation implements Serializable {
     public Violation() {
     }
 
-    public Violation(User user, String title, String description, DateTime date, Integer severityRate, String imageUrl, String location, Boolean active, Boolean closed) {
+    public Violation(User user, String title, String description, DateTime date, DateTime modificationDate, String imageUrl, String location, Boolean active, Boolean closed) {
         this.user = user;
         this.title = title;
         this.description = description;
         this.date = date;
-        this.severityRate = severityRate;
+        this.modificationDate = modificationDate;
         this.imageUrl = imageUrl;
         this.location = location;
         this.closed = closed;
@@ -113,12 +114,12 @@ public class Violation implements Serializable {
         this.title = title;
     }
 
-    public Integer getSeverityRate() {
-        return severityRate;
+    public DateTime getModificationDate() {
+        return modificationDate;
     }
 
-    public void setSeverityRate(Integer severityRate) {
-        this.severityRate = severityRate;
+    public void setModificationDate(DateTime modificationDate) {
+        this.modificationDate = modificationDate;
     }
 
     public String getImageUrl() {
