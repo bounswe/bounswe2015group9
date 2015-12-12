@@ -80,13 +80,19 @@ public class RegistrationActivity extends AppCompatActivity {
         Ion.with(RegistrationActivity.this)
                 .load(getString(R.string.createUser))
                 .addHeader("Authorization","Bearer "+appBearerToken)
-                .addHeader("Content-Type","application/json")
+//                .addHeader("Content-Type","application/json")
                 .setJsonObjectBody(user)
                 .asJsonObject()
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override
                     public void onCompleted(Exception e, JsonObject result) {
-                        Log.d("UserCreated", result.toString());
+                        if(e == null) {
+                            Log.d("UserCreated", result.toString());
+                        }
+                        else
+                        {
+                            Log.d("UserCreationError",e.toString());
+                        }
                     }
                 });
 

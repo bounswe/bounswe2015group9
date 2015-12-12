@@ -8,4 +8,11 @@
     <string name="title_activity_registration">Registration</string>
     <string name="getAppTokenUrl">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/oauth/token?grant_type=client_credentials</string>
     <string name="createUser">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/rest/users</string>
+    <string name="createViolation">Create Violation</string>
+    <string name="title">Title</string>
+    <string name="text">Text</string>
+    <string name="description">Description</string>
+    <string name="severity_rate">Severity Rate</string>
+    <string name="location">Location</string>
+    <string name="createViolationURL">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/rest/violations</string>
 </resources>
