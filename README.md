@@ -89,3 +89,7 @@ Here, you can do all these stuff with our project:<br>
 	<li><a href='Files/People/ugur_bor.md'>Ugur Bor</a></li>
 	<li><a href='Files/People/emrah_kucuk.md'>Emrah Küçük</a>
 </ul>
+
+<h2>Code Reviews</h2>
+	<li><a href='https://github.com/bounswe/bounswe2015group9/issues/180'>Umut reviews Ömer's code</a>
+
