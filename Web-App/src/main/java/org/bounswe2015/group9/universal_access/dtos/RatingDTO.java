@@ -9,16 +9,19 @@ import org.bounswe2015.group9.universal_access.entities.Rating;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
 public class RatingDTO {
     private Boolean score;
-    private UserDTO userDTO;
-    private ViolationDTO violationDTO;
 
-    public RatingDTO(Rating rating){
-        score=rating.getScore();
+    public RatingDTO(){
+
     }
 
     public RatingDTO(Boolean score) {
         this.score = score;
     }
+
+    public RatingDTO(Rating rating){
+        this.score=rating.getScore();
+    }
+
 
     public Boolean getScore() {
         return score;
@@ -26,21 +29,5 @@ public class RatingDTO {
 
     public void setScore(Boolean score) {
         this.score = score;
-    }
-
-    public UserDTO getUserDTO() {
-        return userDTO;
-    }
-
-    public void setUserDTO(UserDTO userDTO) {
-        this.userDTO = userDTO;
-    }
-
-    public ViolationDTO getViolationDTO() {
-        return violationDTO;
-    }
-
-    public void setViolationDTO(ViolationDTO violationDTO) {
-        this.violationDTO = violationDTO;
     }
 }
