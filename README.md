@@ -91,5 +91,7 @@ Here, you can do all these stuff with our project:<br>
 </ul>
 
 <h2>Code Reviews</h2>
-	<li><a href='https://github.com/bounswe/bounswe2015group9/issues/180'>Umut reviews Ömer's code</a>
+<ul>
+	<li><a href='https://github.com/bounswe/bounswe2015group9/issues/180'>Umut reviews Ömer's code</a></li>
+</ul>
 
