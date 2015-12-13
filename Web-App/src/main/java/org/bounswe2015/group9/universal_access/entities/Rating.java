@@ -17,15 +17,15 @@ public class Rating implements Serializable{
 
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "violation_id", nullable = false)
+    @JoinColumn(name = "violation_id", nullable = true)
     private Violation violation;
 
-    @Column(name = "score", nullable = false)
+    @Column(name = "score", nullable = true)
     private Boolean score;
 
     public Rating(){

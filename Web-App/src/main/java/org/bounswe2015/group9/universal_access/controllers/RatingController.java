@@ -16,23 +16,38 @@ import org.springframework.web.bind.annotation.*;
  */
 @CrossOrigin
 @RestController
-@RequestMapping("rest/rating")
+@RequestMapping("/rest/rating")
 public class RatingController {
 
     @Autowired
     private IRatingService ratingService;
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public ResponseEntity setRating(OAuth2Authentication auth, @RequestBody RatingDTO ratingDTO){
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    public ResponseEntity setRating(OAuth2Authentication auth, @RequestBody RatingDTO ratingDTO, @PathVariable("id") Long id){
         User user = (User) auth.getUserAuthentication().getPrincipal();
         try {
             Violation violation = new Violation();
-            violation.setId(ratingDTO.getViolationDTO().getId());
+            violation.setId(id);
             ratingService.setRating(user, violation, ratingDTO);
             return new ResponseEntity(ratingDTO,HttpStatus.CREATED);
         }catch (RuntimeException e){
             e.printStackTrace();
                 return new ResponseEntity(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
+
+    //return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity getRating(OAuth2Authentication auth,@PathVariable("id") Long id){
+        User user = (User) auth.getUserAuthentication().getPrincipal();
+        try {
+            Violation violation = new Violation();
+            violation.setId(id);
+            RatingDTO ratingDTO = ratingService.getRating(user, violation);
+            return new ResponseEntity(ratingDTO, HttpStatus.OK);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return new ResponseEntity(new ErrorDTO(e.getMessage()),HttpStatus.BAD_REQUEST);
         }
     }
 
