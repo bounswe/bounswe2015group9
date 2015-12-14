@@ -23,8 +23,12 @@
         <activity
             android:name=".RegistrationActivity"
             android:label="@string/title_activity_registration"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CreateViolation" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".CreateViolation"></activity>
     </application>
 
 </manifest>

@@ -65,9 +65,15 @@ public class RegistrationActivity extends AppCompatActivity {
                         .setCallback(new FutureCallback<JsonObject>() {
                             @Override
                             public void onCompleted(Exception e, JsonObject result) {
-                                Log.d("Access_Token",result.toString());
-                                appBearerToken = result.get("access_token").getAsString();
-                                createUser(jsonObject);
+                                if(e==null) {
+                                    Log.d("Access_Token", result.toString());
+                                    appBearerToken = result.get("access_token").getAsString();
+                                    createUser(jsonObject);
+                                }
+                                else
+                                {
+                                    Log.d("CreateUserError",e.toString());
+                                }
                             }
                         });
 

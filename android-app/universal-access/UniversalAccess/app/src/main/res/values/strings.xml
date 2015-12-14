@@ -15,4 +15,6 @@
     <string name="severity_rate">Severity Rate</string>
     <string name="location">Location</string>
     <string name="createViolationURL">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/rest/violations</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="getAllViolationsURL">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/rest/violations?closed=false</string>
 </resources>

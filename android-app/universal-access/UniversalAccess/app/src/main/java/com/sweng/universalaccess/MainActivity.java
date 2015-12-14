@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,18 +54,22 @@ public class MainActivity extends AppCompatActivity {
                         .with(MainActivity.this)
                         .load(getString(R.string.getUserTokenUrl) + unamepass)
                         .addHeader("Authorization", getString(R.string.appToken))
+                        .addHeader("Content-Type", "application/json")
                         .setJsonObjectBody(new JsonObject())
                         .asJsonObject()
                         .setCallback(new FutureCallback<JsonObject>() {
                             @Override
                             public void onCompleted(Exception e, JsonObject result) {
-                                if (e == null && result.get("access_token")!=null) {
+                                if (e == null && result.get("access_token") != null) {
                                     getUser(result.get("access_token").getAsString());
                                     Log.d("FirstResult", result.toString());
                                 } else {
                                     Toast.makeText(MainActivity.this, "Bad Credentials", Toast.LENGTH_SHORT).show();
 
-//                                    Log.d("FirstError", e.toString());
+                                    if (e != null)
+                                        Log.d("AppTokenError", e.toString());
+                                    else
+                                        Log.d("AppTokenError", result.toString());
                                 }
                             }
                         });
@@ -76,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,RegistrationActivity.class);
+                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
                 startActivity(intent);
             }
         });
@@ -84,28 +87,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void getUser(final String access_token){
+    public void getUser(final String access_token) {
         Ion
                 .with(this)
                 .load(getString(R.string.getUserURL))
-                .addHeader("Authorization","Bearer "+access_token)
+                .addHeader("Authorization", "Bearer " + access_token)
                 .asJsonObject()
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override
                     public void onCompleted(Exception e, JsonObject result) {
-                        if(e == null){
-                            Log.d("LoginResult",result.toString());
-                            Intent intent = new Intent(MainActivity.this,CreateViolation.class);
-                            intent.putExtra("Bearer",access_token);
-                            intent.putExtra("email",result.get("email").getAsString());
-                            intent.putExtra("firstName",result.get("firstName").getAsString());
-                            intent.putExtra("lastName",result.get("lastName").getAsString());
+                        if (e == null) {
+                            Log.d("LoginResult", result.toString());
+                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            intent.putExtra("Bearer", access_token);
+                            intent.putExtra("email", result.get("email").getAsString());
+                            intent.putExtra("firstName", result.get("firstName").getAsString());
+                            intent.putExtra("lastName", result.get("lastName").getAsString());
                             startActivity(intent);
-                        }
-                        else{
+                        } else {
                             Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                         }
-                        Log.d("MyUser",result.toString());
+                        Log.d("MyUser", result.toString());
                     }
                 });
     }
