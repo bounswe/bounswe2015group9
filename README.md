@@ -91,5 +91,6 @@ Here, you can do all these stuff with our project:<br>
 <ul>
 	<li><a href='https://github.com/bounswe/bounswe2015group9/issues/180'>Umut reviews Ömer's code</a></li>
 	<li><a href='https://github.com/bounswe/bounswe2015group9/pull/181'>Melce reviews Umut's code</a></li>
+	<li><a href='https://github.com/bounswe/bounswe2015group9/pull/182'>Buse reviews Melce's code</a></li>
 </ul>
 
