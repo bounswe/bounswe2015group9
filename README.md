@@ -78,16 +78,13 @@ Here, you can do all these stuff with our project:<br>
 <ul>
 	<li><a href='Files/People/basriyilmazturk.md'>Basri Yilmazturk</a></li>
 	<li><a href='Files/People/BuseBuz.md'>Buse Buz</a></li>
-	<li><a href='Files/People/hatipkabak.md'>Hatip Kabak</a></li>
 	<li><a href='Files/People/BurakCoskun.md'>Burak Coşkun</a></li>
 	<li><a href='Files/People/UmutUz.md'>Umut Uz</a></li>
 	<li><a href='Files/People/OmerMTemel.md'>Omer M Temel</a></li>
 	<li><a href='Files/People/melce_husunbeyi.md'>Melce Husunbeyi</a></li>
-	<li><a href='Files/People/osman_aka.md'>Osman Aka</a></li>
-	<li><a href='Files/People/LeventBas.md'>Levent Bas</a></li>
 	<li><a href='Files/People/atalay_yirik.md'>Atalay Yirik</a></li>
-	<li><a href='Files/People/ugur_bor.md'>Ugur Bor</a></li>
 	<li><a href='Files/People/emrah_kucuk.md'>Emrah Küçük</a>
+	<li><a href='Files/People/GufteSSurmeli'>Güfte Seren Sürmeli</a>
 </ul>
 
 <h2>Code Reviews</h2>
