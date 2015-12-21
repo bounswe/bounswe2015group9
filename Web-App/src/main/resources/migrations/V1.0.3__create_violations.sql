@@ -4,7 +4,7 @@ CREATE TABLE `violation` (
   `description` text,
   `date` date NOT NULL,
   `title` varchar(255) NOT NULL DEFAULT '',
-  `severity_rate` int(4) unsigned NOT NULL,  `title` varchar(255) NOT NULL DEFAULT '',
+  `severity_rate` int(4) unsigned NOT NULL,
   `image_url` varchar(255) DEFAULT NULL,
   `location` varchar(255) NOT NULL,
   `closed` tinyint(1) NOT NULL DEFAULT '0',
