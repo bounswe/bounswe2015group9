@@ -24,10 +24,10 @@ public class TagService implements ITagService{
         return tags;
     }
 
-    public void createTag(ViolationDTO violationDTO, TagDTO tagDTO){
-        Violation v = new Violation();
-        v.setId(violationDTO.getId());
-        Tag tag = new Tag(v,tagDTO);
+
+
+    public void createTag(TagDTO tagDTO){
+        Tag tag= new Tag(tagDTO);
         tagDao.create(tag);
     }
 

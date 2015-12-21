@@ -1,11 +1,14 @@
 package org.bounswe2015.group9.universal_access.controllers;
 
 import org.bounswe2015.group9.universal_access.dtos.ErrorDTO;
+import org.bounswe2015.group9.universal_access.dtos.TagDTO;
 import org.bounswe2015.group9.universal_access.dtos.UserDTO;
 import org.bounswe2015.group9.universal_access.dtos.ViolationDTO;
 import org.bounswe2015.group9.universal_access.entities.User;
+import org.bounswe2015.group9.universal_access.entities.Violation;
 import org.bounswe2015.group9.universal_access.exceptions.ForbiddenProccessException;
 import org.bounswe2015.group9.universal_access.exceptions.RecordNotFoundException;
+import org.bounswe2015.group9.universal_access.services.ITagService;
 import org.bounswe2015.group9.universal_access.services.IViolationService;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,11 @@ public class ViolationController {
 
     @Autowired
     private IViolationService violationService;
+
+    @Autowired
+    private ITagService tagService;
+
+
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public ResponseEntity createViolation(OAuth2Authentication auth, @RequestBody ViolationDTO violationDTO){
@@ -103,4 +111,14 @@ public class ViolationController {
             return  exceptionResponse(e);
         }
     }
+
+    @RequestMapping(value = "/{id}/tag", method = RequestMethod.POST)
+    public ResponseEntity addTagToViolation(OAuth2Authentication auth, @PathVariable("id") Long id, @RequestBody TagDTO tagDTO) {
+        User user = (User) auth.getUserAuthentication().getPrincipal();
+        tagService.createTag(tagDTO);
+        violationService.addTag(new Violation(violationService.getViolation(id)),tagDTO);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+
 }

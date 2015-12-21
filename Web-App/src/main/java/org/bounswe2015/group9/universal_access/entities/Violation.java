@@ -7,6 +7,8 @@ import org.joda.time.DateTime;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "violation")
@@ -47,6 +49,18 @@ public class Violation implements Serializable {
     @Column(name = "closed", nullable = false)
     private Boolean closed;
 
+    private Set<Tag> tags = new HashSet<Tag>();
+
+    @ManyToMany(mappedBy = "tags")
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void addTag(Tag tag) {
+        this.tags.add(tag);
+    }
+
+
     public Violation(ViolationDTO violationDTO, User user) {
         id = violationDTO.getId();
         title = violationDTO.getTitle();
@@ -58,6 +72,17 @@ public class Violation implements Serializable {
         closed = violationDTO.getClosed();
         this.user = user;
     }
+    public Violation(ViolationDTO violationDTO) {
+        id = violationDTO.getId();
+        title = violationDTO.getTitle();
+        description = violationDTO.getDescription();
+        date = violationDTO.getDate();
+        modificationDate = violationDTO.getModificationDate();
+        imageUrl = violationDTO.getImageUrl();
+        location = violationDTO.getLocation();
+        closed = violationDTO.getClosed();
+    }
+
 
     public Violation() {
     }
@@ -145,4 +170,5 @@ public class Violation implements Serializable {
     public void setClosed(Boolean closed) {
         this.closed = closed;
     }
+
 }

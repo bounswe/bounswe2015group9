@@ -1,5 +1,6 @@
 package org.bounswe2015.group9.universal_access.services;
 
+import org.bounswe2015.group9.universal_access.dtos.TagDTO;
 import org.bounswe2015.group9.universal_access.dtos.ViolationDTO;
 import org.bounswe2015.group9.universal_access.entities.User;
 import org.bounswe2015.group9.universal_access.entities.Violation;
@@ -17,4 +18,6 @@ public interface IViolationService {
     void updatePatchViolation(User user, ViolationDTO violationDTO);
     void deleteViolation(User user, ViolationDTO violationDTO);
     void updatePutViolation(User user, ViolationDTO violationDTO);
+    void addTag(Violation violation, TagDTO tagDTO);
+
 }

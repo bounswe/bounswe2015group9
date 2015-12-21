@@ -8,6 +8,7 @@ import org.bounswe2015.group9.universal_access.entities.Tag;
  */
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
 public class TagDTO {
+    private long id;
     private String name;
 
     public TagDTO(){
@@ -26,7 +27,12 @@ public class TagDTO {
         this.name = name;
     }
 
+    public long getId() {
+        return id;
+    }
 
-
+    public void setId(long id) {
+        this.id = id;
+    }
 }
 

@@ -2,10 +2,11 @@ package org.bounswe2015.group9.universal_access.entities;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import org.bounswe2015.group9.universal_access.dtos.TagDTO;
-import org.bounswe2015.group9.universal_access.dtos.ViolationDTO;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by umut on 12.12.2015.
@@ -15,22 +16,40 @@ import java.io.Serializable;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
 public class Tag implements Serializable{
     private static final long serialVersionUID = 1L;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JoinColumn(name = "id",unique = true, nullable = false)
+    private Long id;
+
     @JoinColumn(name = "name", nullable = false)
     private String name;
 
-    @Id
-//    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "violation_id", nullable = true)
-    private Violation violation;
+    private Set<Violation> violations = new HashSet<Violation>();
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "tag_violation",
+            joinColumns = { @JoinColumn(name = "tag_id") },
+            inverseJoinColumns = { @JoinColumn(name = "violation_id") })
+    public Set<Violation> getViolations() {
+        return violations;
+    }
+
+
 
     public Tag(){
 
     }
 
-    public Tag(Violation violation, TagDTO tagDTO){
+    public Tag(TagDTO tagDTO){
+        this.id=tagDTO.getId();
         this.name=tagDTO.getName();
-        this.violation=violation;
+    }
+
+    public Tag(Violation violation, TagDTO tagDTO){
+        this.id=tagDTO.getId();
+        this.name=tagDTO.getName();
+//        this.violations=getViolations();
     }
 
     public String getName() {
@@ -41,11 +60,30 @@ public class Tag implements Serializable{
         this.name = name;
     }
 
-    public Violation getViolation() {
-        return violation;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setViolation(Violation violation) {
-        this.violation = violation;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (!this.getClass().equals(obj.getClass())) return false;
+
+        Tag obj2 = (Tag)obj;
+        if((this.id == obj2.getId()) && (this.name.equals(obj2.getName())))
+        {
+            return true;
+        }
+        return false;
+    }
+    public int hashCode() {
+        int tmp = 0;
+        tmp = ( id + name ).hashCode();
+        return tmp;
     }
 }

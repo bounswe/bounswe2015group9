@@ -4,7 +4,10 @@ import org.bounswe2015.group9.universal_access.dtos.ErrorDTO;
 import org.bounswe2015.group9.universal_access.dtos.RatingDTO;
 import org.bounswe2015.group9.universal_access.entities.User;
 import org.bounswe2015.group9.universal_access.entities.Violation;
+import org.bounswe2015.group9.universal_access.exceptions.ForbiddenProccessException;
+import org.bounswe2015.group9.universal_access.exceptions.RecordNotFoundException;
 import org.bounswe2015.group9.universal_access.services.IRatingService;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,11 +34,8 @@ public class RatingController {
             ratingService.setRating(user, violation, ratingDTO);
             return new ResponseEntity(ratingDTO,HttpStatus.CREATED);
         }catch (RuntimeException e){
-            e.printStackTrace();
-                return new ResponseEntity(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+                return exceptionResponse(e);
         }
-
-    //return new ResponseEntity<>(HttpStatus.CREATED);
     }
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity getRating(OAuth2Authentication auth,@PathVariable("id") Long id){
@@ -46,8 +46,20 @@ public class RatingController {
             RatingDTO ratingDTO = ratingService.getRating(user, violation);
             return new ResponseEntity(ratingDTO, HttpStatus.OK);
         }catch (RuntimeException e){
-            e.printStackTrace();
-            return new ResponseEntity(new ErrorDTO(e.getMessage()),HttpStatus.BAD_REQUEST);
+            return exceptionResponse(e);
+        }
+    }
+
+    private ResponseEntity exceptionResponse(RuntimeException e) {
+        e.printStackTrace();
+        if (e instanceof ConstraintViolationException || e instanceof IllegalArgumentException) {
+            return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+        } else if (e instanceof RecordNotFoundException) {
+            return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.NOT_FOUND);
+        } else if (e instanceof ForbiddenProccessException) {
+            return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.FORBIDDEN);
+        } else {
+            return new ResponseEntity<>(new ErrorDTO(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
