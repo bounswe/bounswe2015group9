@@ -1,7 +1,9 @@
 package org.bounswe2015.group9.universal_access.services.impl;
 
 import org.bounswe2015.group9.universal_access.daos.IViolationDao;
+import org.bounswe2015.group9.universal_access.dtos.TagDTO;
 import org.bounswe2015.group9.universal_access.dtos.ViolationDTO;
+import org.bounswe2015.group9.universal_access.entities.Tag;
 import org.bounswe2015.group9.universal_access.entities.User;
 import org.bounswe2015.group9.universal_access.entities.Violation;
 import org.bounswe2015.group9.universal_access.exceptions.ForbiddenProccessException;
@@ -121,5 +123,10 @@ public class ViolationService implements IViolationService {
         Violation violation = checkForUpdate(user, violationDTO);
 
         vdao.delete(violation);
+    }
+    @Override
+    public void addTag(Violation violation, TagDTO tagDTO){
+        Tag tag = new Tag(tagDTO);
+        violation.addTag(tag);
     }
 }

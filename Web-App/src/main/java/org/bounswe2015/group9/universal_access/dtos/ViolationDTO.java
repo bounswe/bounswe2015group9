@@ -33,6 +33,9 @@ public class ViolationDTO {
 
     public ViolationDTO() {
     }
+    public ViolationDTO(Long id){
+        this.id=id;
+    }
 
     public ViolationDTO(Long id, String title, String description, DateTime date, DateTime modificationDate, String imageUrl, String location, Boolean active, Boolean closed) {
         this.id = id;
