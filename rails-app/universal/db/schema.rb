@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230201941) do
+ActiveRecord::Schema.define(version: 20151230202204) do
 
   create_table "cities", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "violation_id"
+    t.string   "name",         limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
+
+  add_index "cities", ["violation_id"], name: "index_cities_on_violation_id"
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -32,12 +35,25 @@ ActiveRecord::Schema.define(version: 20151230201941) do
 
   create_table "districts", force: :cascade do |t|
     t.integer  "city_id"
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "violation_id"
+    t.string   "name",         limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "districts", ["city_id"], name: "index_districts_on_city_id"
+  add_index "districts", ["violation_id"], name: "index_districts_on_violation_id"
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.integer  "district_id"
+    t.integer  "violation_id"
+    t.string   "name",         limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "neighborhoods", ["district_id"], name: "index_neighborhoods_on_district_id"
+  add_index "neighborhoods", ["violation_id"], name: "index_neighborhoods_on_violation_id"
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer  "user_id",                    null: false
