@@ -79,10 +79,10 @@ ActiveRecord::Schema.define(version: 20151230185523) do
     t.integer  "user_id"
     t.string   "title",       limit: 255
     t.text     "description"
-    t.boolean  "closed"
+    t.boolean  "closed",                  default: false
     t.text     "address"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   add_index "violations", ["user_id"], name: "index_violations_on_user_id"

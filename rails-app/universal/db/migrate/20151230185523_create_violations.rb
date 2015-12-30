@@ -4,7 +4,7 @@ class CreateViolations < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.string :title
       t.text :description
-      t.boolean :closed
+      t.boolean :closed, default: false
       t.text :address
 
       t.timestamps null: false

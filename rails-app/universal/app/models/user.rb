@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :violations
+
   enum gender: [:male, :female, :other]
 
   validates :first_name, :last_name, presence: true
