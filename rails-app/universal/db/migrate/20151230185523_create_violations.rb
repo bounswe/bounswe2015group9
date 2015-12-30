@@ -5,6 +5,7 @@ class CreateViolations < ActiveRecord::Migration
       t.references :city, index: true, foreign_key: true
       t.references :district, index: true, foreign_key: true
       t.references :neighborhood, index: true, foreign_key: true
+      t.references :type, index: true, foreign_key: true
 
       t.string :title
       t.text :description

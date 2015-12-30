@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 20151230211923) do
     t.integer  "city_id"
     t.integer  "district_id"
     t.integer  "neighborhood_id"
+    t.integer  "type_id"
     t.string   "title",           limit: 255
     t.text     "description"
     t.boolean  "closed",                      default: false
@@ -167,6 +168,7 @@ ActiveRecord::Schema.define(version: 20151230211923) do
   add_index "violations", ["city_id"], name: "index_violations_on_city_id"
   add_index "violations", ["district_id"], name: "index_violations_on_district_id"
   add_index "violations", ["neighborhood_id"], name: "index_violations_on_neighborhood_id"
+  add_index "violations", ["type_id"], name: "index_violations_on_type_id"
   add_index "violations", ["user_id"], name: "index_violations_on_user_id"
 
 end
