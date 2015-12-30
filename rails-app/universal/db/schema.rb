@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230185144) do
+ActiveRecord::Schema.define(version: 20151230185523) do
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer  "user_id",                    null: false
@@ -74,5 +74,17 @@ ActiveRecord::Schema.define(version: 20151230185144) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "violations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title",       limit: 255
+    t.text     "description"
+    t.boolean  "closed"
+    t.text     "address"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "violations", ["user_id"], name: "index_violations_on_user_id"
 
 end

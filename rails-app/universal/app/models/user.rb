@@ -4,6 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  enum gender: [:male, :female, :other]
+
+  validates :first_name, :last_name, presence: true
+  validates :age, numericality: { greater_than_or_equal_to: 0 }
+
+
   after_create :create_credentials!
 
   protected
