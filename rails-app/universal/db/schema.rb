@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230192158) do
+ActiveRecord::Schema.define(version: 20151230200211) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "violation_id"
+    t.text     "description"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["violation_id"], name: "index_comments_on_violation_id"
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer  "user_id",                    null: false
@@ -52,6 +63,17 @@ ActiveRecord::Schema.define(version: 20151230192158) do
   end
 
   add_index "oauth_applications", ["uid"], name: "index_oauth_applications_on_uid", unique: true
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "violation_id"
+    t.integer  "user_id"
+    t.integer  "score"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
+  add_index "ratings", ["violation_id"], name: "index_ratings_on_violation_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

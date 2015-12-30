@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :violations
+  has_many :ratings
 
   enum gender: [:male, :female, :other]
 
