@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230183508) do
+ActiveRecord::Schema.define(version: 20151230185144) do
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer  "user_id",                    null: false
@@ -66,6 +66,10 @@ ActiveRecord::Schema.define(version: 20151230183508) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
+    t.integer  "gender"
+    t.integer  "age"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
