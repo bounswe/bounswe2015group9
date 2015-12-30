@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :violations
   has_many :ratings
+  has_many :comments
 
   enum gender: [:male, :female, :other]
 
