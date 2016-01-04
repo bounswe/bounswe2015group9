@@ -27,18 +27,17 @@
                                 
 
                              <h2>Upload file</h2>
-  <%= form_for Upload.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
-    <div class="form-group">
+                            <%= form_for Upload.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
+                                <div class="form-group">
                                     <label class="col-sm-2 control-label">Upload Image</label>
                                     <div class="col-sm-10">
                                         <span class="btn btn-success fileinput-button">
-          <i class="icon-plus icon-white"></i>
-          <span>Add files...</span>
-          <%= f.file_field :upload %>
-        </span>
+                                            <i class="icon-plus icon-white"></i>
+                                            <span>Add files...</span>
+                                            <%= f.file_field :upload %>
+                                        </span>
                                     </div>
                                 </div>
-
     <!-- The loading indicator is shown during image processing -->
     <div class="fileupload-loading"></div>
     <br>
@@ -46,6 +45,13 @@
     <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
     </table>
   <% end %>
+
+                            <div class="form-group" id="uploaded-image" style="display:none;">
+                                    <label class="col-sm-2 control-label">Uploaded Image</label>
+                                    <div class="col-sm-10" id="uploaded-image-url">
+
+                                    </div>
+                                </div>
 
                             <div class="hr-line-dashed"></div>
 
@@ -60,7 +66,9 @@
                                   <% end %>
                                   </ul>
                                 </div>
-                              <% end %>    
+                              <% end %>
+
+                              <%= hidden_field_tag(:image_url) %>
 
 
                                 <div class="form-group">
@@ -279,7 +287,15 @@
 <script type="text/javascript" charset="utf-8">
   $(function () {
       // Initialize the jQuery File Upload widget:
-      $('#fileupload').fileupload();
+      $('#fileupload').fileupload({
+        done: function (e, data) {
+            $('#uploaded-image').show();
+            var uploaded_image_url = JSON.parse(data.result)[0]["url"]
+            $('#uploaded-image-url').append("<img src=" + uploaded_image_url + "\" height=\"300\" width=\"450\"> </br></br>");
+
+            $('#image_url').val(uploaded_image_url);
+        }
+      });
       // 
       // Load existing files:
       $.getJSON($('#fileupload').prop('action'), function (files) {

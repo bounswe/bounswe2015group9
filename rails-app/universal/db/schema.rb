@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104210439) do
+ActiveRecord::Schema.define(version: 20160104224122) do
 
   create_table "cities", force: :cascade do |t|
     t.integer  "violation_id"
@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(version: 20160104210439) do
     t.string   "picture_content_type", limit: 255
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.text     "image_url"
   end
 
   add_index "violations", ["city_id"], name: "index_violations_on_city_id"
