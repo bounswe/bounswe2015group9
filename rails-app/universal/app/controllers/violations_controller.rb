@@ -1,5 +1,6 @@
 class ViolationsController < ApplicationController
   before_action :set_violation, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, only: [:districts, :neighborhoods, :type]
 
   # GET /violations
   # GET /violations.json
@@ -15,8 +16,40 @@ class ViolationsController < ApplicationController
   # GET /violations/new
   def new
     @violation = Violation.new
+    @cities = City.order(name: :asc)
+    @districts = @cities.find_by(name: "ADANA").districts
+    @neighborhoods = @districts.find_by(name: "ALADAĞ").neighborhoods
+    @types = Type.all
   end
 
+  def districts
+    @districts = City.find_by(id: params[:city_id]).districts
+
+    render json: @districts
+  end
+
+  def neighborhoods
+    @neighborhoods = District.find_by(id: params[:district_id]).neighborhoods
+
+    render json: @neighborhoods
+  end
+
+  def type
+    @type = Type.find_by(id: params[:type_id])
+
+    render json: @type
+  end
+
+  def picture_upload
+  @picture = Picture.find(params[:picture_id])
+    respondto do |format|
+      if @picture.update(cardparams)
+      format.js { render json: {photo: true} }
+      else
+        format.js { render json: @card.errors }
+      end
+    end
+  end
   # GET /violations/1/edit
   def edit
   end
@@ -24,7 +57,7 @@ class ViolationsController < ApplicationController
   # POST /violations
   # POST /violations.json
   def create
-    @violation = Violation.new(violation_params)
+    @violation = current_user.violations.build(violation_params)
 
     respond_to do |format|
       if @violation.save
@@ -69,6 +102,6 @@ class ViolationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def violation_params
-      params[:violation]
+      params.permit(:title, :description, :city_id, :district_id, :neighborhood_id, :type_id, :address)
     end
 end

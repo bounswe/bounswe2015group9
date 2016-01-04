@@ -15,4 +15,6 @@
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 //= require_tree .

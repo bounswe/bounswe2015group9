@@ -22,5 +22,14 @@ module Universal
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+        :bucket => "g9universal",
+        :access_key_id => "AKIAJXHBTR6VQQR6S3NQ",
+        :secret_access_key => "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"
+      }
+    }
   end
 end
