@@ -98,6 +98,15 @@
                                         <textarea class="form-control" rows="5" id="description" name="description"></textarea>
                                     </div>
                                 </div>
+
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <%= f.label :tag_list, "Tags", class: "col-md-2 control-label" %>
+                                    <div class="col-md-8">
+                                      <input type="text" class="form-control" name="tag_list", id="tags">
+                                    </div>
+                                  </div>
+
                                 <div class="hr-line-dashed"></div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">City</label>
@@ -312,4 +321,29 @@
         $('#loading').remove();
       });
   });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#tags').selectize({
+    delimiter: ',',
+    persist: false,
+    plugins: ['remove_button'],
+    maxOptions: 5,
+    create: function(input) {
+      return {
+        value: input,
+        text: input
+      }
+    }
+  });
+  // add autocomplete options
+  $.each(<%= raw @all_tag_list.to_json %>, function () {
+    var tag = this;
+    $('#tags')[0].selectize.addOption({
+      value: tag,
+      text: tag
+    })
+  });
+})
 </script>

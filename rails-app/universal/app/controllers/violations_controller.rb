@@ -1,6 +1,7 @@
 class ViolationsController < ApplicationController
   before_action :set_violation, only: [:show, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token, only: [:districts, :neighborhoods, :type]
+  before_action :find_all_tag_list, only: [:new, :edit]
 
   # GET /violations
   # GET /violations.json
@@ -57,6 +58,7 @@ class ViolationsController < ApplicationController
   # POST /violations
   # POST /violations.json
   def create
+    binding.pry
     @violation = current_user.violations.build(violation_params)
 
     respond_to do |format|
@@ -102,6 +104,10 @@ class ViolationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def violation_params
-      params.permit(:title, :description, :city_id, :district_id, :neighborhood_id, :type_id, :address, :image_url)
+      params.permit(:title, :description, :city_id, :district_id, :neighborhood_id, :type_id, :address, :image_url, :tag_list)
+    end
+
+    def find_all_tag_list
+      @all_tag_list = Violation.tag_counts_on(:tags).collect(&:name).uniq
     end
 end
