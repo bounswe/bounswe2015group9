@@ -58,7 +58,6 @@ class ViolationsController < ApplicationController
   # POST /violations
   # POST /violations.json
   def create
-    binding.pry
     @violation = current_user.violations.build(violation_params)
 
     respond_to do |format|

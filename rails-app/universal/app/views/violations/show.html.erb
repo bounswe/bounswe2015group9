@@ -1,4 +1,197 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+            <div class="col-lg-9">
+                <div class="wrapper wrapper-content animated fadeInUp">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="m-b-md">
+                                        <a href="#" class="btn btn-white btn-xs pull-right">Edit project</a>
+                                        <h2><%= @violation.title %></h2>
+                                    </div>
+                                    <dl class="dl-horizontal text-center">
+                                        <img src="<%= @violation.image_url %>" height="300" width="450">
+                                    </dl>
+                                    <dl class="dl-horizontal">
+                                        <dt>Status:</dt> <dd>
+                                        <% if @violation.closed? %>
+                                            <span class="label label-danger">Closed</span>
+                                        <% else %>
+                                            <span class="label label-primary">Active</span>
+                                        <% end %>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <dl class="dl-horizontal">
 
-<%= link_to 'Edit', edit_violation_path(@violation) %> |
-<%= link_to 'Back', violations_path %>
+                                        <dt>Created by:</dt> <dd><%= @violation.user.first_name + " " + @violation.user.last_name %></dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-7" id="cluster_info">
+                                    <dl class="dl-horizontal" >
+                                        <dt>Last Updated:</dt> <dd><%= @violation.updated_at %></dd>
+                                        <dt>Created:</dt> <dd><%= @violation.created_at %></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <dl class="dl-horizontal">
+                                        <dt>City:</dt>
+                                        <dd>
+                                            <%= @violation.city.name %>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <dl class="dl-horizontal">
+                                        <dt>District:</dt>
+                                        <dd>
+                                            <%= @violation.district.name %>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <dl class="dl-horizontal">
+                                        <dt>Neighborhood:</dt>
+                                        <dd>
+                                            <%= @violation.neighborhood.name %>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <dl class="dl-horizontal">
+                                        <dt>Address:</dt>
+                                        <dd>
+                                            <%= @violation.address %>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row m-t-sm">
+                                <div class="col-lg-12">
+                                <div class="panel blank-panel">
+                                <div class="panel-heading">
+                                    <div class="panel-options">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#tab-1" data-toggle="tab">Users messages</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+
+                                <div class="tab-content">
+                                <div class="tab-pane active" id="tab-1">
+                                    <div class="feed-activity-list">
+                                        <div class="feed-element">
+                                            <a href="#" class="pull-left">
+                                                <img alt="image" class="img-circle" src="img/a2.jpg">
+                                            </a>
+                                            <div class="media-body ">
+                                                <small class="pull-right">2h ago</small>
+                                                <strong>Mark Johnson</strong> posted message on <strong>Monica Smith</strong> site. <br>
+                                                <small class="text-muted">Today 2:10 pm - 12.06.2014</small>
+                                                <div class="well">
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                                    Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="feed-element">
+                                            <a href="#" class="pull-left">
+                                                <img alt="image" class="img-circle" src="img/a3.jpg">
+                                            </a>
+                                            <div class="media-body ">
+                                                <small class="pull-right">2h ago</small>
+                                                <strong>Janet Rosowski</strong> add 1 photo on <strong>Monica Smith</strong>. <br>
+                                                <small class="text-muted">2 days ago at 8:30am</small>
+                                            </div>
+                                        </div>
+                                        <div class="feed-element">
+                                            <a href="#" class="pull-left">
+                                                <img alt="image" class="img-circle" src="img/a4.jpg">
+                                            </a>
+                                            <div class="media-body ">
+                                                <small class="pull-right text-navy">5h ago</small>
+                                                <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                                <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                                <div class="actions">
+                                                    <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                                    <a class="btn btn-xs btn-white"><i class="fa fa-heart"></i> Love</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="feed-element">
+                                            <a href="#" class="pull-left">
+                                                <img alt="image" class="img-circle" src="img/a5.jpg">
+                                            </a>
+                                            <div class="media-body ">
+                                                <small class="pull-right">2h ago</small>
+                                                <strong>Kim Smith</strong> posted message on <strong>Monica Smith</strong> site. <br>
+                                                <small class="text-muted">Yesterday 5:20 pm - 12.06.2014</small>
+                                                <div class="well">
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                                    Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="feed-element">
+                                            <a href="#" class="pull-left">
+                                                <img alt="image" class="img-circle" src="img/profile.jpg">
+                                            </a>
+                                            <div class="media-body ">
+                                                <small class="pull-right">23h ago</small>
+                                                <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                                                <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                                            </div>
+                                        </div>
+                                        <div class="feed-element">
+                                            <a href="#" class="pull-left">
+                                                <img alt="image" class="img-circle" src="img/a7.jpg">
+                                            </a>
+                                            <div class="media-body ">
+                                                <small class="pull-right">46h ago</small>
+                                                <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                                                <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                                </div>
+
+                                </div>
+
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="wrapper wrapper-content project-manager">
+                    <h4>Project description</h4>
+                    <p>
+                        <%= @violation.description %>
+                    </p>
+                    <h5>Project tags</h5>
+                    <ul class="tag-list" style="padding: 0">
+                        <% @violation.tag_list.each do |tag| %>
+                            <li><a href=""><i class="fa fa-tag"></i><%= tag %></a></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>

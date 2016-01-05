@@ -1,25 +1,62 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Violations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="row">
     <% @violations.each do |violation| %>
-      <tr>
-        <td><%= link_to 'Show', violation %></td>
-        <td><%= link_to 'Edit', edit_violation_path(violation) %></td>
-        <td><%= link_to 'Destroy', violation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <div class="col-lg-4">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <% if violation.closed? %>
+                        <span class="label label-danger pull-right">Closed</span>
+                    <% else %>
+                        <span class="label label-primary pull-right">Active</span>
+                    <% end %>
+                    
+                    <h5><%= link_to violation.title, violation_path(violation.id) %></h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="team-members">
+                        <img src="<%= violation.image_url %>" width="280" height="200"></a>
+                    </div>
+                    <p>
+                        <%= violation.description %>
+                    </p>
+                    <div class="row  m-t-sm">
+                        <div class="col-sm-4">
+                            <div class="font-bold">City</div>
+                            <small><%= violation.city.name %></small>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="font-bold">District</div>
+                            <small><%= violation.district.name %></small>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="font-bold">Neighborhood</div>
+                            <small><%= violation.neighborhood.name %></small>
+                        </div>
+                        
+                    </div>
+                    <div class="row  m-t-sm">
+                        <div class="col-sm-4">
+                            <div class="font-bold">Type</div>
+                            <small><%= violation.type.name %></small>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="font-bold">Rating</div>
+                            <small>3</small>
+                        </div>
+                        <div class="col-sm-4">
+
+                        </div>
+                        
+                    </div>
+                    
+
+                    
+
+                </div>
+            </div>
+        </div>
+
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Violation', new_violation_path %>
+        
+</div>
