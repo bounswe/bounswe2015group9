@@ -28,6 +28,14 @@ class ViolationsController < ApplicationController
     @types = Type.all
   end
 
+  # GET /violations/1/edit
+  def edit
+    @cities = City.order(name: :asc)
+    @districts = @cities.find_by(name: "ADANA").districts
+    @neighborhoods = @districts.find_by(name: "ALADAĞ").neighborhoods
+    @types = Type.all
+  end
+
   def districts
     @districts = City.find_by(id: params[:city_id]).districts
 
@@ -70,9 +78,7 @@ class ViolationsController < ApplicationController
       end
     end
   end
-  # GET /violations/1/edit
-  def edit
-  end
+
 
   # POST /violations
   # POST /violations.json
@@ -93,6 +99,10 @@ class ViolationsController < ApplicationController
   # PATCH/PUT /violations/1
   # PATCH/PUT /violations/1.json
   def update
+    @cities = City.order(name: :asc)
+    @districts = @cities.find_by(name: "ADANA").districts
+    @neighborhoods = @districts.find_by(name: "ALADAĞ").neighborhoods
+    @types = Type.all
     respond_to do |format|
       if @violation.update(violation_params)
         format.html { redirect_to @violation, notice: 'Violation was successfully updated.' }
