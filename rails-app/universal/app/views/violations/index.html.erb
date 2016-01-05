@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<div class="row">
+<div class="flex-masonry">
     <% @violations.each do |violation| %>
-        <div class="col-lg-4">
+        <div class="flex-masonry-item">
             <div class="ibox">
                 <div class="ibox-title">
                     <% if violation.closed? %>
@@ -25,11 +25,11 @@
                             <div class="font-bold">City</div>
                             <small><%= violation.city.name %></small>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="font-bold">District</div>
                             <small><%= violation.district.name %></small>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-5">
                             <div class="font-bold">Neighborhood</div>
                             <small><%= violation.neighborhood.name %></small>
                         </div>
@@ -50,7 +50,13 @@
                         
                     </div>
                     
-
+                    <div class='row'>
+                        <ul class="tag-list" style="padding: 0">
+                            <% violation.tag_list.each do |tag| %>
+                                <li><a href=""><i class="fa fa-tag"></i><%= tag %></a></li>
+                            <% end %>
+                        </ul>
+                    </div>
                     
 
                 </div>
