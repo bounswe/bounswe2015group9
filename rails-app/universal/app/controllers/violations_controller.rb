@@ -41,6 +41,20 @@ class ViolationsController < ApplicationController
     render json: @type
   end
 
+  def new_comment
+    comment = Comment.new
+    comment.user = current_user
+    comment.description = params[:comment]
+    
+    @violation = Violation.find(params[:id])
+    comment.violation = @violation
+    if comment.save
+      redirect_to @violation, notice: 'Comment was successfully created.'
+    else
+      redirect_to @violation, alert: 'Error!, comment was not created.'
+    end
+  end
+
   def picture_upload
   @picture = Picture.find(params[:picture_id])
     respondto do |format|

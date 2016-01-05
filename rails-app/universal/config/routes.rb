@@ -25,6 +25,9 @@ Rails.application.routes.draw do
       post 'type'
       post 'image_upload'
     end
+    member do
+      post 'new_comment'
+    end
   end
 
   resources :uploads
