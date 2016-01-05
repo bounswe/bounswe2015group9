@@ -29,7 +29,7 @@
                              <h2>Upload file</h2>
                             <%= form_for Upload.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">Upload Image</label>
+                                    <label class="col-sm-2 control-label">Change Image</label>
                                     <div class="col-sm-10">
                                         <span class="btn btn-success fileinput-button">
                                             <i class="icon-plus icon-white"></i>
@@ -46,10 +46,10 @@
     </table>
   <% end %>
 
-                            <div class="form-group" id="uploaded-image" style="display:none;">
+                            <div class="form-group" id="uploaded-image">
                                     <label class="col-sm-2 control-label">Uploaded Image</label>
                                     <div class="col-sm-10" id="uploaded-image-url">
-
+                                      <img src="<%= @violation.image_url %>" height="300" width="450"></br></br>
                                     </div>
                                 </div>
 
@@ -302,6 +302,7 @@
         done: function (e, data) {
             $('#uploaded-image').show();
             var uploaded_image_url = JSON.parse(data.result)[0]["url"]
+            $('#uploaded-image-url').empty();
             $('#uploaded-image-url').append("<img src=" + uploaded_image_url + "\" height=\"300\" width=\"450\"> </br></br>");
 
             $('#image_url').val(uploaded_image_url);
