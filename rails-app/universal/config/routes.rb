@@ -32,6 +32,21 @@ Rails.application.routes.draw do
 
   resources :uploads
 
+
+  # Api v1
+  namespace :api do
+    namespace :v1 do
+      resources :violations
+      resources :registrations, only: :create
+      resources :users, only: :edit do
+        collection do
+          post 'me'
+          post 'edit'
+        end
+      end
+    end
+  end
+
   # Example resource route with options:
   #   resources :products do
   #     member do
