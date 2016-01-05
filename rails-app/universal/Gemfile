@@ -44,3 +44,4 @@ gem 'jquery-fileupload-rails'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem "selectize-rails"
+gem 'ransack', '~> 1.7'

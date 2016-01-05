@@ -1,12 +1,17 @@
 class ViolationsController < ApplicationController
   before_action :set_violation, only: [:show, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token, only: [:districts, :neighborhoods, :type]
-  before_action :find_all_tag_list, only: [:new, :edit]
+  before_action :find_all_tag_list, only: [:new, :edit, :index]
 
   # GET /violations
   # GET /violations.json
   def index
-    @violations = Violation.all
+    @q = Violation.ransack(params[:q])
+    @violations = @q.result.includes(:city, :district, :neighborhood)
+    @violations = @violations.tagged_with(params[:tag_list]) if params[:tag_list].present?
+    @cities = City.order(name: :asc)
+    @districts = @cities.find_by(name: "ADANA").districts
+    @neighborhoods = @districts.find_by(name: "ALADAĞ").neighborhoods
   end
 
   # GET /violations/1
