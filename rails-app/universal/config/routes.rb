@@ -38,6 +38,12 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :violations
       resources :registrations, only: :create
+      resources :types, only: :index
+      resources :cities, only: :index
+      resources :districts, only: :index
+      resources :neighborhoods, only: :index
+      resources :uploads, only: :create
+      resources :tags, only: :index
       resources :users, only: :edit do
         collection do
           post 'me'

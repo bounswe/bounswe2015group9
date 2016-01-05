@@ -9,5 +9,5 @@ class Violation < ActiveRecord::Base
   has_many :ratings
   has_many :comments
 
-  validates :title, :description, :address, presence: true
+  validates :title, :description, :address, :type, :city, :district, :neighborhood, presence: true
 end

@@ -10,6 +10,34 @@ class Api::V1::ViolationsController < Api::V1::BaseController
     render json: @violations
   end
 
+  def show
+    @violation = Violation.find(params[:id])
+
+    render(json: Api::V1::ViolationDetailSerializer.new(@violation).to_json)
+  end
+
+  def comment
+    @violation = Violation.find(params[:id])
+    @comment = @violation.comments.build(params[:description])
+
+    if @upload.save
+      render json: {files: [@upload.to_jq_upload]}, status: :created, location: @upload
+    else
+      render json: @upload.errors, status: :unprocessable_entity
+    end
+    end
+  end
+
+  def create
+    @violation = current_user.violations.build(violation_params)
+    if @violation.save
+      render json: @violation
+    else
+      render json: @violation.errors, status: :unprocessable_entity
+    end
+    
+  end
+
   private
 
     def violation_params
