@@ -27,6 +27,17 @@ class Api::V1::ViolationsController < Api::V1::BaseController
     end
   end
 
+  def rating
+    @violation = Violation.find(params[:id])
+    @rating = @violation.ratings.build(score: params[:score], user: current_user)
+
+    if @rating.save
+      render json: @rating
+    else
+      render json: @rating.errors, status: :unprocessable_entity
+    end
+  end
+
   def create
     @violation = current_user.violations.build(violation_params)
     if @violation.save

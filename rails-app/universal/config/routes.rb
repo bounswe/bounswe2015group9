@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       resources :violations do
         member do
           post 'comment'
+          post 'rating'
         end
       end
       resources :registrations, only: :create
