@@ -79,6 +79,20 @@
                                     </dl>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <dl class="dl-horizontal">
+                                        <dt>Ratings:</dt>
+                                        <dd>
+                                            <%= @violation.ratings.sum(:score) %>
+                                            <% if user_signed_in? %>
+                                                 <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= @violation.id %>/rating?score=1"><i class="fa fa-caret-up fa-lg"></i></a>
+                                                <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= @violation.id %>/rating?score=-1"><i class="fa fa-caret-down fa-lg"></i></a>
+                                            <% end %>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
                             <div class="row m-t-sm">
                                 <div class="col-lg-12">
                                 <div class="panel blank-panel">

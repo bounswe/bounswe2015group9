@@ -88,14 +88,6 @@
     <% @violations.each do |violation| %>
         <div class="flex-masonry-item">
             <div class="ibox">
-                <% if user_signed_in? %>
-                    <div class="col-sm-1 pull-right">
-                                <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= violation.id %>/rating?score=1"><i class="fa fa-caret-up fa-lg"></i></a>
-
-                                <div id="rating-<%= violation.id %>"><%= violation.ratings.sum(:score) %></div>
-                                <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= violation.id %>/rating?score=-1"><i class="fa fa-caret-down fa-lg"></i></a>
-                            </div>
-                <% end %>
                 <div class="ibox-title">
                     <% if violation.closed? %>
                         <span class="label label-danger pull-right">Closed</span>
@@ -137,9 +129,11 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="font-bold">Rating</div>
-                            <small>3</small>
-                                <i class="fa fa-caret-up lg"></i>
-                                <i class="fa fa-caret-down lg"></i>
+                            <small><%= violation.ratings.sum(:score) %></small>
+                            <% if user_signed_in? %>
+                                <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= violation.id %>/rating?score=1"><i class="fa fa-caret-up fa-lg"></i></a>
+                                <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= violation.id %>/rating?score=-1"><i class="fa fa-caret-down fa-lg"></i></a>
+                            <% end %>
                         </div>
                         <div class="col-sm-4">
 
