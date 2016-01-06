@@ -48737,3 +48737,5 @@ neighborhoods.each do |n|
   neighborhood.name = n[2]
   neighborhood.save
 end
+
+AdminUser.create(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
