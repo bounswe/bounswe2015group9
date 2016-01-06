@@ -2,6 +2,8 @@ class ViolationsController < ApplicationController
   before_action :set_violation, only: [:show, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token, only: [:districts, :neighborhoods, :type]
   before_action :find_all_tag_list, only: [:new, :edit, :index]
+  before_action :authenticate_user!, only: [:edit, :new, :create, :update, :comment]
+  before_action :check_user_violation, only: [:edit, :update]
 
   # GET /violations
   # GET /violations.json
@@ -135,10 +137,16 @@ class ViolationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def violation_params
-      params.permit(:title, :description, :city_id, :district_id, :neighborhood_id, :type_id, :address, :image_url, :tag_list)
+      params.permit(:title, :description, :city_id, :district_id, :neighborhood_id, :type_id, :address, :image_url, :tag_list, :closed)
     end
 
     def find_all_tag_list
       @all_tag_list = Violation.tag_counts_on(:tags).collect(&:name).uniq
+    end
+
+    def check_user_authentication
+      unless @violation.user == current_user
+        redirect_to violations_path
+      end
     end
 end

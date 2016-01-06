@@ -6,7 +6,9 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="m-b-md">
-                                        <%= link_to "Edit project", edit_violation_path(@violation.id), class: "btn btn-white btn-xs pull-right" %>
+                                        <% if user_signed_in? && @violation.user == current_user %>
+                                            <%= link_to "Edit violation", edit_violation_path(@violation.id), class: "btn btn-white btn-xs pull-right" %>
+                                        <% end %>
                                         <h2><%= @violation.title %></h2>
                                     </div>
                                     <dl class="dl-horizontal text-center">
@@ -105,19 +107,21 @@
                                             </div>
                                         <% end %>
                                     </div>
-                                    <%= form_tag(comment_violation_path(@violation.id), method: :post, :html => { :class => "form-horizontal" }) do |f| %>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">New Comment</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" name="comment"></textarea>
+                                    <% if user_signed_in? %>
+                                        <%= form_tag(comment_violation_path(@violation.id), method: :post, :html => { :class => "form-horizontal" }) do |f| %>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">New Comment</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" rows="3" name="comment"></textarea>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <div class="col-sm-4 col-sm-offset-2">
-                                                <button class="btn btn-primary" type="submit">Submit</button>
+                                            <div class="form-group">
+                                                <div class="col-sm-4 col-sm-offset-2">
+                                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                                </div>
                                             </div>
-                                        </div>
+                                        <% end %>
                                     <% end %>
 
                                 </div>

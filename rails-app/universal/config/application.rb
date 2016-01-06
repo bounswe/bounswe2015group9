@@ -31,5 +31,13 @@ module Universal
         :secret_access_key => "8cKrZp5q9mFKiL1coeSBLCUGVnUPWLlKX0HqRxo+"
       }
     }
+
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '/api/*', headers: :any, methods: [:get, :post, :patch, :put, :delete, :options]
+        resource '/oauth/*', headers: :any, methods: [:get, :post, :options]
+      end
+    end
   end
 end
