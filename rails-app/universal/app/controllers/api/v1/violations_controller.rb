@@ -18,13 +18,12 @@ class Api::V1::ViolationsController < Api::V1::BaseController
 
   def comment
     @violation = Violation.find(params[:id])
-    @comment = @violation.comments.build(params[:description])
+    @comment = @violation.comments.build(description: params[:description], user: current_user)
 
-    if @upload.save
-      render json: {files: [@upload.to_jq_upload]}, status: :created, location: @upload
+    if @comment.save
+      render json: @comment
     else
-      render json: @upload.errors, status: :unprocessable_entity
-    end
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
 

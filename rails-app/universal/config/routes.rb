@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       post 'image_upload'
     end
     member do
-      post 'new_comment'
+      post 'comment'
     end
   end
 
@@ -36,7 +36,11 @@ Rails.application.routes.draw do
   # Api v1
   namespace :api do
     namespace :v1 do
-      resources :violations
+      resources :violations do
+        member do
+          post 'comment'
+        end
+      end
       resources :registrations, only: :create
       resources :types, only: :index
       resources :cities, only: :index

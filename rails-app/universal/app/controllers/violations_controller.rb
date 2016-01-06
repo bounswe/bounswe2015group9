@@ -54,7 +54,7 @@ class ViolationsController < ApplicationController
     render json: @type
   end
 
-  def new_comment
+  def comment
     comment = Comment.new
     comment.user = current_user
     comment.description = params[:comment]
