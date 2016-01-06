@@ -73,6 +73,17 @@ class ViolationsController < ApplicationController
     end
   end
 
+  def rating
+    @violation = Violation.find(params[:id])
+    @rating = @violation.ratings.build(score: params[:score], user: current_user)
+
+    if @rating.save
+      redirect_to :back, notice: 'Rating was successfully added.'
+    else
+      redirect_to :back, notice: 'You have already rated.'
+    end
+  end
+
   def picture_upload
   @picture = Picture.find(params[:picture_id])
     respondto do |format|
