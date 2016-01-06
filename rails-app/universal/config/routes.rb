@@ -18,7 +18,45 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :violations
+  resources :violations do
+    collection do
+      post 'districts'
+      post 'neighborhoods'
+      post 'type'
+      post 'image_upload'
+    end
+    member do
+      post 'comment'
+    end
+  end
+
+  resources :uploads
+
+
+  # Api v1
+  namespace :api do
+    namespace :v1 do
+      resources :violations do
+        member do
+          post 'comment'
+          post 'rating'
+        end
+      end
+      resources :registrations, only: :create
+      resources :types, only: :index
+      resources :cities, only: :index
+      resources :districts, only: :index
+      resources :neighborhoods, only: :index
+      resources :uploads, only: :create
+      resources :tags, only: :index
+      resources :users, only: :edit do
+        collection do
+          post 'me'
+          post 'edit'
+        end
+      end
+    end
+  end
 
   # Example resource route with options:
   #   resources :products do

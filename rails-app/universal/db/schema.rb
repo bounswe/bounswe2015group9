@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151230211923) do
+ActiveRecord::Schema.define(version: 20160104224122) do
 
   create_table "cities", force: :cascade do |t|
     t.integer  "violation_id"
@@ -129,6 +129,15 @@ ActiveRecord::Schema.define(version: 20151230211923) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "uploads", force: :cascade do |t|
+    t.string   "upload_file_name",    limit: 255
+    t.string   "upload_content_type", limit: 255
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -157,12 +166,17 @@ ActiveRecord::Schema.define(version: 20151230211923) do
     t.integer  "district_id"
     t.integer  "neighborhood_id"
     t.integer  "type_id"
-    t.string   "title",           limit: 255
+    t.string   "title",                limit: 255
     t.text     "description"
-    t.boolean  "closed",                      default: false
+    t.boolean  "closed",                           default: false
     t.text     "address"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.string   "picture_file_name",    limit: 255
+    t.string   "picture_content_type", limit: 255
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.text     "image_url"
   end
 
   add_index "violations", ["city_id"], name: "index_violations_on_city_id"

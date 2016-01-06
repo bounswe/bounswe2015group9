@@ -1,0 +1,13 @@
+.flex-masonry {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &-item {
+    width: 33.3%;
+
+    &:not(:nth-child(3n)) {
+      padding-right: 15px;
+    }
+  }
+}
