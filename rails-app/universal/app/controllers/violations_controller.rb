@@ -3,7 +3,7 @@ class ViolationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:districts, :neighborhoods, :type]
   before_action :find_all_tag_list, only: [:new, :edit, :index]
   before_action :authenticate_user!, only: [:edit, :new, :create, :update, :comment]
-  before_action :check_user_violation, only: [:edit, :update]
+  before_action :check_user_authentication, only: [:edit, :update]
 
   # GET /violations
   # GET /violations.json
