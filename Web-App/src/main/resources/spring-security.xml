@@ -3,6 +3,7 @@
        xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
        xmlns:sec="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/security/oauth2
@@ -10,7 +11,7 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-4.0.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context.xsd">
+	http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <oauth:resource-server id="resourceServerFilter"
                            resource-id="custom_app" token-services-ref="tokenServices" />
@@ -193,4 +194,8 @@
         <sec:expression-handler ref="oauthExpressionHandler" />
     </sec:global-method-security>
 
+    <mvc:cors>
+        <mvc:mapping path="/**"
+                     />
+    </mvc:cors>
 </beans>
