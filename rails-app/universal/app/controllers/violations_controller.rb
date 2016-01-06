@@ -39,13 +39,16 @@ class ViolationsController < ApplicationController
   def districts
     @districts = City.find_by(id: params[:city_id]).districts
 
-    render json: @districts
+    response = @districts.to_json
+    render json: response
+
   end
 
   def neighborhoods
     @neighborhoods = District.find_by(id: params[:district_id]).neighborhoods
 
-    render json: @neighborhoods
+    response = @neighborhoods.to_json
+    render json: response
   end
 
   def type
