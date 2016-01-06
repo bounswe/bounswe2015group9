@@ -212,7 +212,7 @@
               url: "/violations/type",
               data: { "type_id": this.value },
             }).done(function(data) {
-                $('#description-text').text(data.description);
+                $('#description-text').text(data.type.description);
                 $('#description-text').show();
             });
         }else {
