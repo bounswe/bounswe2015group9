@@ -85,7 +85,7 @@
                                 <div class="panel-heading">
                                     <div class="panel-options">
                                         <ul class="nav nav-tabs">
-                                            <li class="active"><a href="#tab-1" data-toggle="tab">Users messages</a></li>
+                                            <li class="active"><a href="#tab-1" data-toggle="tab">Message from Users</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -139,11 +139,11 @@
             </div>
             <div class="col-lg-3">
                 <div class="wrapper wrapper-content project-manager">
-                    <h4>Project description</h4>
+                    <h4>Report Description</h4>
                     <p>
                         <%= @violation.description %>
                     </p>
-                    <h5>Project tags</h5>
+                    <h5>Tags : </h5>
                     <ul class="tag-list" style="padding: 0">
                         <% @violation.tag_list.each do |tag| %>
                             <li><a href=""><i class="fa fa-tag"></i><%= tag %></a></li>
