@@ -135,7 +135,7 @@ class ViolationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def violation_params
-      params.permit(:title, :description, :city_id, :district_id, :neighborhood_id, :type_id, :address, :image_url, :tag_list)
+      params.permit(:title, :description, :city_id, :district_id, :neighborhood_id, :type_id, :address, :image_url, :tag_list, :closed)
     end
 
     def find_all_tag_list
