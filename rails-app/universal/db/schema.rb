@@ -14,13 +14,10 @@
 ActiveRecord::Schema.define(version: 20160104224122) do
 
   create_table "cities", force: :cascade do |t|
-    t.integer  "violation_id"
-    t.string   "name",         limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
-
-  add_index "cities", ["violation_id"], name: "index_cities_on_violation_id"
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
