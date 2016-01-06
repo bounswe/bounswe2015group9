@@ -10,7 +10,13 @@ class Rating < ActiveRecord::Base
   private
     def check_duplication
       if Rating.where(violation: self.violation, user: self.user).present?
-        false
+        existing = Rating.where(violation: self.violation, user: self.user).first
+        if existing.score != self.score
+          existing.destroy
+          true
+        else
+          false
+        end
       else
         true
       end

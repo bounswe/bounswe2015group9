@@ -51,7 +51,11 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="font-bold">Rating</div>
-                            <small>3</small>
+                            <small><%= violation.ratings.sum(:score) %></small>
+                            <% if user_signed_in? %>
+                                <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= violation.id %>/rating?score=1"><i class="fa fa-caret-up fa-lg"></i></a>
+                                <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= violation.id %>/rating?score=-1"><i class="fa fa-caret-down fa-lg"></i></a>
+                            <% end %>
                         </div>
                         <div class="col-sm-4">
 
