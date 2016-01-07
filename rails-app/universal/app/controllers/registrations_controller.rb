@@ -19,6 +19,9 @@ class RegistrationsController < Devise::RegistrationsController
 
 
   def update
+    if params["user"].present? && params["image_url"]
+      params["user"]["image_url"] = params["image_url"]
+    end
     super
   end
 
@@ -40,7 +43,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :gender, :age]
+    devise_parameter_sanitizer.for(:account_update) << [:first_name, :last_name, :gender, :age, :image_url]
   end
 
   def after_sign_up_path_for(resource)
