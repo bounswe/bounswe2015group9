@@ -62,7 +62,7 @@
                                                 <strong><%= link_to violation.title, violation_path(violation.id) %></strong> <br>
                                                 <small class="text-muted"><%= violation.created_at%></small>
                                                 <% violation.tag_list.each do |tag| %>
-                                                    <li><a href=""><i class="fa fa-tag"></i><%= tag %></a></li>
+                                                    <li><a href="/violations?tag_list=<%=tag%>"><i class="fa fa-tag"></i><%= tag %></a></li>
                                                 <% end %>
                                             </div>
                                         </div>   
