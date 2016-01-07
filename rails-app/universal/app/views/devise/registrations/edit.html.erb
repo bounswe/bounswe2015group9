@@ -36,7 +36,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <%= hidden_field_tag(:image_url, value: current_user.image_url) %>
+  <%= hidden_field_tag(:image_url, current_user.image_url) %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -60,6 +60,11 @@
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %>
+    <%= f.select(:gender, [['Choose Gender',''], ['Male','male'], ['Female','female'], ['Other','other']], {}, { :class => 'form-control m-b' }) %>
   </div>
 
   <div class="actions">    
