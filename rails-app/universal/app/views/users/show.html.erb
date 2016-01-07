@@ -16,8 +16,12 @@
                             </div>
                             <div class=" profile-content media-body">
                                 <h4><strong><%= @profile.first_name + " " + @profile.last_name%></strong></h4>
-                                <dt>Age:</dt><dd><%= @profile.age%></dd>
-                                <dt>Gender:</dt><dd><%= @profile.gender%></dd>
+                                <label class="control-label">Age:</label>
+                                <strong><%= @profile.age %></strong> <br>
+                                <label class="control-label">Gender:</label>
+                                <strong><%= @profile.gender %></strong> <br>
+                                
+                                <%= link_to "Edit profile", ('/users/edit'), class: "btn btn-white btn-xs pull-left" %>
                             </div>
                         </div>
                     </div>
@@ -62,7 +66,7 @@
                                                 <strong><%= link_to violation.title, violation_path(violation.id) %></strong> <br>
                                                 <small class="text-muted"><%= violation.created_at%></small>
                                                 <% violation.tag_list.each do |tag| %>
-                                                    <li><a href=""><i class="fa fa-tag"></i><%= tag %></a></li>
+                                                    <li><a href="/violations?tag_list=<%=tag%>"><i class="fa fa-tag"></i><%= tag %></a></li>
                                                 <% end %>
                                             </div>
                                         </div>   
