@@ -9,10 +9,17 @@ import android.util.Log;
 import android.view.View;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
+import java.util.ArrayList;
+
 public class HomeActivity extends AppCompatActivity {
+
+    private String bearer;
+
+    ArrayList<Violation> violations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +27,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        bearer = getIntent().getExtras().getString("Bearer");
+        violations = new ArrayList<>();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -34,20 +44,28 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        getAllViolations();
+
+    }
+
+    private void getAllViolations() {
         Ion.with(this)
-                .load(getString(R.string.getAllViolationsURL))
+                .load(getString(R.string.createViolationURL))
                 .addHeader("Authorization", "Bearer " + getIntent().getExtras().getString("Bearer"))
-                .asJsonArray()
-                .setCallback(new FutureCallback<JsonArray>() {
+                .addHeader("Content-Type", "application/json")
+                .asJsonObject()
+                .setCallback(new FutureCallback<JsonObject>() {
                     @Override
-                    public void onCompleted(Exception e, JsonArray result) {
+                    public void onCompleted(Exception e, JsonObject result) {
                         if (e == null) {
-                            Log.d("GetAllViolations", result.toString());
+                            JsonArray violations = result.getAsJsonArray("violations");
+
+                            Log.d("AllViolations", result.toString());
                         } else {
-                            Log.d("GetAllViolationsError", e.toString());
                         }
                     }
                 });
+
     }
 
 }

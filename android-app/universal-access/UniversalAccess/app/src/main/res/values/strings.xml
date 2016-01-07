@@ -3,18 +3,32 @@
     <string name="action_settings">Settings</string>
     <string name="input_remember">Remember Me</string>
     <string name="appToken">Basic Y2xpZW50OnNlY3JldA==</string>>
-    <string name="getUserTokenUrl">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/oauth/token?grant_type=password</string>
-    <string name="getUserURL">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/rest/users/me</string>
     <string name="title_activity_registration">Registration</string>
-    <string name="getAppTokenUrl">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/oauth/token?grant_type=client_credentials</string>
-    <string name="createUser">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/rest/users</string>
     <string name="createViolation">Create Violation</string>
     <string name="title">Title</string>
     <string name="text">Text</string>
     <string name="description">Description</string>
     <string name="severity_rate">Severity Rate</string>
-    <string name="location">Location</string>
-    <string name="createViolationURL">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/rest/violations</string>
+    <string name="location">City</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="age">age</string>
+    <string name="getCityUrl">http://10.0.2.2:3000/api/v1/cities</string>
+    <string name="createViolationURL">http://univers-alaccess-g9.herokuapp.com/api/v1/violations</string>
     <string name="getAllViolationsURL">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/rest/violations?closed=false</string>
+    <string name="createUser">http://univers-alaccess-g9.herokuapp.com/api/v1/registrations</string>
+    <string name="getUserTokenUrl">http://univers-alaccess-g9.herokuapp.com//oauth/token</string>
+    <string name="getUserURL">http://univers-alaccess-g9.herokuapp.com/api/v1/users/me</string>
+    <string name="getTypesURL">http://univers-alaccess-g9.herokuapp.com/api/v1/types</string>
+    <string name="type">Type</string>
+    <string name="neighbourhood">Neighbourhood</string>
+    <string name="district">District</string>
+    <string name="getDisctrictURL">http://univers-alaccess-g9.herokuapp.com/api/v1/districts</string>
+    <string name="getNeighbourhoodURL">http://univers-alaccess-g9.herokuapp.com/api/v1/neighborhoods</string>
+    <string name="address">Address</string>
+
+
+    <string-array name="gender">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
 </resources>

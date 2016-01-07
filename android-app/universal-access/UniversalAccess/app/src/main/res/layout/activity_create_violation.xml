@@ -20,6 +20,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:text="@string/type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/type_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/type_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <android.support.v7.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,12 +50,41 @@
         android:layout_height="wrap_content"
         android:text="@string/location"/>
     
-    <android.support.v7.widget.AppCompatEditText
+    <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/violation_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
 
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/district"/>
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/district_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/neighbourhood"/>
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/neighbourhood_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/address"
+        android:textStyle="bold"/>
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/address_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/violation_button_create"
         android:layout_width="match_parent"

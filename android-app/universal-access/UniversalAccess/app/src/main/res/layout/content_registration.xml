@@ -38,6 +38,21 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:hint="Surname" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/age_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/age"
+        />
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/gender_Spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/createButton"
         android:layout_width="match_parent"

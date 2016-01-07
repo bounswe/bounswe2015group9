@@ -7,9 +7,43 @@ public class Violation {
 
     private String title;
     private String description;
+
+    private String city,district,neighborhood,type;
     private int severityRate;
-    private String location;
     private boolean isClosed;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getNeighborhood() {
+        return neighborhood;
+    }
+
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
 
     public String getTitle() {
         return title;
@@ -43,11 +77,4 @@ public class Violation {
         this.severityRate = severityRate;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
 }

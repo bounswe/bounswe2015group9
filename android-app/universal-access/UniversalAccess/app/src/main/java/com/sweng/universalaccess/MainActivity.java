@@ -48,14 +48,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 JsonObject object = new JsonObject();
 
-                String unamepass = "&username=" + userName.getText().toString() + "&password=" + passwword.getText().toString();
-
                 Ion
                         .with(MainActivity.this)
-                        .load(getString(R.string.getUserTokenUrl) + unamepass)
-                        .addHeader("Authorization", getString(R.string.appToken))
-                        .addHeader("Content-Type", "application/json")
-                        .setJsonObjectBody(new JsonObject())
+                        .load(getString(R.string.getUserTokenUrl))
+                        .setBodyParameter("grant_type","password")
+                        .setBodyParameter("email",userName.getText().toString())
+                        .setBodyParameter("password",passwword.getText().toString())
                         .asJsonObject()
                         .setCallback(new FutureCallback<JsonObject>() {
                             @Override
@@ -92,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 .with(this)
                 .load(getString(R.string.getUserURL))
                 .addHeader("Authorization", "Bearer " + access_token)
+                .setJsonObjectBody(new JsonObject())
                 .asJsonObject()
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override
@@ -100,9 +99,12 @@ public class MainActivity extends AppCompatActivity {
                             Log.d("LoginResult", result.toString());
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                             intent.putExtra("Bearer", access_token);
-                            intent.putExtra("email", result.get("email").getAsString());
-                            intent.putExtra("firstName", result.get("firstName").getAsString());
-                            intent.putExtra("lastName", result.get("lastName").getAsString());
+                            JsonObject user = result.getAsJsonObject("user");
+                            intent.putExtra("email", user.get("email").getAsString());
+                            intent.putExtra("firstName", user.get("first_name").getAsString());
+                            intent.putExtra("lastName", user.get("last_name").getAsString());
+                            intent.putExtra("age",user.get("age").getAsString());
+                            intent.putExtra("gender",user.get("gender").getAsString());
                             startActivity(intent);
                         } else {
                             Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
@@ -112,25 +114,5 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

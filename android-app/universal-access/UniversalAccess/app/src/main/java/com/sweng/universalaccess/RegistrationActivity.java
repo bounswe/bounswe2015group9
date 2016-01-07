@@ -6,9 +6,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
@@ -34,7 +36,12 @@ public class RegistrationActivity extends AppCompatActivity {
     @Bind(R.id.createButton)
     AppCompatButton createUserButton;
 
-    private String appBearerToken;
+    @Bind(R.id.age_editText)
+    AppCompatEditText age;
+
+    @Bind(R.id.gender_Spinner)
+    AppCompatSpinner gender;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,getResources().getStringArray(R.array.gender));
+
+        gender.setAdapter(adapter);
+
 
         createUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,44 +65,30 @@ public class RegistrationActivity extends AppCompatActivity {
                 final JsonObject jsonObject = new JsonObject();
                 jsonObject.addProperty("email",emailEditText.getText().toString());
                 jsonObject.addProperty("password",passwordEditText.getText().toString());
-                jsonObject.addProperty("firstName",nameEditText.getText().toString());
-                jsonObject.addProperty("lastName",surnameEditText.getText().toString());
+                jsonObject.addProperty("first_name",nameEditText.getText().toString());
+                jsonObject.addProperty("last_name",surnameEditText.getText().toString());
+                jsonObject.addProperty("age",age.getText().toString());
+                jsonObject.addProperty("gender",gender.getSelectedItem().toString());
 
-                Ion.with(RegistrationActivity.this)
-                        .load(getString(R.string.getAppTokenUrl))
-                        .addHeader("Authorization",getString(R.string.appToken))
-                        .setJsonObjectBody(new JsonObject())
-                        .asJsonObject()
-                        .setCallback(new FutureCallback<JsonObject>() {
-                            @Override
-                            public void onCompleted(Exception e, JsonObject result) {
-                                if(e==null) {
-                                    Log.d("Access_Token", result.toString());
-                                    appBearerToken = result.get("access_token").getAsString();
-                                    createUser(jsonObject);
-                                }
-                                else
-                                {
-                                    Log.d("CreateUserError",e.toString());
-                                }
-                            }
-                        });
 
+
+                createUser(jsonObject);
             }
         });
 
     }
 
-    private void createUser(JsonObject user){
+    private void createUser(JsonObject user) {
+        Log.d("createUser","enter");
         Ion.with(RegistrationActivity.this)
                 .load(getString(R.string.createUser))
-                .addHeader("Authorization","Bearer "+appBearerToken)
-//                .addHeader("Content-Type","application/json")
+                .addHeader("Content-Type","application/json")
                 .setJsonObjectBody(user)
                 .asJsonObject()
                 .setCallback(new FutureCallback<JsonObject>() {
                     @Override
                     public void onCompleted(Exception e, JsonObject result) {
+//                        Log.d("CreateResult",e.toString());
                         if(e == null) {
                             Log.d("UserCreated", result.toString());
                         }
