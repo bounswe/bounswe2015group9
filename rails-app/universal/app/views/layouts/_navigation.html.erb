@@ -9,11 +9,13 @@
                 <i class="fa fa-home"></i> <span class="nav-label">Homepage</span>
                 <% end %>
             </li>
-            <li class="<%= 'active' if user_signed_in? %>">
-                <%= link_to user_path(current_user.id) do %>
-                <i class="fa fa-male"></i> <span class="nav-label">Profile</span>
-                <% end %>
-            </li>
+            <% if user_signed_in? %>
+                <li class="<%= 'active' if current_page?('/users/' + current_user.id.to_s)%>">
+                    <%= link_to user_path(current_user.id) do %>
+                        <i class="fa fa-male"></i> <span class="nav-label">Profile</span>
+                    <% end %>
+                </li>
+            <% end %>
             <li class="<%= 'active' if current_page?('/violations') %>">
                 <%= link_to violations_path do %>
                 <i class="fa fa-search"></i> <span class="nav-label">Advanced Search</span>
