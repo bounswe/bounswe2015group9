@@ -23,6 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
       params["user"]["image_url"] = params["image_url"]
     end
     super
+
   end
 
 
@@ -52,5 +53,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_inactive_sign_up_path_for(resource)
     super(resource)
+  end
+
+  def after_update_path_for(resource)
+    user_path(resource)
   end
 end

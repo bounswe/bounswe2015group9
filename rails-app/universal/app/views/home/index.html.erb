@@ -24,7 +24,11 @@
                 </div>
                 <div class="ibox-content">
                     <div class="team-members">
-                        <img src="<%= violation.image_url %>" width="280" height="200"></a>
+                        <% if violation.image_url.present? %>
+                            <img src="<%= violation.image_url %>" width="280" height="200">
+                        <% else %>
+                            <img src="http://g9universal.s3.amazonaws.com/image/4/default-small.jpg?1452132711" width="280" height="200">
+                        <% end %>
                     </div>
                     <p>
                         <%= violation.description %>
@@ -50,7 +54,7 @@
                             <small><%= violation.type.name %></small>
                         </div>
                         <div class="col-sm-4">
-                            <div class="font-bold">Rating</div>
+                            <div class="font-bold">Severity Rate</div>
                             <small><%= violation.ratings.sum(:score) %></small>
                             <% if user_signed_in? %>
                                 <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= violation.id %>/rating?score=1"><i class="fa fa-caret-up fa-lg"></i></a>

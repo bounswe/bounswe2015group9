@@ -497,6 +497,20 @@ a.compose-mail {
   border-top: none !important;
 }
 
+.profile-details {
+  text-align: center;
+  background-color: white;
+  padding-top: 10px;
+}
+
+.editProfileButton{
+  margin-top: 10px;
+  font-weight: bolder;
+  color: white;
+  background-color: #337ab7;
+  margin-bottom: 25px;
+}
+
 .profile-stats {
   margin-right: 10px;
 }
@@ -631,6 +645,24 @@ a.compose-mail {
   background: white;
 }
 
+.tag-list li a {
+  font-size: 9px;
+  background-color: #f3f3f4;
+  padding: 5px 10px;
+  color: inherit;
+  border-radius: 2px;
+  border: 1px solid #e7eaec;
+  margin-top: 12px;
+  padding-right: 10px;
+  display: block;
+  width: 100px;
+  height: 31px;
+  font-weight: bolder;
+  font-size: 11px;
+  background-color: #337ab7;
+  color: white;
+  }
+
 .mail-body {
   border-top: 1px solid $border-color;
   padding: 20px;
@@ -698,16 +730,24 @@ dd.project-people {
 }
 
 .project-manager .tag-list li a {
-  font-size: 10px;
-  background-color: white;
-  padding: 5px 12px;
-  color: inherit;
-  border-radius: 2px;
-  border: 1px solid $border-color;
-  margin-right: 5px;
-  margin-top: 5px;
-  display: block;
+
+    font-size: 9px;
+    background-color: #f3f3f4;
+    padding: 5px 10px;
+    color: inherit;
+    border-radius: 2px;
+    border: 1px solid #e7eaec;
+    margin-top: 12px;
+    padding-right: 10px;
+    display: block;
+    width: 100px;
+    height: 31px;
+    font-weight: bolder;
+    font-size: 11px;
+    background-color: #337ab7;
+    color: white;
 }
+
 
 .project-files li a {
   font-size: 11px;

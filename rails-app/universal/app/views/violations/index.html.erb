@@ -69,14 +69,32 @@
             </select>
         </div>
     </div>
-
     <div class="form-group">
         <label class="col-sm-2 control-label">Tags</label>
         <div class="col-md-10">
           <input type="text" class="form-control" name="tag_list", id="tags" value="<%= params["tag_list"] %>">
         </div>
     </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Sort Type</label>
 
+        <div class="col-sm-10">
+            <select class="form-control m-b" name="sort_type" id="sort_type">
+                <% if params["sort_type"].present? %>
+                    <% if params["sort_type"] == "created_at"%>
+                        <option value="created_at" selected>Created At</option>
+                        <option value="rating">Severity Rate</option>
+                    <% else %>
+                        <option value="created_at">Created At</option>
+                        <option value="rating" selected>Severity Rate</option>
+                    <% end %>
+                <% else %>
+                    <option value="created_at" selected>Created At</option>
+                    <option value="rating">Severity Rate</option>
+                <% end %>
+            </select>
+        </div>
+    </div>
     
 
   <%= f.submit :class => 'searchButton' %>
@@ -102,7 +120,14 @@
                 </div>
                 <div class="ibox-content">
                     <div class="team-members">
-                        <img src="<%= violation.image_url %>" width="280" height="200"></a>
+
+                    <% if violation.image_url.present? %>
+                            <img src="<%= violation.image_url %>" width="280" height="200">
+                    <% else %>
+                            <img src="http://g9universal.s3.amazonaws.com/image/4/default-small.jpg?1452132711" width="280" height="200">
+                    <% end %>
+
+
                     </div>
                     <p>
                         <%= violation.description %>
@@ -128,7 +153,7 @@
                             <small><%= violation.type.name %></small>
                         </div>
                         <div class="col-sm-4">
-                            <div class="font-bold">Rating</div>
+                            <div class="font-bold">Severity Rate</div>
                             <small><%= violation.ratings.sum(:score) %></small>
                             <% if user_signed_in? %>
                                 <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= violation.id %>/rating?score=1"><i class="fa fa-caret-up fa-lg"></i></a>
@@ -169,6 +194,7 @@
             var selectbox = $('#q_district_id_eq');
             selectbox.empty();
             var list = '';
+            list += "<option></option>";
             for (var j = 0; j < data.length; j++){
                     list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
                     if(j == 0){
@@ -180,6 +206,7 @@
                             var selectbox = $('#q_neighborhood_id_eq');
                             selectbox.empty();
                             var list = '';
+                            list += "<option></option>";
                             for (var j = 0; j < data.length; j++){
                                     list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
                             }
@@ -200,6 +227,7 @@
             var selectbox = $('#q_neighborhood_id_eq');
             selectbox.empty();
             var list = '';
+            list += "<option></option>";
             for (var j = 0; j < data.length; j++){
                     list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
             }
