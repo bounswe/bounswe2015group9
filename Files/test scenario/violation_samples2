@@ -1,0 +1,50 @@
+
+id: 7
+name: No consideration of the disabled in toilets of public places.
+desc: I observe –as, I believe, most people also do- that the toilets in most of the public places are not convenient for disabled people. It shouldn’t be so difficult to impose some standards in public toilets for the disabled.
+type: Toilets
+tags: toilets
+address:
+
+id: 8
+name: Not enough street lights to confer security on people who cannot see well at night.
+desc: Many streets here which are rather remote from the main streets lack enough street lights. I am a person who cannot see well in dark. And this somehow worries me, for I don’t feel secure when I cannot recognize what lies ahead while walking.
+type: Safety
+tags: safety, street lights.
+address: Sarýyer, Istanbul
+
+id: 9
+name: Not enough green spaces to breath with health.
+desc: I suffer from asthma and also some other allergic ilnesses, and the dirty air of the city makes it all the worse for me. Even a perfectly healthy person would be uncomfortable with so much dirty air. What we need is green spaces such as big parks in the heart of the city. But also it would be helpful if something could be done to reduce the amount of cars!
+type: Open and green areas
+tags: green areas, dirty air
+address: Istanbul
+
+id: 10
+name: Not enough arrangements for the disabled in many public places.
+desc: Although we see in most of the public places signs for the disabled, the solutions for the problems that disabled people face are far from being sufficient. In cinema saloons, for instance, there should be a section where the disabled people can sit without leaving their wheelchairs.
+type: Regulations in cinema saloons
+tags: cinema saloons, sitting places.
+address: Istanbul
+
+id: 11
+name: Not enough information with voice for the visually challenged. 
+desc: I live in the suburb of the city, but since it is a crowded place with a lot of traffic, each day I live home I have to face the danger of getting crushed by a vehicle, for there is very little information for me to serve the purpose of traffic lights or of the information tables. If this city claims to be a metropol, then the facilities for the disabled must be provided for each neighborhood. 
+type: Traffic 
+tags: voice inbformation, visually challenged people
+address: Bayrampaþa, Istanbul
+
+
+id: 12
+name: Not enough voice records for the books in libraries.
+desc: I have a visual disability, so I read books by listening their contents from the computer recordings of them. But even in the greatest libraries many of the books are not recorded for the people with visual disability. I believe the disabled people not only deserve the fair standards for living, but also for decent intellectual activity. 
+type: Regulations in libraries.
+tags: book recordings.
+address: Istanbul
+
+id: 13
+name: Tactile services are needed to help the visually challenged.
+desc: As people with visual challenge, we want to be informed about the things outside. But the voice information like the ones for the traffic lights cannot be applied to all the places: it would be like hearing a band of crows! So it would be better to hear the voice when it is needed. For instance, there may be buttons that when touched inform us about the directions, names of the places we are located, etc. This is something that can easily be realized.    
+type: Regulations for traffic 
+tags: tactile information about traffic
+address: Istanbul
