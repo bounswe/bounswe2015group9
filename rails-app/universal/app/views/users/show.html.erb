@@ -1,0 +1,73 @@
+<div class="wrapper wrapper-content">
+            <div class="row animated fadeInRight">
+                <div class="col-md-5">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Profile Detail</h5>
+                        </div>
+                        <div>
+                            <div class="ibox-content no-padding border-left-right">
+                                <img alt="image" class="img-responsive img-profile" src="http://g9universal.s3.amazonaws.com/image/2/yemek.png?1452119424">
+                            </div>
+                            <div class=" profile-content media-body">
+                                <h4><strong><%= @profile.first_name + " " + @profile.last_name%></strong></h4>
+                                <dt>Age:</dt><dd><%= @profile.age%></dd>
+                                <dt>Gender:</dt><dd><%= @profile.gender%></dd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Violations</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div>
+                                <div class="feed-activity-list">
+                                    <% @profile.violations.each do |violation| %>
+                                        <div class="feed-element">
+                                            <% if violation.image_url.present? %>
+                                                <a href="#" class="pull-left">
+                                                    <img alt="image" class="img-violation" src="<%= violation.image_url %>">
+                                                </a>
+                                            <% else %>
+                                                <a href="#" class="pull-left">
+                                                    <img alt="image" class="img-violation" src="http://g9universal.s3.amazonaws.com/image/2/yemek.png?1452119424">
+                                                </a>
+                                            <% end %>
+                                            <div class="media-body ">
+                                                <strong><%= violation.title%></strong> <br>
+                                                <small class="text-muted"><%= violation.created_at%></small>
+                                                <% violation.tag_list.each do |tag| %>
+                                                    <li><a href=""><i class="fa fa-tag"></i><%= tag %></a></li>
+                                                <% end %>
+                                            </div>
+                                        </div>   
+                                    <% end %>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>

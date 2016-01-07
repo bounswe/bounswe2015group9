@@ -98,7 +98,13 @@ video {
   width: 100%    !important;
   height: auto   !important;
 }
+/* PROFILE */
 
+.img-profile{
+    height: 500px;
+    width: 500px;
+    margin: auto;
+}
 /* GALLERY */
 .gallery > .row > div {
   margin-bottom: 15px;
@@ -225,7 +231,7 @@ ul.unstyled, ol.unstyled {
   bottom: 0;
   left: 0;
   padding: 10px 20px;
-  position: absolute;
+  position: fixed;
   right: 0;
 }
 
