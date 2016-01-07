@@ -169,6 +169,7 @@
             var selectbox = $('#q_district_id_eq');
             selectbox.empty();
             var list = '';
+            list += "<option></option>";
             for (var j = 0; j < data.length; j++){
                     list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
                     if(j == 0){
@@ -180,6 +181,7 @@
                             var selectbox = $('#q_neighborhood_id_eq');
                             selectbox.empty();
                             var list = '';
+                            list += "<option></option>";
                             for (var j = 0; j < data.length; j++){
                                     list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
                             }
@@ -200,6 +202,7 @@
             var selectbox = $('#q_neighborhood_id_eq');
             selectbox.empty();
             var list = '';
+            list += "<option></option>";
             for (var j = 0; j < data.length; j++){
                     list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
             }
