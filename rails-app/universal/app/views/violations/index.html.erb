@@ -102,7 +102,14 @@
                 </div>
                 <div class="ibox-content">
                     <div class="team-members">
-                        <img src="<%= violation.image_url %>" width="280" height="200"></a>
+
+                    <% if violation.image_url.present? %>
+                            <img src="<%= violation.image_url %>" width="280" height="200">
+                    <% else %>
+                            <img src="http://g9universal.s3.amazonaws.com/image/4/default-small.jpg?1452132711" width="280" height="200">
+                    <% end %>
+
+
                     </div>
                     <p>
                         <%= violation.description %>
