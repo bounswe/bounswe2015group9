@@ -33,8 +33,8 @@ class ViolationsController < ApplicationController
   # GET /violations/1/edit
   def edit
     @cities = City.order(name: :asc)
-    @districts = @cities.find_by(name: "ADANA").districts
-    @neighborhoods = @districts.find_by(name: "ALADAĞ").neighborhoods
+    @districts = @cities.find_by(name: @violation.city.name).districts
+    @neighborhoods = @districts.find_by(name: @violation.district.name).neighborhoods
     @types = Type.all
   end
 
