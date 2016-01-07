@@ -12,7 +12,7 @@
     <string name="location">City</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="age">age</string>
-    <string name="getCityUrl">http://10.0.2.2:3000/api/v1/cities</string>
+    <string name="getCityUrl">http://univers-alaccess-g9.herokuapp.com/api/v1/cities</string>
     <string name="createViolationURL">http://univers-alaccess-g9.herokuapp.com/api/v1/violations</string>
     <string name="getAllViolationsURL">http://ec2-54-69-10-151.us-west-2.compute.amazonaws.com:8080/universal-access/rest/violations?closed=false</string>
     <string name="createUser">http://univers-alaccess-g9.herokuapp.com/api/v1/registrations</string>
@@ -29,6 +29,7 @@
     <string name="advancedsearch">Advanced Search</string>
     <string name="getTagURL">http://univers-alaccess-g9.herokuapp.com/api/v1/tags</string>
     <string name="tags">Tags</string>
+    <string name="uploadURL">http://univers-alaccess-g9.herokuapp.com/api/v1/uploads</string>
 
 
     <string-array name="gender">

@@ -75,7 +75,14 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getAllViolations();
+    }
+
     private void getAllViolations() {
+        violations = new ArrayList<>();
         Ion.with(this)
                 .load(getString(R.string.createViolationURL))
                 .addHeader("Authorization", "Bearer " + getIntent().getExtras().getString("Bearer"))
