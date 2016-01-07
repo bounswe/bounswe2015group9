@@ -8,7 +8,20 @@ public class Violation {
     private String title;
     private String description;
 
-    private String city,district,neighborhood,type;
+    private String city;
+    private String district;
+    private String neighborhood;
+    private String type;
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
+
+    private String image_url;
     private int severityRate;
     private boolean isClosed;
 
