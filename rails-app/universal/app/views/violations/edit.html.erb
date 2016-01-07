@@ -322,7 +322,6 @@
             var uploaded_image_url = JSON.parse(data.result)[0]["url"]
             $('#uploaded-image-url').empty();
             $('#uploaded-image-url').append("<img src=" + uploaded_image_url + "\" height=\"300\" width=\"450\"> </br></br>");
-
             $('#image_url').val(uploaded_image_url);
         }
       });

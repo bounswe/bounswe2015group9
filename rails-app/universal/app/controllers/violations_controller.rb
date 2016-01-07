@@ -148,6 +148,9 @@ class ViolationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def violation_params
+      if (!params[:image_url].nil? )
+        params[:image_url].gsub!(/{:value=>\"(.*)\"}/,"\\1")
+      end
       params.permit(:title, :description, :city_id, :district_id, :neighborhood_id, :type_id, :address, :image_url, :tag_list, :closed)
     end
 
