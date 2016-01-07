@@ -87,7 +87,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <dl class="dl-horizontal">
-                                        <dt>Ratings:</dt>
+                                        <dt>Severity Rate:</dt>
                                         <dd>
                                             <%= @violation.ratings.sum(:score) %>
                                             <% if user_signed_in? %>
@@ -165,7 +165,7 @@
                     <h5>Tags : </h5>
                     <ul class="tag-list" style="padding: 0">
                         <% @violation.tag_list.each do |tag| %>
-                            <li><a href="/violations?tag_list=<%=tag%>"><i class="fa fa-tag"></i><%= tag %></a></li>
+                            <li><a href=""><i class="fa fa-tag"></i><%= tag %></a></li>
                         <% end %>
                     </ul>
                 </div>

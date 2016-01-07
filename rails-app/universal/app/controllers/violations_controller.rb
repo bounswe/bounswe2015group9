@@ -33,8 +33,8 @@ class ViolationsController < ApplicationController
   # GET /violations/1/edit
   def edit
     @cities = City.order(name: :asc)
-    @districts = @cities.find_by(name: "ADANA").districts
-    @neighborhoods = @districts.find_by(name: "ALADAĞ").neighborhoods
+    @districts = @cities.find_by(name: @violation.city.name).districts
+    @neighborhoods = @districts.find_by(name: @violation.district.name).neighborhoods
     @types = Type.all
   end
 
@@ -148,6 +148,9 @@ class ViolationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def violation_params
+      if (!params[:image_url].nil? )
+        params[:image_url].gsub!(/{:value=>\"(.*)\"}/,"\\1")
+      end
       params.permit(:title, :description, :city_id, :district_id, :neighborhood_id, :type_id, :address, :image_url, :tag_list, :closed)
     end
 
