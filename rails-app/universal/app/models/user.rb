@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :violations
-  has_many :ratings
-  has_many :comments
-
+  has_many :ratings, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
+  has_many :violations, dependent: :destroy
+  
   enum gender: [:male, :female, :other]
 
   validates :first_name, :last_name, presence: true
