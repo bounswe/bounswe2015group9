@@ -1,0 +1,41 @@
+id: 1
+name: Street lights on walkways
+desc: There are always street lights on yellow poles. It is used as a decoration material but it is not! I hope that problem will be solved.
+type: Walkways and Pavements
+tags: walkway, tree, yellow pole
+address:
+
+id: 2
+name: No ramp at the metrobus station
+desc: There is no ramp at the metrobus station. I am a person living with wheelchairs, so ramps are of utmost importance for me!
+type: Ramps
+tags: ramps, metrobus
+address:
+
+id: 3
+name: My wheelchair is going to fly.
+desc: Is there no mathematician to calculate the slope of a ramp? Every time I use one of them, I could not control the wheelchair.
+type: Ramps
+tags: slope, ramps
+address:
+
+id: 4
+name: Drivers do not care about a person with disability.
+desc: When I try to go accross the street I see drivers who are almost going to kill me. I am a hearing impaired person and this makes it a torture to me to go accross the street. Is there anyone who cares about my safety?
+type: Crosswalks
+tags: drivers, crosswalk, safety, deaf
+address:
+
+id: 5
+name: No floormark for visualy challenged...
+desc: Taksim square is a disaster for blind people such as I am. Due to there being no floormarks on the road, I could not understand where I am.
+type: Crosswalks
+tags: taksim, crosswalk, floormark, blind
+address: Taksim Square, Istanbul
+
+id: 6
+name: Unconscious drivers parking on the lots of disabled people.
+desc: I use wheelchair and need some space to transfer into or from my vehicle. But I encounter with this type of problem each time.  
+type: Parking lots
+tags: parking, shopping malls
+address: Etiler, Istanbul
