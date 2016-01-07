@@ -144,7 +144,7 @@
                     <div class='row'>
                         <ul class="tag-list" style="padding: 0">
                             <% violation.tag_list.each do |tag| %>
-                                <li><a href=""><i class="fa fa-tag"></i><%= tag %></a></li>
+                                <li><a href="/violations?tag_list=<%=tag%>"><i class="fa fa-tag"></i><%= tag %></a></li>
                             <% end %>
                         </ul>
                     </div>
