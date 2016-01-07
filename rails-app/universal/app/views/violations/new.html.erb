@@ -1,0 +1,340 @@
+  <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h2 style="text-align: center" >Create a Violation Report</h2>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            
+                                
+
+                            <%= form_for Upload.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Upload Image</label>
+                                    <div class="col-sm-10">
+                                        <span><i>Add files...</i></span>
+                                        <span class="fileinput-button btn btn-success"> 
+                                            <%= f.file_field :upload %>
+                                        </span>
+                                    </div>
+                                </div>
+    <!-- The loading indicator is shown during image processing -->
+    <div class="fileupload-loading"></div>
+    <br>
+    <!-- The table listing the files available for upload/download -->
+    <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
+    </table>
+  <% end %>
+
+                            <div class="form-group" id="uploaded-image" style="display:none;">
+                                    <label class="col-sm-2 control-label">Uploaded Image(s)</label>
+                                    <div class="col-sm-10" id="uploaded-image-url">
+
+                                    </div>
+                                </div>
+
+                            <div class="hr-line-dashed"></div>
+
+                            <%= form_for(@violation, :html => { :class => "form-horizontal" }) do |f| %>
+                              <% if @violation.errors.any? %>
+                                <div id="error_explanation">
+                                  <h2><%= pluralize(@violation.errors.count, "error") %> prohibited this violation from being saved:</h2>
+
+                                  <ul>
+                                  <% @violation.errors.full_messages.each do |message| %>
+                                    <li><%= message %></li>
+                                  <% end %>
+                                  </ul>
+                                </div>
+                              <% end %>
+
+                              <%= hidden_field_tag(:image_url) %>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Title</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="title">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+
+                                    <label class="col-sm-2 control-label">Type</label>
+
+                                    <div class="col-sm-10">
+                                        <select class="form-control m-b" name="type_id" id="type">
+                                            <option value=""></option>
+                                            <%= options_from_collection_for_select(@types, :id, :name, prompt:  true) %>
+                                        </select>
+                                        <div class="alert alert-info" style="display:none;" id="description-text">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Description</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" rows="5" id="description" name="description"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <%= f.label :tag_list, "Tags", class: "col-md-2 control-label" %>
+                                    <div class="col-md-8">
+                                      <input type="text" class="form-control" name="tag_list", id="tags">
+                                    </div>
+                                  </div>
+
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">City</label>
+
+                                    <div class="col-sm-10">
+                                        <select class="form-control m-b" name="city_id" id="cities">
+                                          <%= options_from_collection_for_select(@cities, :id, :name) %>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-2 control-label">District</label>
+
+                                    <div class="col-sm-10">
+                                        <select class="form-control m-b" name="district_id", id="districts">
+                                          <%= options_from_collection_for_select(@districts, :id, :name) %>
+                                        </select>
+                                    </div>
+
+                                    <label class="col-sm-2 control-label">Neighborhood</label>
+
+                                    <div class="col-sm-10">
+                                        <select class="form-control m-b" name="neighborhood_id" id="neighborhoods">
+                                            <%= options_from_collection_for_select(@neighborhoods, :id, :name) %>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Address</label>
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control" rows="3" id="address" name="address"></textarea>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-2">
+                                        <button class="btn btn-primary" type="submit">Save changes</button>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
+
+<script type="text/javascript">
+    $('#cities').on('change', function() {
+        $.ajax({
+          type: "POST",
+          url: "/violations/districts",
+          data: { "city_id": this.value },
+        }).done(function(data) {
+            var selectbox = $('#districts');
+            selectbox.empty();
+            var list = '';
+            for (var j = 0; j < data.length; j++){
+                    list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
+                    if(j == 0){
+                        $.ajax({
+                          type: "POST",
+                          url: "/violations/neighborhoods",
+                          data: { "district_id": data[j].id },
+                        }).done(function(data) {
+                            var selectbox = $('#neighborhoods');
+                            selectbox.empty();
+                            var list = '';
+                            for (var j = 0; j < data.length; j++){
+                                    list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
+                            }
+                            selectbox.html(list);
+                        });
+                    }
+            }
+            selectbox.html(list);
+        });
+    });
+
+    $('#districts').on('change', function() {
+        $.ajax({
+          type: "POST",
+          url: "/violations/neighborhoods",
+          data: { "district_id": this.value },
+        }).done(function(data) {
+            var selectbox = $('#neighborhoods');
+            selectbox.empty();
+            var list = '';
+            for (var j = 0; j < data.length; j++){
+                    list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
+            }
+            selectbox.html(list);
+        });
+    });
+
+    $('#type').on('change', function(data) {
+        if(data.target.value != ""){
+            $.ajax({
+              type: "POST",
+              url: "/violations/type",
+              data: { "type_id": this.value },
+            }).done(function(data) {
+                $('#description-text').text(data.type.description);
+                $('#description-text').show();
+            });
+        }else {
+            $('#description-text').hide();
+        }
+    });
+</script>
+
+<script>
+  var fileUploadErrors = {
+  maxFileSize: 'File is too big',
+  minFileSize: 'File is too small',
+  acceptFileTypes: 'Filetype not allowed',
+  maxNumberOfFiles: 'Max number of files exceeded',
+  uploadedBytes: 'Uploaded bytes exceed file size',
+  emptyResult: 'Empty file upload result'
+  };
+</script>
+
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+  {% for (var i=0, file; file=o.files[i]; i++) { %}
+  <tr class="template-upload fade">
+    <td class="preview"><span class="fade"></span></td>
+    <td class="name"><span>{%=file.name%}</span></td>
+    <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+    {% if (file.error) { %}
+    <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+    {% } else if (o.files.valid && !i) { %}
+    <td>
+      <div class="progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
+    </td>
+    <td class="start">{% if (!o.options.autoUpload) { %}
+      <button class="btn btn-primary">
+        <i class="icon-upload icon-white"></i>
+        <span>{%=locale.fileupload.start%}</span>
+      </button>
+      {% } %}</td>
+    {% } else { %}
+    <td colspan="2"></td>
+    {% } %}
+    <td class="cancel">{% if (!i) { %}
+      <button class="btn btn-warning">
+        <i class="icon-ban-circle icon-white"></i>
+        <span>{%=locale.fileupload.cancel%}</span>
+      </button>
+      {% } %}</td>
+  </tr>
+  {% } %}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+  {% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+      {% if (file.error) { %}
+        <td></td>
+        <td class="name"><span>{%=file.name%}</span></td>
+        <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+        <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+        {% } else { %}
+        <td class="preview">{% if (file.thumbnail_url) { %}
+          <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
+          {% } %}</td>
+        <td class="name">
+          <a href="{%=file.url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
+        </td>
+        <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+        <td colspan="2"></td>
+        {% } %}
+      <td class="delete">
+        <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
+          <i class="icon-trash icon-white"></i>
+          <span>{%=locale.fileupload.destroy%}</span>
+        </button>
+        <input type="checkbox" name="delete" value="1">
+      </td>
+    </tr>
+    {% } %}
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+      // Initialize the jQuery File Upload widget:
+      $('#fileupload').fileupload({
+        done: function (e, data) {
+            $('#uploaded-image').show();
+            var uploaded_image_url = JSON.parse(data.result)[0]["url"]
+            $('#uploaded-image-url').append("<img src=" + uploaded_image_url + "\" height=\"300\" width=\"450\"> </br></br>");
+
+            $('#image_url').val(uploaded_image_url);
+        }
+      });
+      // 
+      // Load existing files:
+      $.getJSON($('#fileupload').prop('action'), function (files) {
+        var fu = $('#fileupload').data('blueimpFileupload'), 
+          template;
+        fu._adjustMaxNumberOfFiles(-files.length);
+        console.log(files);
+        template = fu._renderDownload(files)
+          .appendTo($('#fileupload .files'));
+        // Force reflow:
+        fu._reflow = fu._transition && template.length &&
+          template[0].offsetWidth;
+        template.addClass('in');
+        $('#loading').remove();
+      });
+  });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#tags').selectize({
+    delimiter: ',',
+    persist: false,
+    plugins: ['remove_button'],
+    maxOptions: 5,
+    create: function(input) {
+      return {
+        value: input,
+        text: input
+      }
+    }
+  });
+  // add autocomplete options
+  $.each(<%= raw @all_tag_list.to_json %>, function () {
+    var tag = this;
+    $('#tags')[0].selectize.addOption({
+      value: tag,
+      text: tag
+    })
+  });
+})
+</script>
+
+<%= link_to 'Back', violations_path %>

@@ -1,0 +1,250 @@
+<p id="notice"><%= notice %></p>
+
+<%= search_form_for @q do |f| %>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">City</label>
+
+        <div class="col-sm-10">
+            <select class="form-control m-b" name="q[city_id_eq]" id="q_city_id_eq">
+                <option></option>
+                <% if params["q"].present? && params["q"]["city_id_eq"].present? %>
+                    <%= options_from_collection_for_select(@cities, :id, :name, params["q"]["city_id_eq"]) %>
+                <% else %>
+                    <%= options_from_collection_for_select(@cities, :id, :name) %>
+                <% end %>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">District</label>
+
+        <div class="col-sm-10">
+            <select class="form-control m-b" name="q[district_id_eq]" id="q_district_id_eq">
+                <option></option>
+                <% if params["q"].present? && params["q"]["district_id_eq"].present? %>
+                    <%= options_from_collection_for_select(@districts, :id, :name, params["q"]["district_id_eq"]) %>
+                <% else %>
+                    <%= options_from_collection_for_select(@districts, :id, :name) %>
+                <% end %>
+                
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Neighborhood</label>
+
+        <div class="col-sm-10">
+            <select class="form-control m-b" name="q[neighborhood_id_eq]" id="q_neighborhood_id_eq">
+                <option></option>
+                <% if params["q"].present? && params["q"]["neighborhood_id_eq"].present? %>
+                    <%= options_from_collection_for_select(@neighborhoods, :id, :name, params["q"]["neighborhood_id_eq"]) %>
+                <% else %>
+                    <%= options_from_collection_for_select(@neighborhoods, :id, :name) %>
+                <% end %>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Status</label>
+
+        <div class="col-sm-10">
+            <select class="form-control m-b" name="q[closed_eq]" id="q_closed_eq">
+                <option></option>
+                <% if params["q"].present? && params["q"]["closed_eq"].present? %>
+                    <% if params["q"]["closed_eq"] == "true" %>
+                        <option value="true" selected>Closed</option>
+                        <option value="false">Active</option>
+                    <% else %>
+                        <option value="true">Closed</option>
+                        <option value="false" selected>Active</option>
+                    <% end %>
+                <% else %>
+                    <option value="true">Closed</option>
+                    <option value="false">Active</option>
+                <% end %>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Tags</label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" name="tag_list", id="tags" value="<%= params["tag_list"] %>">
+        </div>
+    </div>
+
+    
+
+  <%= f.submit :class => 'searchButton' %>
+<% end %>
+
+
+
+<div class="flex-masonry">
+    <% @violations.each do |violation| %>
+        <div class="flex-masonry-item">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <% if violation.closed? %>
+                        <span class="label label-danger pull-right">Closed</span>
+                    <% else %>
+                        <span class="label label-primary pull-right">Active</span>
+                    <% end %>
+                
+                
+                    <h5><%= link_to violation.title, violation_path(violation.id) %></h5>
+                        
+                    
+                </div>
+                <div class="ibox-content">
+                    <div class="team-members">
+                        <img src="<%= violation.image_url %>" width="280" height="200"></a>
+                    </div>
+                    <p>
+                        <%= violation.description %>
+                    </p>
+                    <div class="row  m-t-sm">
+                        <div class="col-sm-4">
+                            <div class="font-bold">City</div>
+                            <small><%= violation.city.name %></small>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="font-bold">District</div>
+                            <small><%= violation.district.name %></small>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="font-bold">Neighborhood</div>
+                            <small><%= violation.neighborhood.name %></small>
+                        </div>
+                        
+                    </div>
+                    <div class="row  m-t-sm">
+                        <div class="col-sm-4">
+                            <div class="font-bold">Type</div>
+                            <small><%= violation.type.name %></small>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="font-bold">Rating</div>
+                            <small><%= violation.ratings.sum(:score) %></small>
+                            <% if user_signed_in? %>
+                                <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= violation.id %>/rating?score=1"><i class="fa fa-caret-up fa-lg"></i></a>
+                                <a rel="nofollow" data-method="post" class="rating" href="/violations/<%= violation.id %>/rating?score=-1"><i class="fa fa-caret-down fa-lg"></i></a>
+                            <% end %>
+                        </div>
+                        <div class="col-sm-4">
+
+                        </div>
+                        
+                    </div>
+                    
+                    <div class='row'>
+                        <ul class="tag-list" style="padding: 0">
+                            <% violation.tag_list.each do |tag| %>
+                                <li><a href=""><i class="fa fa-tag"></i><%= tag %></a></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+
+    <% end %>
+        
+</div>
+
+
+<script type="text/javascript">
+    $('#q_city_id_eq').on('change', function() {
+        $.ajax({
+          type: "POST",
+          url: "/violations/districts",
+          data: { "city_id": this.value },
+        }).done(function(data) {
+            var selectbox = $('#q_district_id_eq');
+            selectbox.empty();
+            var list = '';
+            for (var j = 0; j < data.length; j++){
+                    list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
+                    if(j == 0){
+                        $.ajax({
+                          type: "POST",
+                          url: "/violations/neighborhoods",
+                          data: { "district_id": data[j].id },
+                        }).done(function(data) {
+                            var selectbox = $('#q_neighborhood_id_eq');
+                            selectbox.empty();
+                            var list = '';
+                            for (var j = 0; j < data.length; j++){
+                                    list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
+                            }
+                            selectbox.html(list);
+                        });
+                    }
+            }
+            selectbox.html(list);
+        });
+    });
+
+    $('#q_district_id_eq').on('change', function() {
+        $.ajax({
+          type: "POST",
+          url: "/violations/neighborhoods",
+          data: { "district_id": this.value },
+        }).done(function(data) {
+            var selectbox = $('#q_neighborhood_id_eq');
+            selectbox.empty();
+            var list = '';
+            for (var j = 0; j < data.length; j++){
+                    list += "<option value='" +data[j].id+ "'>" +data[j].name+ "</option>";
+            }
+            selectbox.html(list);
+        });
+    });
+
+    $('#type').on('change', function(data) {
+        if(data.target.value != ""){
+            $.ajax({
+              type: "POST",
+              url: "/violations/type",
+              data: { "type_id": this.value },
+            }).done(function(data) {
+                $('#description-text').text(data.type.description);
+                $('#description-text').show();
+            });
+        }else {
+            $('#description-text').hide();
+        }
+    });
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#tags').selectize({
+    delimiter: ',',
+    persist: false,
+    plugins: ['remove_button'],
+    maxOptions: 5,
+    create: function(input) {
+      return {
+        value: input,
+        text: input
+      }
+    }
+  });
+  // add autocomplete options
+  $.each(<%= raw @all_tag_list.to_json %>, function () {
+    var tag = this;
+    $('#tags')[0].selectize.addOption({
+      value: tag,
+      text: tag
+    })
+  });
+})
+</script>
