@@ -3,20 +3,11 @@
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>All form elements <small>With custom checbox and radion elements.</small></h5>
+                             <h2 style="text-align:center">Edit Violation</h2>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
                                 </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
-                                </ul>
                                 <a class="close-link">
                                     <i class="fa fa-times"></i>
                                 </a>
@@ -26,14 +17,12 @@
                             
                                 
 
-                             <h2>Upload file</h2>
                             <%= form_for Upload.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Change Image</label>
                                     <div class="col-sm-10">
-                                        <span class="btn btn-success fileinput-button">
-                                            <i class="icon-plus icon-white"></i>
-                                            <span>Add files...</span>
+                                        <span><i>Change files...</i></span>
+                                        <span class="fileinput-button btn btn-success"> 
                                             <%= f.file_field :upload %>
                                         </span>
                                     </div>
