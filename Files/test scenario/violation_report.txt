@@ -1,7 +1,7 @@
 Tactile services for visually challenged
 
-As people with visual challenge, we want to be informed about the things outside. But the voice information like the ones
-for the traffic lights cannot be applied to all the places. I may need the information when I need to know where I am. 
+As people with visual challenge, they want to be informed about the things outside. But the voice information like the ones
+for the traffic lights cannot be applied to all the places. They may need the information when they need to know where they are. 
 For instance, a City of Sydney initiative to trial and tactile street signs that provide people who are blind or vision 
 impaired with information on where they are. People with impaired vision that enables them to move around their 
 environments safely and on their own.
