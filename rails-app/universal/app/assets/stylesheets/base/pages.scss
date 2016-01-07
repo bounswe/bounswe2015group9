@@ -535,6 +535,10 @@ a.compose-mail {
   overflow: hidden;
 }
 
+.media-body{
+  display: inline;
+}
+
 .feed-element > .pull-left {
   margin-right: 10px;
 }
@@ -593,6 +597,11 @@ a.compose-mail {
   margin-bottom: 5px;
   margin-right: 5px;
 
+}
+
+.img-violation {
+    width: 200px;
+    height: 200px;
 }
 
 /* MAILBOX */
