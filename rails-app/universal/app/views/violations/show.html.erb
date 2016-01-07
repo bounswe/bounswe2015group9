@@ -12,7 +12,13 @@
                                         <h2><%= @violation.title %></h2>
                                     </div>
                                     <dl class="dl-horizontal text-center">
-                                        <img src="<%= @violation.image_url %>" height="300" width="450">
+
+                                            <% if @violation.image_url.present? %>
+                                                    <img src="<%= @violation.image_url %>" height="300" width="450">
+                                            <% else %>
+                                                    <img src="http://g9universal.s3.amazonaws.com/image/4/default-small.jpg?1452132711" height="300" width="450">
+                                            <% end %>
+
                                     </dl>
                                     <dl class="dl-horizontal">
                                         <dt>Status:</dt> <dd>
@@ -28,8 +34,7 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <dl class="dl-horizontal">
-
-                                        <dt>Created by:</dt> <dd><%= @violation.user.first_name + " " + @violation.user.last_name %></dd>
+                                        <dt>Created by:</dt> <dd><%= link_to @violation.user.first_name + " " + @violation.user.last_name, user_path(@violation.user.id) %></dd>
                                     </dl>
                                 </div>
                                 <div class="col-lg-7" id="cluster_info">
