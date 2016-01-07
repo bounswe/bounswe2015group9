@@ -65,6 +65,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/second_three_items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/threeItems"
@@ -95,5 +96,37 @@
             android:text="@string/neighbourhood"
             android:textColor="@color/textColor" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/severity_bold"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/second_three_items"
+        android:text="Severity Rate:"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/single_severity_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/severity_bold"
+        android:layout_toRightOf="@id/severity_bold"/>
+
+    <TextView
+        android:id="@+id/violation_type_bold"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/single_severity_rate"
+        android:text="Type:"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor"/>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/single_violation_type"
+        android:layout_width="wrap_content"
+        android:layout_alignTop="@id/violation_type_bold"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/violation_type_bold"/>
 
 </RelativeLayout>

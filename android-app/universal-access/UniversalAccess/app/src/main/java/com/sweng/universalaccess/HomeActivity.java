@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -53,6 +52,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Intent intent = new Intent(HomeActivity.this,AdvanceSearchActivity.class);
+                intent.putExtra("bearer",bearer);
+                startActivity(intent);
             }
         });
 
@@ -85,18 +87,25 @@ public class HomeActivity extends AppCompatActivity {
                         if (e == null) {
                             JsonArray violation_ar = result.getAsJsonArray("violations");
 
-                            Log.d("violationObject", violation_ar.get(0).getAsJsonObject().toString());
                             for (int i = 0; i < violation_ar.size(); ++i) {
                                 Violation violation = new Violation();
+                                Log.d("violationObject", violation_ar.get(i).getAsJsonObject().toString());
 
                                 JsonObject violation_obj = violation_ar.get(i).getAsJsonObject();
                                 violation.setTitle(violation_obj.get("title").getAsString());
                                 violation.setDescription(violation_obj.get("description").getAsString());
-//                                violation.setSeverityRate(violation_obj.get("rating").getAsInt());
+                                if(violation_obj.get("rating") != null)
+                                    violation.setSeverityRate(violation_obj.get("rating").getAsInt());
+                                else
+                                    violation.setSeverityRate(0);
                                 violation.setCity(violation_obj.get("city").getAsJsonObject().get("name").getAsString());
                                 violation.setDistrict(violation_obj.get("district").getAsJsonObject().get("name").getAsString());
                                 violation.setNeighborhood(violation_obj.get("neighborhood").getAsJsonObject().get("name").getAsString());
-//                                violation.setImage_url(violation_obj.get("image_url").getAsString());
+                                if(violation_obj.get("image_url")!=null)
+                                    violation.setImage_url(violation_obj.get("image_url").getAsString());
+                                else
+                                    violation.setImage_url("");
+                                violation.setType(violation_obj.get("type").getAsJsonObject().get("name").getAsString());
                                 violations.add(violation);
                             }
                             Log.d("AllViolations", violations.size() + "");
@@ -142,7 +151,8 @@ public class HomeActivity extends AppCompatActivity {
                 holder.city =  (TextView)view.findViewById(R.id.single_violation_city_name);
                 holder.district = (TextView)view.findViewById(R.id.single_violation_district_name);
                 holder.neighborhood = (TextView)view.findViewById(R.id.single_violation_neighborhood_name);
-
+                holder.type = (TextView)view.findViewById(R.id.single_violation_type);
+                holder.severity_rate= (TextView)view.findViewById(R.id.single_severity_rate);
                 view.setTag(holder);
             } else
                 holder = (ViewHolder) view.getTag();
@@ -151,7 +161,10 @@ public class HomeActivity extends AppCompatActivity {
             holder.city.setText(violations.get(i).getCity());
             holder.district.setText(violations.get(i).getDistrict());
             holder.neighborhood.setText(violations.get(i).getNeighborhood());
-//            Picasso.with(HomeActivity.this).load(violations.get(i).getPicture()).into(holder.picture);
+            holder.severity_rate.setText(violations.get(i).getSeverityRate()+"");
+            holder.type.setText(violations.get(i).getType());
+            if(violations.get(i).getImage_url().equals("")==false)
+                Picasso.with(HomeActivity.this).load(violations.get(i).getImage_url()).into(holder.picture);
 
             return view;
         }
@@ -162,7 +175,6 @@ public class HomeActivity extends AppCompatActivity {
     public static class ViewHolder {
         ImageView picture;
         TextView description,title,severity_rate,city,district,neighborhood,type;
-        AppCompatButton downloadButton;
     }
 
 }

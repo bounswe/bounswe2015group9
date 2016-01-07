@@ -27,6 +27,8 @@
     <string name="address">Address</string>
     <string name="city">City</string>
     <string name="advancedsearch">Advanced Search</string>
+    <string name="getTagURL">http://univers-alaccess-g9.herokuapp.com/api/v1/tags</string>
+    <string name="tags">Tags</string>
 
 
     <string-array name="gender">

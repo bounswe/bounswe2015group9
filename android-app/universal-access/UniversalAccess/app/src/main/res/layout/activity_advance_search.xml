@@ -1,12 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.sweng.universalaccess.AdvanceSearchActivity">
 
-</RelativeLayout>
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/location"/>
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/advance_city_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/district"/>
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/advance_district_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/neighbourhood"
+        android:layout_marginTop="10dp"
+        />
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/advance_neighborhood_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tags"
+        android:layout_marginTop="10dp"
+        />
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/advance_tags_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/advance_selected_tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/search_advance_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Advance Search"/>
+
+    <ListView
+        android:id="@+id/advance_search_results"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
