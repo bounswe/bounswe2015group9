@@ -14,10 +14,12 @@
               </li>
             <% else %>
               <li>
-                <%= link_to('Login', new_user_session_path) %>
-              </li>
+                <button type="button" class="btn btn-default btn-sm" style="margin-top:12px">
+                <span class="glyphicon glyphicon-user"></span> <%= link_to('Login', new_user_session_path) %></button>
+             </li>
               <li>
-                <%= link_to('Register', new_user_registration_path) %>
+                <button type="button" class="btn btn-default btn-sm" style="margin-top:12px">
+                <span class="glyphicon glyphicon-pencil"></span> <%= link_to('Register', new_user_registration_path) %></button>
               </li>
             <% end %>
             
