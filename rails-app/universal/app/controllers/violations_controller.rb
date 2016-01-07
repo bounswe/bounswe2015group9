@@ -11,9 +11,30 @@ class ViolationsController < ApplicationController
     @q = Violation.ransack(params[:q])
     @violations = @q.result.includes(:city, :district, :neighborhood)
     @violations = @violations.tagged_with(params[:tag_list]) if params[:tag_list].present?
+    if (!params[:sort_type].nil? && params[:sort_type] == "created_at")
+        @violations = @violations.sort_by do |v|
+          v.created_at
+        end
+        @violations = @violations.reverse
+    else
+        @violations = @violations.sort_by do |v|
+          v.ratings.sum(:score)
+        end
+        @violations.reverse!
+    end
     @cities = City.order(name: :asc)
-    @districts = @cities.find_by(name: "ADANA").districts
-    @neighborhoods = @districts.find_by(name: "ALADAĞ").neighborhoods
+    if (params[:q].present? && params[:q][:city_id_eq].present?)
+      city = City.find(params[:q][:city_id_eq].to_i)
+      @districts = city.districts
+    else
+      @districts = @cities.find_by(name: "ADANA").districts
+    end
+    if (params[:q].present? && params[:q][:district_id_eq].present?)
+      dist = District.find(params[:q][:district_id_eq].to_i)
+      @neighborhoods = dist.neighborhoods
+    else
+      @neighborhoods = @districts.find_by(name: "ALADAĞ").neighborhoods
+    end
   end
 
   # GET /violations/1
