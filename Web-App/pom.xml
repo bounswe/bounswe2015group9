@@ -15,7 +15,7 @@
         <Flyway.version>3.2.1</Flyway.version>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <spring.security.version>4.0.3.RELEASE</spring.security.version>
+        <spring.security.version>5.2.10.RELEASE</spring.security.version>
         <groupId>org.springframework.security.oauth</groupId>
         <oauth2.version>2.0.8.RELEASE</oauth2.version>
         <org.slf4j.version>1.6.1</org.slf4j.version>
