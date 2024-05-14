@@ -17,7 +17,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
         <spring.security.version>5.5.7</spring.security.version>
         <groupId>org.springframework.security.oauth</groupId>
-        <oauth2.version>2.0.8.RELEASE</oauth2.version>
+        <oauth2.version>2.0.17.RELEASE</oauth2.version>
         <org.slf4j.version>1.6.1</org.slf4j.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
